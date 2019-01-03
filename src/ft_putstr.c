@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/03 11:27:25 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/03 12:18:53 by jfleury          ###   ########.fr       */
+/*   Created: 2019/01/03 12:22:04 by jfleury           #+#    #+#             */
+/*   Updated: 2019/01/03 12:22:07 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <unistd.h>
 
-int		ft_printf(const char *format, ...)
+void	ft_putstr(char const *s)
 {
-	va_list		ap;
-	int			d;
-	char		c;
-	char		*s;
+	int		i;
 
-	va_start(ap, format);
-	while (*format)
+	i = 0;
+	if (s != NULL)
 	{
-		
+		while (s[i] != 0)
+		{
+			write(1, s[i], 1);
+			i++;
+		}
 	}
-	va_end(ap);
-}
-
-int		main(int ac, char **av)
-{
-	printf("%s\n", av[1]);
-	ft_printf("%s\n", av[1]);
 }

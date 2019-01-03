@@ -1,34 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/03 11:27:25 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/03 12:18:53 by jfleury          ###   ########.fr       */
+/*   Created: 2019/01/03 12:22:14 by jfleury           #+#    #+#             */
+/*   Updated: 2019/01/03 12:22:17 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <unistd.h>
 
-int		ft_printf(const char *format, ...)
+void	ft_putchar(char c)
 {
-	va_list		ap;
-	int			d;
-	char		c;
-	char		*s;
-
-	va_start(ap, format);
-	while (*format)
-	{
-		
-	}
-	va_end(ap);
-}
-
-int		main(int ac, char **av)
-{
-	printf("%s\n", av[1]);
-	ft_printf("%s\n", av[1]);
+	write(1, &c, 1);
 }
