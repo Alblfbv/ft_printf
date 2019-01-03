@@ -6,7 +6,7 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/03 11:26:18 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/03 11:27:21 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/03 11:31:01 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,6 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdarg>
 
 #endif
