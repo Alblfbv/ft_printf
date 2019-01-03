@@ -6,7 +6,7 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/03 11:27:25 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/03 12:18:53 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/03 16:15:09 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 int		ft_printf(const char *format, ...)
 {
 	va_list		ap;
-	int			d;
-	char		c;
-	char		*s;
 
 	va_start(ap, format);
 	while (*format)
