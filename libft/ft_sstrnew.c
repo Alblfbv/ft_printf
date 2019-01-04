@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_sstrnew.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/03 11:26:18 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/04 11:49:44 by jfleury          ###   ########.fr       */
+/*   Created: 2018/11/23 14:19:44 by jfleury           #+#    #+#             */
+/*   Updated: 2018/11/27 14:45:53 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdio.h>
-# include "libft/libft.h"
+char	**ft_sstrnew(size_t y, size_t x)
+{
+	char	**str;
+	size_t	i;
 
-#endif
+	i = 0;
+	if (!(str = (char**)ft_memalloc(y + 1)))
+		return (NULL);
+	while (i < y)
+	{
+		str[i] = ft_strnew(x);
+		i++;
+	}
+	str[y] = 0;
+	return (str);
+}

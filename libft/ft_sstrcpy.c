@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_sstrcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/03 12:25:06 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/03 12:25:08 by jfleury          ###   ########.fr       */
+/*   Created: 2018/11/23 14:12:08 by jfleury           #+#    #+#             */
+/*   Updated: 2018/11/23 15:41:40 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
+#include <string.h>
 
-void	ft_putnbr(int n)
+char	**ft_sstrcpy(char **dest, char const **src)
 {
-	if (n == -2147483648)
+	while (*src != 0 && *dest != 0)
 	{
-		write(1, '-', 1);
-		write(1, '2', 1);
-		n = 147483648;
+		ft_strcpy(*dest, *src);
+		src++;
+		dest++;
 	}
-	if (n < 0)
-	{
-		write(1, '-', 1);
-		n = -n;
-	}
-	if (n < 10)
-		write(1, n + 48, 1);
-	if (n > 9)
-	{
-		ft_putnbr(n / 10);
-		ft_putnbr(n % 10);
-	}
+	return (dest);
 }
