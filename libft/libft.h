@@ -6,7 +6,7 @@
 /*   By: jfleury <jfleury@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 15:35:42 by jfleury           #+#    #+#             */
-/*   Updated: 2018/11/28 19:00:14 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/04 17:56:36 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ char				**ft_sstrcpy(char **dest, char const **src);
 char				**ft_memtab(size_t y, size_t x);
 int					**ft_memint_tab(size_t y, size_t x);
 void				ft_sstrprint(char **str);
+char				*ft_strndup(const char *s, size_t len);
 
 typedef	struct		s_list
 {
