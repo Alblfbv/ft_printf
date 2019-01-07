@@ -6,7 +6,7 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/03 11:26:18 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/07 17:29:59 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/07 17:56:45 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ typedef struct	s_conv_spec
 	char 				*param_value_char;
 	void				*param_value_void;
 	
-	char				*flag;
+	int					*flag;
+	int					*size_modif;
 	char				*field_width_base;
 	char				*precision_base;
-	char				*length_modifier;
 
 	int		field_width_final;
 	int		precision_final;
