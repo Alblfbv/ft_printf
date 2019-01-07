@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/07 15:06:10 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/07 18:42:33 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/07 18:47:12 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,26 @@ int		ft_conv_id(t_conv_spec *conv_spec, char *format, int i)
 	}
 	free(conv_ids);
 	return (0);
+}
+
+void	ft_size_modif(t_conv_spec *conv_spec, char *format, int i, int len)
+{
+	conv_spec->size_modif = ft_memalloc(5);
+	while (i < len)
+	{
+		if (format[i] == 'h' && format[i + 1] != 'h' && format[i - 1] != 'h')
+			conv_spec->size_modif[0] = 1;
+		if (format[i] == 'h' && format[i + 1] == 'h')
+			conv_spec->size_modif[1] = 1;
+		if (format[i] == 'l' && format[i + 1] != 'l' && format[i - 1] != 'l')
+			conv_spec->size_modif[2] = 1;
+		if (format[i] == 'l' && format[i + 1] == 'l')
+			conv_spec->size_modif[3] = 1;
+		if (format[i] == 'L')
+			conv_spec->size_modif[4] = 1;
+		i++;
+	}
+	ft_printf("%d\n%d\n%d\n%d\n%d\n");
 }
 
 void	ft_param_value(t_conv_spec *conv_spec, va_list *ap)
