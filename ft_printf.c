@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 17:05:30 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/07 17:19:03 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/07 17:42:17 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 int		ft_conv_management(char *format, int *i, int ret, va_list *ap)
 {
 	t_conv_spec		conv_spec;
+	int				len;
 
-	ft_conv_id(&conv_spec, format, *i);
+	len = ft_conv_id(&conv_spec, format, *i);
 	ft_param_value(&conv_spec, ap);
 	/*FT_FLAG(&conv_spec, format, i);
 	FT_FIELD_WIDTH(&conv_spec, format, i);

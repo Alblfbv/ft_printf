@@ -6,7 +6,7 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/03 11:26:18 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/07 17:18:58 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/07 17:29:59 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct	s_conv_spec
 # include "libft/libft.h"
 
 char	*ft_data_conv_ids(void);
-void	ft_conv_id(t_conv_spec *conv_spec, char *format, int i);
+int		ft_conv_id(t_conv_spec *conv_spec, char *format, int i);
 void	ft_param_value(t_conv_spec *conv_spec, va_list *ap);
 
 #endif

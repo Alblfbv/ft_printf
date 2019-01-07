@@ -6,20 +6,27 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/07 15:06:10 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/07 17:19:01 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/07 17:41:21 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_conv_id(t_conv_spec *conv_spec, char *format, int i)
+int		ft_conv_id(t_conv_spec *conv_spec, char *format, int i)
 {
 	char	*conv_ids;
 	int		j;
 	int		tmp;
+	int		len;
 
 	conv_ids = ft_data_conv_ids();
 	tmp = ft_strlen(conv_ids) - 1;
+	len = i;
+	ft_putnbr(len);
+	ft_putchar('\n');
+	ft_putnbr(i);
+	ft_putchar('\n');
+
 	while (format[i] != '\0')
 	{
 		j = tmp;
@@ -28,12 +35,13 @@ void	ft_conv_id(t_conv_spec *conv_spec, char *format, int i)
 			if (conv_ids[j] == format[i])
 			{
 				conv_spec->conv_id = conv_ids[j];
-				return ;
+				return (i - len);
 			}
 			j--;
 		}
 		i++;
 	}
+	return (0);
 }
 
 void	ft_param_value(t_conv_spec *conv_spec, va_list *ap)
@@ -55,3 +63,9 @@ void	ft_param_value(t_conv_spec *conv_spec, va_list *ap)
 	if (conv_spec->conv_id == 'p')
 		conv_spec->param_value_void = va_arg(*ap, void*);
 }
+
+/*
+void	ft_flag(t_conv_spec *conv_spec, char *format, int i)
+{
+	
+}*/
