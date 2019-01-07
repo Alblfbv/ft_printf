@@ -6,46 +6,26 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 17:05:30 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/04 18:28:38 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/07 15:45:49 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_spec_tab(char format_c)
-{
-	if (format_c == 'd' || 
-		format_c == 'i' ||
-		format_c == 'o' ||
-		format_c == 'u' ||
-		format_c == 'x' ||
-		format_c == 'X' ||
-		format_c == 'c' ||
-		format_c == 's' ||
-		format_c == 'p' ||
-		format_c == 'f')
-		return (1);
-	return (0);
-}
-
 int		ft_conv_management(char *format, int *i, int ret)
 {
-	char	*conv_spec;
-	int		j;
+	t_conv_spec		conv_spec;
+	int				j;
 
 	j = 0;
-	while (ft_spec_tab(format[*i]) != 1 && format[*i] != '\0')
-	{
-		j++;
-		*i = *i + 1;
-	}
+	ft_conv_id(&conv_spec, format, *i);
 	*i = *i + 1;
-	if (format[*i] == '\0')
-		return (ret);
-	if (!(conv_spec = ft_strndup(format + *i - j, j)))
-		return (-1);
-
-	ft_putstr(conv_spec);
+	/*FT_TYPE(&conv_spec, format, i);
+	FT_FLAG(&conv_spec, format, i);
+	FT_FIELD_WIDTH(&conv_spec, format, i);
+	FT_PRECISION(&conv_spec, format, i);
+	FT_LENGTH_MODIFIER(&conv_spec, format, i); */
+	ft_putchar(conv_spec.conv_id);
 	return (ret);
 }
 

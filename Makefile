@@ -6,7 +6,7 @@
 #    By: jfleury <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/04 12:25:31 by jfleury           #+#    #+#              #
-#    Updated: 2019/01/04 12:29:03 by jfleury          ###   ########.fr        #
+#    Updated: 2019/01/07 15:28:17 by allefebv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,9 @@ NAME = ft_printf
 CC = gcc
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
-SRC = ft_printf.c
+SRC = ft_printf.c 		\
+	  ft_struct_stock.c	\
+	  ft_data.c
 
 LIB = libft/libft.a
 OBJ = $(SRC:.c=.o)
