@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/07 15:06:10 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/07 17:41:21 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/07 18:42:33 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,6 @@ int		ft_conv_id(t_conv_spec *conv_spec, char *format, int i)
 	conv_ids = ft_data_conv_ids();
 	tmp = ft_strlen(conv_ids) - 1;
 	len = i;
-	ft_putnbr(len);
-	ft_putchar('\n');
-	ft_putnbr(i);
-	ft_putchar('\n');
-
 	while (format[i] != '\0')
 	{
 		j = tmp;
@@ -35,12 +30,14 @@ int		ft_conv_id(t_conv_spec *conv_spec, char *format, int i)
 			if (conv_ids[j] == format[i])
 			{
 				conv_spec->conv_id = conv_ids[j];
+				free(conv_ids);
 				return (i - len);
 			}
 			j--;
 		}
 		i++;
 	}
+	free(conv_ids);
 	return (0);
 }
 
@@ -64,8 +61,24 @@ void	ft_param_value(t_conv_spec *conv_spec, va_list *ap)
 		conv_spec->param_value_void = va_arg(*ap, void*);
 }
 
-/*
-void	ft_flag(t_conv_spec *conv_spec, char *format, int i)
+
+void	ft_flag(t_conv_spec *conv_spec, char *format, int i, int len)
 {
-	
-}*/
+	int		*tab_flags;
+
+	tab_flags = ft_memalloc(4);
+	tab_flags[0] = 0;
+	tab_flags[1] = 0;
+	tab_flags[2] = 0;
+	tab_flags[3] = 0;
+	if ((ft_strnchr(format + i, '#', len)) != NULL)
+		tab_flags[0] = 1;
+	if ((ft_strnchr(format + i, '0', len)) != NULL)
+		tab_flags[1] = 1;
+	if ((ft_strnchr(format + i, '-', len)) != NULL)
+		tab_flags[2] = 1;
+	if ((ft_strnchr(format + i, '+', len)) != NULL)
+		tab_flags[3] = 1;
+	conv_spec->flags = tab_flags;
+	free(tab_flags);
+}

@@ -6,7 +6,7 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/03 11:26:18 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/07 17:29:59 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/07 18:05:51 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct	s_conv_spec
 	char 				*param_value_char;
 	void				*param_value_void;
 	
-	char				*flag;
+	int					*flags;
 	char				*field_width_base;
 	char				*precision_base;
 	char				*length_modifier;
@@ -44,5 +44,6 @@ typedef struct	s_conv_spec
 char	*ft_data_conv_ids(void);
 int		ft_conv_id(t_conv_spec *conv_spec, char *format, int i);
 void	ft_param_value(t_conv_spec *conv_spec, va_list *ap);
+void	ft_flag(t_conv_spec *conv_spec, char *format, int i, int len);
 
 #endif

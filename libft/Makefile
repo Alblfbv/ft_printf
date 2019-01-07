@@ -6,7 +6,7 @@
 #    By: jfleury <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/14 20:22:58 by jfleury           #+#    #+#              #
-#    Updated: 2019/01/04 17:56:59 by allefebv         ###   ########.fr        #
+#    Updated: 2019/01/07 17:56:01 by jfleury          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,6 +84,7 @@ SRC =	ft_memset.c		\
 		ft_memtab.c		\
 		ft_memint_tab.c	\
 		ft_strndup.c	\
+		ft_strnchr.c	\
 		ft_sstrprint.c
 
 OBJ = $(SRC:.c=.o)

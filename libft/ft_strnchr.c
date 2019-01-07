@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_strnchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jfleury <jfleury@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/13 09:59:49 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/07 18:40:57 by jfleury          ###   ########.fr       */
+/*   Created: 2019/01/07 17:53:03 by jfleury           #+#    #+#             */
+/*   Updated: 2019/01/07 18:19:13 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdlib.h>
+#include <string.h>
 
-void	*ft_memalloc(size_t size)
+char	*ft_strnchr(const char *s, int c, int n)
 {
-	void	*temp;
-
-	if (!(temp = (void*)malloc(size)))
-		return (NULL);
-	ft_bzero(temp, size);
-	return (temp);
+	while (*s != (char)c && *s != '\0')
+	{
+		s++;
+		n--;
+		if (n == 0)
+			return (NULL);
+	}
+	if (*s == (char)c)
+		return ((char *)s);
+	return (NULL);
 }
