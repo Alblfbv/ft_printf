@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/07 15:06:10 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/07 17:57:51 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/07 18:43:29 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,6 @@ int		ft_conv_id(t_conv_spec *conv_spec, char *format, int i)
 	conv_ids = ft_data_conv_ids();
 	tmp = ft_strlen(conv_ids) - 1;
 	len = i;
-	ft_putnbr(len);
-	ft_putchar('\n');
-	ft_putnbr(i);
-	ft_putchar('\n');
-
 	while (format[i] != '\0')
 	{
 		j = tmp;
@@ -46,7 +41,7 @@ int		ft_conv_id(t_conv_spec *conv_spec, char *format, int i)
 
 void	ft_size_modif(t_conv_spec *conv_spec, char *format, int i, int len)
 {
-	conv_spec->size_modif = ft_memalloc(5)
+	conv_spec->size_modif = ft_memalloc(5);
 	while (i < len)
 	{
 		if (format[i] == 'h' && format[i + 1] != 'h' && format[i - 1] != 'h')
@@ -61,6 +56,7 @@ void	ft_size_modif(t_conv_spec *conv_spec, char *format, int i, int len)
 			conv_spec->size_modif[4] = 1;
 		i++;
 	}
+	ft_printf("%d\n%d\n%d\n%d\n%d\n");
 }
 
 void	ft_param_value(t_conv_spec *conv_spec, va_list *ap)

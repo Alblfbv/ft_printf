@@ -6,7 +6,7 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/03 11:26:18 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/07 17:56:45 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/07 18:02:18 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ typedef struct	s_conv_spec
 
 char	*ft_data_conv_ids(void);
 int		ft_conv_id(t_conv_spec *conv_spec, char *format, int i);
+void	ft_size_modif(t_conv_spec *conv_spec, char *format, int i, int len);
 void	ft_param_value(t_conv_spec *conv_spec, va_list *ap);
+
 
 #endif
