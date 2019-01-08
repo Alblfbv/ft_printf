@@ -13,7 +13,7 @@
 NAME = ft_printf
 CC = gcc
 RM = rm -f
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra
 SRC = src/ft_printf.c 			\
 	  src/ft_struct_stock.c		\
 	  src/ft_struct_stock_2.c	\

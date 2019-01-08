@@ -12,29 +12,27 @@
 
 #include "ft_printf.h"
 
-int		ft_conv_management(char *format, int *i, int ret, va_list *ap)
+int		ft_struct_create(t_conv_spec *conv_spec, char *format, int *i, va_list *ap)
+{
+	int	len;
+
+	len = ft_conv_id(conv_spec, format, *i);
+	ft_param_value(conv_spec, ap);
+	ft_flag(conv_spec, format, *i, len);
+	ft_size_modif(conv_spec, format, *i, len);
+	ft_field_width(conv_spec, format, *i, len);
+	ft_precision(conv_spec, format, *i, len);
+	return (len);
+}
+
+void	ft_conv_management(char *format, int *i, va_list *ap)
 {
 	t_conv_spec		conv_spec;
 	int				len;
 
-	len = ft_conv_id(&conv_spec, format, *i);
-	ft_param_value(&conv_spec, ap);
-	ft_flag(&conv_spec, format, *i, len);
-	ft_size_modif(&conv_spec, format, *i, len);
-	ft_field_width(&conv_spec, format, *i, len);
-	ft_precision(&conv_spec, format, *i, len);
-	*i = *i + 1;
-	return (ret);
-}
-
-int		ft_print_ordinary(char *format, int *i)
-{
-	while (format[*i] != '%' && format[*i] != '\0')
-	{
-		*i = *i + 1;
-		ret++;
-	}
-	return (ret);
+	len = ft_struct_create(&conv_spec, format, i, ap);
+	//FT_CONVERSION();
+	*i = *i + len;
 }
 
 int		ft_printf(char *format, ...)
@@ -43,8 +41,11 @@ int		ft_printf(char *format, ...)
 	char	*result;
 	int		i;
 	int		j;
+	int		ret;
 
 	i = 0;
+	ret = 0;
+	result = ft_strnew(1);
 	va_start(ap, format);
 	while (format[i] != '\0')
 	{
@@ -54,20 +55,25 @@ int		ft_printf(char *format, ...)
 			i = i + 2;
 		}
 		else if(format[i] != '%')
-			result = ft_print_ordinary(format, &i);
+		{
+			j = (ft_strchr((format + i), '%') - (format + i));
+			result = ft_strnextend(result, (format + i), j);
+			i = i + j;
+			printf("i after ordinary = %d\n", i);
+		}
 		else
 		{
-			if ((ret = ft_conv_management(format, &i, ret, &ap) == -1))
-				return (-1);
+			ft_conv_management(format, &i, &ap);
+			printf("i after %% management function = %d\n", i);
 		}
 	}
+	printf("%s", result);
 	va_end(ap);
 	return (ret);
 }
 
 int		main(void)
 {
-	ft_printf("Heo %.111+456.123+123llhh+++++++++++---------------------------d", 5);
-	ft_printf("%.500d", 5);
+	ft_printf("Heo %12345d3llhh++++++%+++++---------------------------d", 5, 5);
 	return (0);
 }
