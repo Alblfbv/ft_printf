@@ -21,9 +21,9 @@ int		ft_conv_management(char *format, int *i, int ret, va_list *ap)
 	ft_param_value(&conv_spec, ap);
 	ft_flag(&conv_spec, format, *i, len);
 	ft_size_modif(&conv_spec, format, *i, len);
-	/*FT_FLAG(&conv_spec, format, i);
-	FT_FIELD_WIDTH(&conv_spec, format, i);
-	FT_PRECISION(&conv_spec, format, i); */
+//	FT_FIELD_WIDTH(&conv_spec, format, i);
+	ft_precision(&conv_spec, format, *i, len);
+	ft_putnbr(conv_spec.precision);
 	*i = *i + 1;
 	return (ret);
 }
@@ -68,6 +68,6 @@ int		ft_printf(char *format, ...)
 
 int		main(void)
 {
-	ft_printf("Heo %++llhh+++++++++++---------------------------d", 5);
+	ft_printf("%.500d", 5);
 	return (0);
 }
