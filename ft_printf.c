@@ -49,7 +49,12 @@ int		ft_printf(char *format, ...)
 	va_start(ap, format);
 	while (format[i] != '\0')
 	{
-		if (format[i] != '%')
+		if (format[i] == '%' && format[i + 1] == '%')
+		{
+			ft_putchar('%');
+			i = i + 2;
+		}
+		else if(format[i] != '%')
 			ret = ft_print_ordinary(format, &i, ret);
 		else
 		{
