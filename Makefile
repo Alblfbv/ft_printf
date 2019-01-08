@@ -14,8 +14,9 @@ NAME = ft_printf
 CC = gcc
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
-SRC = ft_printf.c 		\
-	  ft_struct_stock.c	\
+SRC = ft_printf.c 			\
+	  ft_struct_stock.c		\
+	  ft_struct_stock_2.c	\
 	  ft_data.c
 
 LIB = libft/libft.a

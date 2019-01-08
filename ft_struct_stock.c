@@ -64,7 +64,6 @@ void	ft_size_modif(t_conv_spec *conv_spec, char *format, int i, int len)
 		i++;
 		len--;
 	}
-	printf("%d\n%d\n%d\n%d\n%d\n", conv_spec->size_modif[0], conv_spec->size_modif[1], conv_spec->size_modif[2], conv_spec->size_modif[3], conv_spec->size_modif[4]);
 }
 
 void	ft_param_value(t_conv_spec *conv_spec, va_list *ap)
