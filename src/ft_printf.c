@@ -34,9 +34,12 @@ char	*ft_conv_management(char *format, int *i, va_list *ap, char *result)
 {
 	t_conv_spec		conv_spec;
 	int				len;
+
+	ft_struct_init(&conv_spec);
 	len = ft_struct_create(&conv_spec, format, i, ap);
-	//ft_conversion(conv_spec, result);
+	//ft_conversion();
 	*i = *i + len + 1;
+	ft_struct_del(&conv_spec);
 	return (result);
 }
 
@@ -51,7 +54,7 @@ char	*ft_ordinary_management(char *format, int *i, char *result)
 	result = ft_strnextend(result, (format + *i), j);
 	*i = *i + j;
 	return (result);
-}
+}	
 
 int		ft_printf(char *format, ...)
 {
