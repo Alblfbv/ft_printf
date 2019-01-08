@@ -22,8 +22,7 @@ int		ft_conv_management(char *format, int *i, int ret, va_list *ap)
 	ft_flag(&conv_spec, format, *i, len);
 	ft_size_modif(&conv_spec, format, *i, len);
 	ft_field_width(&conv_spec, format, *i, len);
-	printf("%d\n%d", conv_spec.field_width, len);
-	//FT_PRECISION(&conv_spec, format, i); */
+	ft_precision(&conv_spec, format, *i, len);
 	*i = *i + 1;
 	return (ret);
 }
@@ -69,5 +68,6 @@ int		ft_printf(char *format, ...)
 int		main(void)
 {
 	ft_printf("Heo %.111+456.123+123llhh+++++++++++---------------------------d", 5);
+	ft_printf("%.500d", 5);
 	return (0);
 }

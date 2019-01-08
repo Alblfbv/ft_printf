@@ -107,3 +107,25 @@ void	ft_flag(t_conv_spec *conv_spec, char *format, int i, int len)
 	conv_spec->flags = tab_flags;
 	free(tab_flags);
 }
+
+void    ft_precision(t_conv_spec *conv_spec, char *format, int i, int len)
+{
+	conv_spec->precision = 0;
+	while (len > 0)
+	{
+		if (format[i] == '.')
+		{
+			i++;
+			len--;
+			while (format[i] >= '0' && format[i] <= '9')
+			{
+				conv_spec->precision = (conv_spec->precision * 10) + (format[i] - 48);
+				i++;
+				len--;
+			}
+			return ;
+		}
+		i++;
+		len--;
+	}
+}
