@@ -123,7 +123,7 @@ void    ft_precision(t_conv_spec *conv_spec, char *format, int i, int len)
 				i++;
 				len--;
 			}
-			break;
+			return ;
 		}
 		i++;
 		len--;
