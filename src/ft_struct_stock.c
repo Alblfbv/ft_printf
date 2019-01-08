@@ -66,27 +66,6 @@ void	ft_size_modif(t_conv_spec *conv_spec, char *format, int i, int len)
 	}
 }
 
-void	ft_param_value(t_conv_spec *conv_spec, va_list *ap)
-{
-	if (conv_spec->conv_id == 'd' || conv_spec->conv_id == 'i' ||
-		conv_spec->conv_id == 'c')
-		conv_spec->param_value_int = va_arg(*ap, int);
-	
-	if (conv_spec->conv_id == 'o' || conv_spec->conv_id == 'u' ||
-		conv_spec->conv_id == 'x' || conv_spec->conv_id == 'X')
-		conv_spec->param_value_u_int = va_arg(*ap, unsigned int);
-	
-	if (conv_spec->conv_id == 'f')
-		conv_spec->param_value_double = va_arg(*ap, double);
-	
-	if (conv_spec->conv_id == 's')
-		conv_spec->param_value_char = (char*)va_arg(*ap, const char*);
-	
-	if (conv_spec->conv_id == 'p')
-		conv_spec->param_value_void = va_arg(*ap, void*);
-}
-
-
 void	ft_flag(t_conv_spec *conv_spec, char *format, int i, int len)
 {
 	int		*tab_flags;
