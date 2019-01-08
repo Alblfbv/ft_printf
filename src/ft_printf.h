@@ -17,7 +17,7 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdio.h>
-# include "libft/libft.h"
+# include "../libft/libft.h"
 
 # define CONV_ID_NB 10
 

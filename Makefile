@@ -14,10 +14,10 @@ NAME = ft_printf
 CC = gcc
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
-SRC = ft_printf.c 			\
-	  ft_struct_stock.c		\
-	  ft_struct_stock_2.c	\
-	  ft_data.c
+SRC = src/ft_printf.c 			\
+	  src/ft_struct_stock.c		\
+	  src/ft_struct_stock_2.c	\
+	  src/ft_data.c
 
 LIB = libft/libft.a
 OBJ = $(SRC:.c=.o)
