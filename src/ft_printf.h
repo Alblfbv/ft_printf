@@ -31,5 +31,6 @@ typedef struct		s_conv_spec
 # include "../libft/libft.h"
 # include "store/store.h"
 # include "data/data.h"
+# include "process/process.h"
 
 #endif
