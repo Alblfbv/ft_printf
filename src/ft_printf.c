@@ -27,7 +27,7 @@ int		ft_conv_management(char *format, int *i, int ret, va_list *ap)
 	return (ret);
 }
 
-int		ft_print_ordinary(char *format, int *i, int ret)
+int		ft_print_ordinary(char *format, int *i)
 {
 	while (format[*i] != '%' && format[*i] != '\0')
 	{
@@ -40,21 +40,21 @@ int		ft_print_ordinary(char *format, int *i, int ret)
 int		ft_printf(char *format, ...)
 {
 	va_list	ap;
-	int		ret;
+	char	*result;
 	int		i;
+	int		j;
 
-	ret = 0;
 	i = 0;
 	va_start(ap, format);
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%' && format[i + 1] == '%')
 		{
-			ft_putchar('%');
+			result = ft_strextend(result, "%");
 			i = i + 2;
 		}
 		else if(format[i] != '%')
-			ret = ft_print_ordinary(format, &i, ret);
+			result = ft_print_ordinary(format, &i);
 		else
 		{
 			if ((ret = ft_conv_management(format, &i, ret, &ap) == -1))
