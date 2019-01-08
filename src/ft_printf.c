@@ -12,10 +12,10 @@
 
 #include "ft_printf.h"
 
-void	ft_conversion(t_conv_spec conv_spec, char *result)
+/*void	ft_conversion(t_conv_spec conv_spec, char *result)
 {
 
-}
+}*/
 
 int		ft_struct_create(t_conv_spec *conv_spec, char *format, int *i, va_list *ap)
 {
@@ -30,16 +30,27 @@ int		ft_struct_create(t_conv_spec *conv_spec, char *format, int *i, va_list *ap)
 	return (len);
 }
 
-void	ft_conv_management(char *format, int *i, va_list *ap, char *result)
+char	*ft_conv_management(char *format, int *i, va_list *ap, char *result)
 {
 	t_conv_spec		conv_spec;
 	int				len;
-
 	len = ft_struct_create(&conv_spec, format, i, ap);
-	//ft_conversion();
-	*i = *i + len;
-	free(conv_spec.size_modif);
-	free(conv_spec.flags);
+	//ft_conversion(conv_spec, result);
+	*i = *i + len + 1;
+	return (result);
+}
+
+char	*ft_ordinary_management(char *format, int *i, char *result)
+{
+	int	j;
+
+	j = *i;
+	while(format[j] != '%' && format[j] != '\0')
+		j++;
+	j = j - *i;
+	result = ft_strnextend(result, (format + *i), j);
+	*i = *i + j;
+	return (result);
 }
 
 int		ft_printf(char *format, ...)
@@ -47,40 +58,26 @@ int		ft_printf(char *format, ...)
 	va_list	ap;
 	char	*result;
 	int		i;
-	int		j;
 	int		ret;
 
 	i = 0;
 	ret = 0;
-	result = ft_strnew(1);
+	result = ft_strnew(0);
 	va_start(ap, format);
 	while (format[i] != '\0')
 	{
-		if (format[i] == '%' && format[i + 1] == '%')
-		{
-			result = ft_strextend(result, "%");
-			i = i + 2;
-		}
-		else if(format[i] != '%')
-		{
-			j = (ft_strchr((format + i), '%') - (format + i));
-			result = ft_strnextend(result, (format + i), j);
-			i = i + j;
-			printf("i after ordinary = %d\n", i);
-		}
+		if(format[i] != '%')
+			result = ft_ordinary_management(format, &i, result);
 		else
-		{
-			ft_conv_management(format, &i, &ap, result);
-			printf("i after %% management function = %d\nformat[i] = %c\n", i, format[i]);
-		}
+			result = ft_conv_management(format, &i, &ap, result);
 	}
-	printf("%s", result);
 	va_end(ap);
+	free(result);
 	return (ret);
 }
 
 int		main(void)
 {
-	ft_printf("Hello %s %d world", "the", 10);
+	ft_printf("Hello-%s-%d-world", "the", 10);
 	return (0);
 }
