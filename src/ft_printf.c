@@ -12,6 +12,11 @@
 
 #include "ft_printf.h"
 
+void	ft_conversion(t_conv_spec conv_spec, char *result)
+{
+
+}
+
 int		ft_struct_create(t_conv_spec *conv_spec, char *format, int *i, va_list *ap)
 {
 	int	len;
@@ -25,14 +30,16 @@ int		ft_struct_create(t_conv_spec *conv_spec, char *format, int *i, va_list *ap)
 	return (len);
 }
 
-void	ft_conv_management(char *format, int *i, va_list *ap)
+void	ft_conv_management(char *format, int *i, va_list *ap, char *result)
 {
 	t_conv_spec		conv_spec;
 	int				len;
 
 	len = ft_struct_create(&conv_spec, format, i, ap);
-	//FT_CONVERSION();
+	//ft_conversion();
 	*i = *i + len;
+	free(conv_spec.size_modif);
+	free(conv_spec.flags);
 }
 
 int		ft_printf(char *format, ...)
@@ -63,8 +70,8 @@ int		ft_printf(char *format, ...)
 		}
 		else
 		{
-			ft_conv_management(format, &i, &ap);
-			printf("i after %% management function = %d\n", i);
+			ft_conv_management(format, &i, &ap, result);
+			printf("i after %% management function = %d\nformat[i] = %c\n", i, format[i]);
 		}
 	}
 	printf("%s", result);
@@ -74,6 +81,6 @@ int		ft_printf(char *format, ...)
 
 int		main(void)
 {
-	ft_printf("Heo %12345d3llhh++++++%+++++---------------------------d", 5, 5);
+	ft_printf("Hello %s %d world", "the", 10);
 	return (0);
 }
