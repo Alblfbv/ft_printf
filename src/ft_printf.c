@@ -34,12 +34,12 @@ void	ft_conv_management(char *format, int *i, va_list *ap, char *result)
 {
 	t_conv_spec		conv_spec;
 	int				len;
-
+	
+	ft_struct_init(&conv_spec);
 	len = ft_struct_create(&conv_spec, format, i, ap);
 	//ft_conversion();
-	*i = *i + len;
-	free(conv_spec.size_modif);
-	free(conv_spec.flags);
+	*i = *i + len + 1;
+	ft_struct_del(&conv_spec);
 }
 
 int		ft_printf(char *format, ...)
