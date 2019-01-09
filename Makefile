@@ -6,7 +6,7 @@
 #    By: jfleury <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/04 12:25:31 by jfleury           #+#    #+#              #
-#    Updated: 2019/01/07 15:28:17 by allefebv         ###   ########.fr        #
+#    Updated: 2019/01/09 17:13:23 by allefebv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,8 @@ SRC =	src/ft_printf.c 						\
 		src/store/ft_struct_stock.c				\
 		src/store/ft_struct_stock_2.c			\
 		src/store/ft_struct_init_del.c			\
+		src/process/process_c.c					\
+		src/process/process_table.c				\
 		src/data/ft_data.c						
 
 LIB = libft/libft.a

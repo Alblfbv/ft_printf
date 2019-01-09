@@ -6,18 +6,21 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 17:05:30 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/07 18:57:19 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/09 18:22:48 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-/*void	ft_conversion(t_conv_spec conv_spec, char *result)
+char	*ft_conv_process(t_conv_spec conv_spec, va_list *ap)
 {
+	char	*str;
 
-}*/
+	str = ft_process_table(conv_spec, ap);
+	return (str);
+}
 
-int		ft_struct_create(t_conv_spec *conv_spec, char *format, int *i, va_list *ap)
+int		ft_struct_create(t_conv_spec *conv_spec, char *format, int *i)
 {
 	int	len;
 
@@ -35,8 +38,8 @@ char	*ft_conv_management(char *format, int *i, va_list *ap, char *result)
 	int				len;
 
 	ft_struct_init(&conv_spec);
-	len = ft_struct_create(&conv_spec, format, i, ap);
-	//ft_conversion();
+	len = ft_struct_create(&conv_spec, format, i);
+	result = ft_strextend(result, ft_conv_process(conv_spec, ap));
 	*i = *i + len + 1;
 	ft_struct_del(&conv_spec);
 	return (result);
@@ -74,12 +77,18 @@ int		ft_printf(char *format, ...)
 			result = ft_conv_management(format, &i, &ap, result);
 	}
 	va_end(ap);
+	ft_putstr(result);
 	free(result);
 	return (ret);
 }
 
 int		main(void)
 {
-	ft_printf("Hello-%s-%d-world", "the", 10);
+	char	test;
+	char	str[] = "Coucou";
+
+	test = 'd';
+	ft_printf("%c Hello %s", test, str);
+	//printf("%#X", test);
 	return (0);
 }
