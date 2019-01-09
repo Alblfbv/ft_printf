@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   process.h                                          :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/09 14:21:38 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/09 17:06:19 by jfleury          ###   ########.fr       */
+/*   Created: 2019/01/09 17:12:12 by jfleury           #+#    #+#             */
+/*   Updated: 2019/01/09 17:13:47 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PROCESS_H
-# define PROCESS_H
+#include "libft.h"
 
-typedef struct		h_hexa
+char	*ft_strrev(char *str)
 {
-	char	*tab;
-	int		value;
-	int		quotien;
-	int		div;
-	char	*c;
-	int		num_div;
-	int		result;
+	char	stra;
+	int		start;
+	int		end;
 
-}					t_hexa;
-
-# include "../ft_printf.h"
-
-#endif
-
+	start = 0;
+	end = ft_strlen(str);
+	end--;
+	while (start < end)
+	{
+		stra = str[end];
+		str[end] = str[start];
+		str[start] = stra;
+		start++;
+		end--;
+	}
+	return (str);
+}

@@ -6,7 +6,7 @@
 #    By: jfleury <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/14 20:22:58 by jfleury           #+#    #+#              #
-#    Updated: 2019/01/07 17:56:01 by jfleury          ###   ########.fr        #
+#    Updated: 2019/01/09 17:15:18 by jfleury          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ CFLAGS = -Wall -Werror -Wextra -c
 
 SRC =	ft_memset.c		\
 		ft_bzero.c		\
+		ft_strrev.c		\
 		ft_memcpy.c		\
 		ft_memccpy.c	\
 		ft_memmove.c	\
