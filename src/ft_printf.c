@@ -39,10 +39,10 @@ char	*ft_conv_management(char *format, int *i, va_list *ap, char *result)
 
 	//ft_struct_init(&conv_spec);
 	len = ft_struct_create(&conv_spec, format, i);
-	printf("Format[i] = %c\nlen = %d\n", format[*i], len);
-	printf("conv_id = %c\n", conv_spec.conv_id);
+//	printf("Format[i] = %c\nlen = %d\n", format[*i], len);
+//	printf("conv_id = %c\n", conv_spec.conv_id);
 	result = ft_strextend(result, ft_conv_process(conv_spec, ap));
-	printf("After ConvMana : %s\n", result);
+//	printf("After ConvMana : %s\n", result);
 	*i = *i + len + 1;
 	//ft_struct_del(&conv_spec);
 	return (result);
@@ -77,13 +77,13 @@ int		ft_printf(char *format, ...)
 		if(format[i] != '%')
 		{
 			result = ft_ordinary_management(format, &i, result);
-			printf("After Ordinary dans principal: %s\n", result);
+//			printf("After Ordinary dans principal: %s\n", result);
 		}
 		else
 		{
-			printf("Before Conv dans principal: %s\n", result);
+//			printf("Before Conv dans principal: %s\n", result);
 			result = ft_conv_management(format, &i, &ap, result);
-			printf("After Conv dans principal: %s\n", result);
+//			printf("After Conv dans principal: %s\n", result);
 		}
 	}
 	va_end(ap);
@@ -93,12 +93,8 @@ int		ft_printf(char *format, ...)
 
 int		main(void)
 {
-	char	test;
-	char	str[] = "Coucou";
-	char	str2[] = "Zob";
+	int		a;
 
-	test = 'd';
-	ft_printf("%c Hello %s Yooo %s", test, str, str2);
-	//printf("%#X", test);
+	ft_printf("%p", &a);
 	return (0);
 }
