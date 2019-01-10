@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 17:05:30 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/09 19:45:42 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/10 14:28:24 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,7 @@ char	*ft_conv_management(char *format, int *i, va_list *ap, char *result)
 
 	//ft_struct_init(&conv_spec);
 	len = ft_struct_create(&conv_spec, format, i);
-//	printf("Format[i] = %c\nlen = %d\n", format[*i], len);
-//	printf("conv_id = %c\n", conv_spec.conv_id);
 	result = ft_strextend(result, ft_conv_process(conv_spec, ap));
-//	printf("After ConvMana : %s\n", result);
 	*i = *i + len + 1;
 	//ft_struct_del(&conv_spec);
 	return (result);
@@ -75,16 +72,9 @@ int		ft_printf(char *format, ...)
 	while (format[i] != '\0')
 	{
 		if(format[i] != '%')
-		{
 			result = ft_ordinary_management(format, &i, result);
-//			printf("After Ordinary dans principal: %s\n", result);
-		}
 		else
-		{
-//			printf("Before Conv dans principal: %s\n", result);
 			result = ft_conv_management(format, &i, &ap, result);
-//			printf("After Conv dans principal: %s\n", result);
-		}
 	}
 	va_end(ap);
 	ft_putstr(result);
