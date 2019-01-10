@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 17:05:30 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/10 14:21:37 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/10 14:28:24 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,13 +72,9 @@ int		ft_printf(char *format, ...)
 	while (format[i] != '\0')
 	{
 		if(format[i] != '%')
-		{
 			result = ft_ordinary_management(format, &i, result);
-		}
 		else
-		{
 			result = ft_conv_management(format, &i, &ap, result);
-		}
 	}
 	va_end(ap);
 	free(result);
@@ -87,10 +83,8 @@ int		ft_printf(char *format, ...)
 
 int		main(void)
 {
-	char	test;
-	char	str[] = "Coucou";
+	int		a;
 
-	test = 'd';
-	ft_printf("%c Hello %s Yooo\n", test, str);
+	ft_printf("%p", &a);
 	return (0);
 }

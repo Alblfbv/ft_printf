@@ -6,7 +6,7 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/09 14:21:38 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/10 14:22:17 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/10 14:29:02 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,3 @@ char	*ft_process_s(t_conv_spec conv_spec, va_list *ap);
 char	*ft_process_table(t_conv_spec conv_spec, va_list *ap);
 
 #endif
-

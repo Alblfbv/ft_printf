@@ -44,7 +44,9 @@ char	*process_p(t_conv_spec conv_spec, va_list *ap)
 	t_hexa	stock;
 	char	*str;
 	int		base;
+	int		value;
 
+	value = va_arg(*ap, int)
 	base = 16;
 	stock.tab = ft_strdup("0123456789ABCDEF");
 	stock.div = value;
