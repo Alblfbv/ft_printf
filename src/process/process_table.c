@@ -21,7 +21,7 @@ void	ft_init_table(t_fptr *table)
 	table[1].fptr = &ft_process_s;
 	
 	table[2].conv_id = 'p';
-	table[2].fptr = &ft_process_s;
+	table[2].fptr = &ft_process_p;
 }
 
 char	*ft_process_table(t_conv_spec conv_spec, va_list *ap)

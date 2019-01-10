@@ -19,6 +19,7 @@ SRC =	src/ft_printf.c 						\
 		src/store/ft_struct_stock_2.c			\
 		src/store/ft_struct_init_del.c			\
 		src/process/process_c.c					\
+		src/process/process_p.c					\
 		src/process/process_s.c					\
 		src/process/process_table.c				\
 		src/data/ft_data.c						

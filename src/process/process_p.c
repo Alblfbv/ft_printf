@@ -21,7 +21,7 @@ char	ft_check_result(t_hexa stock)
 	{
 		if (stock.result + 48 == stock.tab[i])
 			return (stock.tab[i]);
-		if ((stock.result + 55) == stock.tab[i])
+		if ((stock.result + 87) == stock.tab[i])
 			return (stock.tab[i]);
 		i++;
 	}
@@ -46,9 +46,9 @@ char	*ft_process_p(t_conv_spec conv_spec, va_list *ap)
 	int		base;
 	int		value;
 
-	value = va_arg(*ap, int)
+	value = va_arg(*ap, int);
 	base = 16;
-	stock.tab = ft_strdup("0123456789ABCDEF");
+	stock.tab = ft_strdup("0123456789abcdef");
 	stock.div = value;
 	while (stock.div > base)
 	{
@@ -62,6 +62,7 @@ char	*ft_process_p(t_conv_spec conv_spec, va_list *ap)
 		value = value / base;
 	}
 	str = ft_cal(&stock, value, base, str);
+	str = ft_strextend(str, ft_strdup("fff7x0"));
 	str = ft_strrev(str);
 	free(stock.tab);
 	return (str);

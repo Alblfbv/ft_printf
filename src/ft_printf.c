@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 17:05:30 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/10 15:13:30 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/10 15:15:24 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,5 +98,7 @@ int		main(void)
 	c = 'A';
 
 	ft_printf("%s Zouzou \n%c Yooooooo\n%s\nBlablabla", str, c, str2);
+	ft_printf("%p", &a);
+	printf("\n%p", &a);
 	return (0);
 }
