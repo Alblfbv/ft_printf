@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/07 14:59:37 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/07 16:33:22 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/10 16:17:05 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_data_conv_ids(void)
 {
 	char	*conv_ids;
 
-	conv_ids = ft_memalloc(CONV_ID_NB);
+	conv_ids = ft_memalloc(CONV_ID_NB + 1);
 	conv_ids[0] = 'd';
 	conv_ids[1] = 'i';
 	conv_ids[2] = 'o';
@@ -27,6 +27,7 @@ char	*ft_data_conv_ids(void)
 	conv_ids[7] = 's';
 	conv_ids[8] = 'p';
 	conv_ids[9] = 'f';
+	conv_ids[10] = '\0';
 	return (conv_ids);
 }
 

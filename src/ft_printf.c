@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 17:05:30 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/10 15:15:24 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/10 16:13:37 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,20 +32,24 @@ int		ft_struct_create(t_conv_spec *conv_spec, char *format, int *i)
 	return (len);
 }
 
-char	*ft_conv_management(char *format, int *i, va_list *ap, char *result)
+unsigned char	*ft_conv_management(char *format, int *i, va_list *ap, unsigned char *result)
 {
 	t_conv_spec		conv_spec;
 	int				len;
+	char			*str;
 
 	//ft_struct_init(&conv_spec);
 	len = ft_struct_create(&conv_spec, format, i);
-	result = ft_strextend(result, ft_conv_process(conv_spec, ap));
+	str = ft_conv_process(conv_spec, ap);
+	//printf("str = %s\n", str);
+	result = (unsigned char *)ft_strextend((char *)result, str);
+	free(str);
 	*i = *i + len + 1;
 	//ft_struct_del(&conv_spec);
 	return (result);
 }
 
-char	*ft_ordinary_management(char *format, int *i, char *result)
+unsigned char	*ft_ordinary_management(char *format, int *i, unsigned char *result)
 {
 	int	j;
 
@@ -53,21 +57,22 @@ char	*ft_ordinary_management(char *format, int *i, char *result)
 	while(format[j] != '%' && format[j] != '\0')
 		j++;
 	j = j - *i;
-	result = ft_strnextend(result, (format + *i), j);
+	//printf("*(format + i) = %c\n", *(format + *i));
+	result = (unsigned char *)ft_strnextend((char *)result, (format + *i), j);
 	*i = *i + j;
 	return (result);
 }	
 
 int		ft_printf(char *format, ...)
 {
-	va_list	ap;
-	char	*result;
-	int		i;
-	int		ret;
+	va_list			ap;
+	unsigned char	*result;
+	int				i;
+	int				ret;
 
 	i = 0;
 	ret = 0;
-	result = ft_strnew(0);
+	result = (unsigned char *)ft_strnew(0);
 	va_start(ap, format);
 	while (format[i] != '\0')
 	{
@@ -81,24 +86,27 @@ int		ft_printf(char *format, ...)
 		}
 	}
 	va_end(ap);
-	ft_putstr(result);
+	ft_putstr((char *)result);
 	free(result);
 	return (ret);
 }
 
 int		main(void)
 {
-	int		a;
 	char	c;
-	char	*str;
+	char	c2;
+	char	str[] = "Hello";
+	//char	str2[] = "You";
+/*	char	*str;
 	char	*str2;
 
 	str = strdup("Hello");
-	str2 = strdup("You");
+	str2 = strdup("You"); */
 	c = 'A';
+	c2 = 'B';
 
-	ft_printf("%s Zouzou \n%c Yooooooo\n%s\nBlablabla", str, c, str2);
-	ft_printf("%p", &a);
-	printf("\n%p", &a);
+	ft_printf("%c____\n%s____\n%c\n", c, str, c2);
+	//ft_printf("%p", &a);
+	//printf("\n%p", &a);
 	return (0);
 }
