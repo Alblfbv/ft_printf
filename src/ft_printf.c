@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 17:05:30 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/09 19:45:42 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/10 14:21:37 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,7 @@ char	*ft_conv_management(char *format, int *i, va_list *ap, char *result)
 
 	//ft_struct_init(&conv_spec);
 	len = ft_struct_create(&conv_spec, format, i);
-	printf("Format[i] = %c\nlen = %d\n", format[*i], len);
-	printf("conv_id = %c\n", conv_spec.conv_id);
 	result = ft_strextend(result, ft_conv_process(conv_spec, ap));
-	printf("After ConvMana : %s\n", result);
 	*i = *i + len + 1;
 	//ft_struct_del(&conv_spec);
 	return (result);
@@ -77,13 +74,10 @@ int		ft_printf(char *format, ...)
 		if(format[i] != '%')
 		{
 			result = ft_ordinary_management(format, &i, result);
-			printf("After Ordinary dans principal: %s\n", result);
 		}
 		else
 		{
-			printf("Before Conv dans principal: %s\n", result);
 			result = ft_conv_management(format, &i, &ap, result);
-			printf("After Conv dans principal: %s\n", result);
 		}
 	}
 	va_end(ap);
@@ -95,10 +89,8 @@ int		main(void)
 {
 	char	test;
 	char	str[] = "Coucou";
-	char	str2[] = "Zob";
 
 	test = 'd';
-	ft_printf("%c Hello %s Yooo %s", test, str, str2);
-	//printf("%#X", test);
+	ft_printf("%c Hello %s Yooo\n", test, str);
 	return (0);
 }
