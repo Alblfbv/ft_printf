@@ -6,12 +6,15 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/03 11:26:18 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/07 18:47:40 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/10 18:35:24 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
+
+# define CONV_ID_NB 10
+# define FLAGS_NB 4
 
 typedef struct		s_conv_spec
 {
