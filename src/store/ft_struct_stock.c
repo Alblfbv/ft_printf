@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/07 15:06:10 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/07 19:00:39 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/10 16:42:42 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int		ft_conv_id(t_conv_spec *conv_spec, char *format, int i)
 
 void	ft_size_modif(t_conv_spec *conv_spec, char *format, int i, int len)
 {
-	conv_spec->size_modif = ft_memalloc(5);
+	conv_spec->size_modif = (int *)ft_memalloc(sizeof(int) * 5);
 	conv_spec->size_modif[0] = 0;
 	conv_spec->size_modif[1] = 0;
 	conv_spec->size_modif[2] = 0;
@@ -70,7 +70,7 @@ void	ft_flag(t_conv_spec *conv_spec, char *format, int i, int len)
 {
 	int		*tab_flags;
 
-	tab_flags = ft_memalloc(4);
+	tab_flags = (int *)ft_memalloc(sizeof(int) * 4);
 	tab_flags[0] = 0;
 	tab_flags[1] = 0;
 	tab_flags[2] = 0;

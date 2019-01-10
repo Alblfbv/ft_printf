@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 17:05:30 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/10 16:13:37 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/10 16:38:55 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ int		ft_struct_create(t_conv_spec *conv_spec, char *format, int *i)
 	int	len;
 
 	len = ft_conv_id(conv_spec, format, *i);
-	//ft_flag(conv_spec, format, *i, len);
-	//ft_size_modif(conv_spec, format, *i, len);
-	//ft_field_width(conv_spec, format, *i, len);
-	//ft_precision(conv_spec, format, *i, len);
+	ft_flag(conv_spec, format, *i, len);
+	ft_size_modif(conv_spec, format, *i, len);
+	ft_field_width(conv_spec, format, *i, len);
+	ft_precision(conv_spec, format, *i, len);
 	return (len);
 }
 
@@ -38,14 +38,13 @@ unsigned char	*ft_conv_management(char *format, int *i, va_list *ap, unsigned ch
 	int				len;
 	char			*str;
 
-	//ft_struct_init(&conv_spec);
+	ft_struct_init(&conv_spec);
 	len = ft_struct_create(&conv_spec, format, i);
 	str = ft_conv_process(conv_spec, ap);
-	//printf("str = %s\n", str);
 	result = (unsigned char *)ft_strextend((char *)result, str);
 	free(str);
 	*i = *i + len + 1;
-	//ft_struct_del(&conv_spec);
+	ft_struct_del(&conv_spec);
 	return (result);
 }
 
@@ -57,7 +56,6 @@ unsigned char	*ft_ordinary_management(char *format, int *i, unsigned char *resul
 	while(format[j] != '%' && format[j] != '\0')
 		j++;
 	j = j - *i;
-	//printf("*(format + i) = %c\n", *(format + *i));
 	result = (unsigned char *)ft_strnextend((char *)result, (format + *i), j);
 	*i = *i + j;
 	return (result);
@@ -96,7 +94,7 @@ int		main(void)
 	char	c;
 	char	c2;
 	char	str[] = "Hello";
-	//char	str2[] = "You";
+	char	str2[] = "You";
 /*	char	*str;
 	char	*str2;
 
@@ -105,8 +103,6 @@ int		main(void)
 	c = 'A';
 	c2 = 'B';
 
-	ft_printf("%c____\n%s____\n%c\n", c, str, c2);
-	//ft_printf("%p", &a);
-	//printf("\n%p", &a);
+	ft_printf("%c____\n%s____\n%c_\n_\n\n%c\n%c_%c%s_", c, str, c2, c, c2, c, str2);
 	return (0);
 }
