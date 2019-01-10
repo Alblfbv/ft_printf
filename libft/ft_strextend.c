@@ -6,18 +6,20 @@
 /*   By: jfleury <jfleury@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 11:15:30 by jfleury           #+#    #+#             */
-/*   Updated: 2018/11/21 11:41:42 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/09 19:27:54 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 char	*ft_strextend(char *s1, char const *s2)
 {
 	char	*str;
 	int		i;
 
+	printf("s1 : %s\ns2 : %s\n", s1, s2);
 	if (s1 == NULL || s2 == NULL)
 		return (NULL);
 	i = ft_strlen(s1) + ft_strlen(s2);

@@ -6,7 +6,7 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/09 14:21:38 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/09 18:24:49 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/10 11:27:30 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct		s_fptr
 }					t_fptr;
 
 char	*ft_process_c(t_conv_spec conv_spec, va_list *ap);
+char	*ft_process_s(t_conv_spec conv_spec, va_list *ap);
 char	*ft_process_table(t_conv_spec conv_spec, va_list *ap);
 
 #endif
