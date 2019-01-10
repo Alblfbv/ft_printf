@@ -87,6 +87,7 @@ int		ft_printf(char *format, ...)
 		}
 	}
 	va_end(ap);
+	ft_putstr(result);
 	free(result);
 	return (ret);
 }

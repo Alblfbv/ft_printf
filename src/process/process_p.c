@@ -39,7 +39,7 @@ char	*ft_cal(t_hexa *stock, int value, int base, char *str)
 	return (str);
 }
 
-char	*process_p(t_conv_spec conv_spec, va_list *ap)
+char	*ft_process_p(t_conv_spec conv_spec, va_list *ap)
 {
 	t_hexa	stock;
 	char	*str;
