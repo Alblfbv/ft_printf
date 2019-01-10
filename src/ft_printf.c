@@ -87,5 +87,6 @@ int		main(void)
 	int		a;
 
 	ft_printf("%p", &a);
+	printf("\n%p", &a);
 	return (0);
 }
