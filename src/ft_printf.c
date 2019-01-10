@@ -91,18 +91,7 @@ int		ft_printf(char *format, ...)
 
 int		main(void)
 {
-	char	c;
-	char	c2;
-	char	str[] = "Hello";
-	char	str2[] = "You";
-/*	char	*str;
-	char	*str2;
-
-	str = strdup("Hello");
-	str2 = strdup("You"); */
-	c = 'A';
-	c2 = 'B';
-
-	ft_printf("%c____\n%s____\n%c_\n_\n\n%c\n%c_%c%s_", c, str, c2, c, c2, c, str2);
+	ft_printf("%d\n%i\n", 10, 20);
+	printf("%d\n%i\n", 10, 20);
 	return (0);
 }

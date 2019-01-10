@@ -36,6 +36,7 @@ typedef struct		s_fptr
 char	*ft_process_c(t_conv_spec conv_spec, va_list *ap);
 char	*ft_process_s(t_conv_spec conv_spec, va_list *ap);
 char	*ft_process_p(t_conv_spec conv_spec, va_list *ap);
+char	*ft_process_di(t_conv_spec conv_spec, va_list *ap);
 char	*ft_process_table(t_conv_spec conv_spec, va_list *ap);
 
 #endif

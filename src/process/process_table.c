@@ -15,18 +15,24 @@
 int		ft_init_table(t_fptr *table)
 {
 	int		max;
-
-	max = 3;
-
-	table[0].conv_id = 'c';
-	table[0].fptr = &ft_process_c;
-
-	table[1].conv_id = 's';
-	table[1].fptr = &ft_process_s;
+	int		i;
+	char	*tab;
+	char	*(*fptr[5])(t_conv_spec, va_list*); 
 	
-	table[2].conv_id = 'p';
-	table[2].fptr = &ft_process_p;
-
+	i = 0;
+	max = 5;
+	tab = ft_strdup("cspdi");
+	fptr[0] = ft_process_c;
+	fptr[1] = ft_process_s; 
+	fptr[2] = ft_process_p;
+	fptr[3] = ft_process_di;
+	fptr[4] = ft_process_di;
+	while (i < max)
+	{
+		table[i].conv_id = tab[i];
+		table[i].fptr = fptr[i];
+		i++;
+	}
 	return (max);
 }
 

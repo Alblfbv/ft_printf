@@ -21,6 +21,7 @@ SRC =	src/ft_printf.c 						\
 		src/process/process_c.c					\
 		src/process/process_p.c					\
 		src/process/process_s.c					\
+		src/process/process_di.c					\
 		src/process/process_table.c				\
 		src/data/ft_data.c						
 
