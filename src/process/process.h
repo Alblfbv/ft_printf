@@ -6,7 +6,7 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/09 14:21:38 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/10 18:51:01 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/11 12:51:29 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "../ft_printf.h"
 
-typedef struct		h_hexa
+typedef struct		s_hexa
 {
 	char	*tab;
 	int		value;
@@ -24,27 +24,29 @@ typedef struct		h_hexa
 	char	*c;
 	int		num_div;
 	int		result;
-
 }					t_hexa;
+
+typedef	char	(*t_fuck)(t_conv_spec spec, va_list *list);
 
 typedef struct		s_fptr_id
 {
-	char*	conv_id_tab;
-	char	*(*fptr[CONV_ID_NB])(t_conv_spec, va_list*);
+	char	*conv_id_tab;
+	t_fuck	tab[CONV_ID_NB];
+	/* char	*(*fptr)[CONV_ID_NB](t_conv_spec spec, va_list *list); */
 }					t_fptr_id;
 
-typedef struct		s_fptr_flag
-{
-	int*	flags;
-	char	*(*fptr[4])(t_conv_spec, char*);
-}					t_fptr_flag;
+/* typedef struct		s_fptr_flag */
+/* { */
+/* 	int		*flags; */
+/* 	char	*(*fptr[4])(t_conv_spec, char*); */
+/* }					t_fptr_flag; */
 
-char	*ft_process_c(t_conv_spec conv_spec, va_list *ap);
-char	*ft_process_s(t_conv_spec conv_spec, va_list *ap);
-char	*ft_process_p(t_conv_spec conv_spec, va_list *ap);
-char	*ft_process_di(t_conv_spec conv_spec, va_list *ap);
-char	*ft_process_table(t_conv_spec conv_spec, va_list *ap);
-char	*ft_process_flags(t_conv_spec, char *str);
-char	*ft_process_hash(t_conv_spec, char *str);
+/* char	*ft_process_c(t_conv_spec conv_spec, va_list *ap); */
+/* char	*ft_process_s(t_conv_spec conv_spec, va_list *ap); */
+/* char	*ft_process_p(t_conv_spec conv_spec, va_list *ap); */
+/* char	*ft_process_di(t_conv_spec conv_spec, va_list *ap); */
+/* char	*ft_process_table(t_conv_spec conv_spec, va_list *ap); */
+/* char	*ft_process_flags(t_conv_spec, char *str); */
+/* char	*ft_process_hash(t_conv_spec, char *str); */
 
 #endif
