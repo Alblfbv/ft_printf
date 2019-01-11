@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/07 15:06:10 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/11 15:09:37 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/11 18:01:23 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,10 @@ void	ft_flag(t_conv_spec *conv_spec, char *format, int i, int len)
 	int		*tab_flags;
 
 	tab_flags = (int *)ft_memalloc(sizeof(int) * 4);
-	tab_flags[0] = 0;
-	tab_flags[1] = 0;
-	tab_flags[2] = 0;
-	tab_flags[3] = 0;
+	tab_flags[0] = -1;
+	tab_flags[1] = -1;
+	tab_flags[2] = -1;
+	tab_flags[3] = -1;
 	if ((ft_strnchr(format + i, '#', len)) != NULL)
 		tab_flags[0] = 1;
 	if ((ft_strnchr(format + i, '0', len)) != NULL)
@@ -84,7 +84,6 @@ void	ft_flag(t_conv_spec *conv_spec, char *format, int i, int len)
 	if ((ft_strnchr(format + i, '+', len)) != NULL)
 		tab_flags[3] = 1;
 	conv_spec->flags = tab_flags;
-	free(tab_flags);
 }
 
 void	ft_precision(t_conv_spec *conv_spec, char *format, int i, int len)

@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 17:05:30 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/11 12:24:00 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/11 17:52:43 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char			*ft_conv_process(t_conv_spec conv_spec, va_list *ap)
 	char	*str;
 
 	str = ft_process_table(conv_spec, ap);
+												//	printf("ft_conv_process(): %d %d %d %d\n", conv_spec.flags[0], conv_spec.flags[1], conv_spec.flags[2], conv_spec.flags[3]);
+	str = ft_process_flags(conv_spec, str);
 	return (str);
 }
 
@@ -43,7 +45,6 @@ unsigned char	*ft_conv_management(char *format, int *i, va_list *ap,
 	len = ft_struct_create(&conv_spec, format, i);
 	str = ft_conv_process(conv_spec, ap);
 	result = (unsigned char *)ft_strextend((char *)result, str);
-	free(str);
 	*i = *i + len + 1;
 	ft_struct_del(&conv_spec);
 	return (result);
@@ -93,7 +94,7 @@ int				ft_printf(char *format, ...)
 
 int				main(void)
 {
-	ft_printf("%d\n%i\n", 10, 20);
-	printf("%d\n%i\n", 10, 20);
+	printf("printf(): %+d\n", 10);
+	ft_printf("ft_printf(): %+d\n", 10);
 	return (0);
 }
