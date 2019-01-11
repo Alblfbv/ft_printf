@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   precision.h                                        :+:      :+:    :+:   */
+/*   precision_di.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/11 13:46:53 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/11 13:47:53 by jfleury          ###   ########.fr       */
+/*   Created: 2019/01/11 13:49:48 by jfleury           #+#    #+#             */
+/*   Updated: 2019/01/11 14:02:30 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRECISION_H
-# define PRECISION_H
+#include "ft_printf.h"
 
-#include "../process.h"
+char	*ft_precision_di(t_conv_spec conv_spec, char *str)
+{
+	int		i;
+	int		j;
+	char	*str2
 
-#endif
+	i = ft_strlen(str);
+	if (i < conv_spec.precision)
+	{
+		j = conv_spec.precision - i;
+		str2 = ft_strnew(j);
+		ft_memset(str2, '0', j);
+		ft_strextend(str2, str);
+		free(str);
+		return (str2);
+	}
+	return (str);
+}

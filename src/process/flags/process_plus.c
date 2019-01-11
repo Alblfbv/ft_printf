@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
+
 char	*ft_process_plus(t_conv_spec conv_spec, char *str)
 {
 	int		i;

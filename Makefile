@@ -6,14 +6,15 @@
 #    By: jfleury <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/04 12:25:31 by jfleury           #+#    #+#              #
-#    Updated: 2019/01/10 18:44:00 by allefebv         ###   ########.fr        #
+#    Updated: 2019/01/11 14:45:46 by jfleury          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ft_printf
 CC = gcc
 RM = rm -f
-CFLAGS = -Wall -Wextra -g3
+INCLUDE = ./Include
+CFLAGS = -Wall -Wextra -g3 -I$(INCLUDE)
 SRC =	src/ft_printf.c 						\
 		src/store/ft_struct_stock.c				\
 		src/store/ft_struct_stock_2.c			\
@@ -29,6 +30,7 @@ SRC =	src/ft_printf.c 						\
 
 LIB = libft/libft.a
 OBJ = $(SRC:.c=.o)
+
 
 all: $(NAME)
 

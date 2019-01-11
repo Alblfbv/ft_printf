@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "process.h"
+#include "ft_printf.h"
 
 static int		ft_init_table(t_fptr_flag *table)
 {
