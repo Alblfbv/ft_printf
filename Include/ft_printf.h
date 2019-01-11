@@ -6,7 +6,7 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 14:21:30 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/11 17:54:32 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/11 18:37:57 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,18 @@ typedef struct	s_hexa
 
 typedef struct	s_fptr_id
 {
-	char		conv_id_tab;
-	char		*(*fptr)(t_conv_spec c_s, va_list *list);
+	char		*conv_id_tab;
+	char		*(*fptr[CONV_ID_NB])(t_conv_spec c_s, va_list *list);
+	//char		conv_id_tab;
+	//char		*(*fptr)(t_conv_spec c_s, va_list *list);
 }				t_fptr_id;
 
 typedef struct	s_fptr_flag
 {
-	int			flags;
-	char		*(*fptr)(t_conv_spec c_s, char *str);
+	int			*flags;
+	char		*(*fptr[FLAGS_NB])(t_conv_spec c_s, char *str);
+	//int		flags;
+	//char		*(*fptr)(t_conv_spec c_s, char *str);
 }				t_fptr_flag;
 
 char			*ft_data_conv_ids(void);

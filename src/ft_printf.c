@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 17:05:30 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/11 17:52:43 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/11 19:41:54 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,12 @@
 char			*ft_conv_process(t_conv_spec conv_spec, va_list *ap)
 {
 	char	*str;
+	char	*tmp;
 
 	str = ft_process_table(conv_spec, ap);
-												//	printf("ft_conv_process(): %d %d %d %d\n", conv_spec.flags[0], conv_spec.flags[1], conv_spec.flags[2], conv_spec.flags[3]);
 	str = ft_process_flags(conv_spec, str);
+	//free(str); il faut gerer le cas ou on ne cree pas de tmp car pas de flags... donc pas de free str
+	//str = tmp;
 	return (str);
 }
 
@@ -47,6 +49,7 @@ unsigned char	*ft_conv_management(char *format, int *i, va_list *ap,
 	result = (unsigned char *)ft_strextend((char *)result, str);
 	*i = *i + len + 1;
 	ft_struct_del(&conv_spec);
+	free(str);
 	return (result);
 }
 
@@ -94,7 +97,7 @@ int				ft_printf(char *format, ...)
 
 int				main(void)
 {
-	printf("printf(): %+d\n", 10);
+	//printf("printf(): %+d\n", 10);
 	ft_printf("ft_printf(): %+d\n", 10);
 	return (0);
 }
