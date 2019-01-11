@@ -6,7 +6,7 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/09 14:21:38 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/11 12:51:29 by cpireyre         ###   ########.fr       */
+/*   Updated: 2019/01/11 13:53:46 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define PROCESS_H
 
 # include "../ft_printf.h"
+# include "./precision.h"
+# include "./min_width.h"
+# include "./conversion_id.h"
+# include "./flags.h"
 
 typedef struct		s_hexa
 {

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_process_plus.c                                  :+:      :+:    :+:   */
+/*   ft_process_zero.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 12:16:02 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/11 12:30:17 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/11 13:54:37 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_process_plus(t_conv_spec conv_spec, char *str)
+char	*ft_process_zero(t_conv_spec conv_spec, char *str)
 {
 	int	i;
 
