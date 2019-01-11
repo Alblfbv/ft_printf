@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   process_hash.c                                     :+:      :+:    :+:   */
+/*   ft_process_plus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/10 18:00:04 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/11 12:15:44 by allefebv         ###   ########.fr       */
+/*   Created: 2019/01/11 12:16:02 by allefebv          #+#    #+#             */
+/*   Updated: 2019/01/11 12:30:17 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "process.h"
-
-char	*ft_process_hash(t_conv_spec conv_spec, char *str)
+char	*ft_process_plus(t_conv_spec conv_spec, char *str)
 {
-	return (str);
+	int	i;
+
+	i = 0;
+	while(str[i] == ' ')
+	{
+		str[i] = 0;
+		i++;
+	}
+	return(str);
 }
