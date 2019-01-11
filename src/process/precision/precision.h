@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   data.h                                             :+:      :+:    :+:   */
+/*   precision.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/11 12:12:24 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/11 12:12:28 by jfleury          ###   ########.fr       */
+/*   Created: 2019/01/11 13:46:53 by jfleury           #+#    #+#             */
+/*   Updated: 2019/01/11 13:47:53 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DATA_H
-# define DATA_H
+#ifndef PRECISION_H
+# define PRECISION_H
 
-# include "../ft_printf.h"
-
-char	*ft_data_conv_ids(void);
+#include "../process.h"
 
 #endif
