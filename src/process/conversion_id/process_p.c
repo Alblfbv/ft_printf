@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "process.h"
+#include "ft_printf.h"
 
 char	ft_check_result(t_hexa stock)
 {

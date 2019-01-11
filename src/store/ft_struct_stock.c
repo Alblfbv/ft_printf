@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "store.h"
+#include "ft_printf.h"
 
 int		ft_conv_id(t_conv_spec *conv_spec, char *format, int i)
 {
