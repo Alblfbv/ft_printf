@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_struct_init_del.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/01/11 15:08:53 by allefebv          #+#    #+#             */
+/*   Updated: 2019/01/11 15:10:06 by allefebv         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ft_printf.h"
 
@@ -12,6 +23,5 @@ void	ft_struct_init(t_conv_spec *conv_spec)
 
 void	ft_struct_del(t_conv_spec *conv_spec)
 {
-//	free(conv_spec->flags);
 	free(conv_spec->size_modif);
 }

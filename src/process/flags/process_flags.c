@@ -6,15 +6,15 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 18:02:32 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/11 13:44:04 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/11 15:06:59 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int		ft_init_table(t_fptr_flag *table)
+static int	ft_init_table(t_fptr_flag *table)
 {
-	int 	max;
+	int		max;
 	int		i;
 
 	i = 0;
@@ -32,7 +32,7 @@ static int		ft_init_table(t_fptr_flag *table)
 	return (max);
 }
 
-char	*ft_process_flags(t_conv_spec conv_spec, char *str)
+char		*ft_process_flags(t_conv_spec conv_spec, char *str)
 {
 	t_fptr_flag		*table;
 	int				i;

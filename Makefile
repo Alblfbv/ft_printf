@@ -6,7 +6,7 @@
 #    By: jfleury <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/04 12:25:31 by jfleury           #+#    #+#              #
-#    Updated: 2019/01/11 14:45:46 by jfleury          ###   ########.fr        #
+#    Updated: 2019/01/11 14:53:14 by allefebv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,17 +15,17 @@ CC = gcc
 RM = rm -f
 INCLUDE = ./Include
 CFLAGS = -Wall -Wextra -g3 -I$(INCLUDE)
-SRC =	src/ft_printf.c 						\
-		src/store/ft_struct_stock.c				\
-		src/store/ft_struct_stock_2.c			\
-		src/store/ft_struct_init_del.c			\
-		src/process/process_c.c					\
-		src/process/process_p.c					\
-		src/process/process_s.c					\
-		src/process/process_di.c				\
-		src/process/process_table.c				\
-		src/process/process_flags.c				\
-		src/process/process_hash.c				\
+SRC =	src/ft_printf.c 							\
+		src/store/ft_struct_stock.c					\
+		src/store/ft_struct_stock_2.c				\
+		src/store/ft_struct_init_del.c				\
+		src/process/conversion_id/process_c.c		\
+		src/process/conversion_id/process_p.c		\
+		src/process/conversion_id/process_s.c		\
+		src/process/conversion_id/process_di.c		\
+		src/process/conversion_id/process_table.c	\
+		src/process/flags/process_flags.c			\
+		src/process/flags/process_hash.c			\
 		src/data/ft_data.c						
 
 LIB = libft/libft.a
