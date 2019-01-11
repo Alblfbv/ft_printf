@@ -6,13 +6,13 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 17:05:30 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/10 16:38:55 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/11 12:24:00 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_conv_process(t_conv_spec conv_spec, va_list *ap)
+char			*ft_conv_process(t_conv_spec conv_spec, va_list *ap)
 {
 	char	*str;
 
@@ -20,7 +20,7 @@ char	*ft_conv_process(t_conv_spec conv_spec, va_list *ap)
 	return (str);
 }
 
-int		ft_struct_create(t_conv_spec *conv_spec, char *format, int *i)
+int				ft_struct_create(t_conv_spec *conv_spec, char *format, int *i)
 {
 	int	len;
 
@@ -32,7 +32,8 @@ int		ft_struct_create(t_conv_spec *conv_spec, char *format, int *i)
 	return (len);
 }
 
-unsigned char	*ft_conv_management(char *format, int *i, va_list *ap, unsigned char *result)
+unsigned char	*ft_conv_management(char *format, int *i, va_list *ap,
+									unsigned char *result)
 {
 	t_conv_spec		conv_spec;
 	int				len;
@@ -48,20 +49,21 @@ unsigned char	*ft_conv_management(char *format, int *i, va_list *ap, unsigned ch
 	return (result);
 }
 
-unsigned char	*ft_ordinary_management(char *format, int *i, unsigned char *result)
+unsigned char	*ft_ordinary_management(char *format, int *i,
+										unsigned char *result)
 {
 	int	j;
 
 	j = *i;
-	while(format[j] != '%' && format[j] != '\0')
+	while (format[j] != '%' && format[j] != '\0')
 		j++;
 	j = j - *i;
 	result = (unsigned char *)ft_strnextend((char *)result, (format + *i), j);
 	*i = *i + j;
 	return (result);
-}	
+}
 
-int		ft_printf(char *format, ...)
+int				ft_printf(char *format, ...)
 {
 	va_list			ap;
 	unsigned char	*result;
@@ -74,7 +76,7 @@ int		ft_printf(char *format, ...)
 	va_start(ap, format);
 	while (format[i] != '\0')
 	{
-		if(format[i] != '%')
+		if (format[i] != '%')
 		{
 			result = ft_ordinary_management(format, &i, result);
 		}
@@ -89,7 +91,7 @@ int		ft_printf(char *format, ...)
 	return (ret);
 }
 
-int		main(void)
+int				main(void)
 {
 	ft_printf("%d\n%i\n", 10, 20);
 	printf("%d\n%i\n", 10, 20);

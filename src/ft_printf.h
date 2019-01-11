@@ -6,7 +6,7 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/03 11:26:18 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/10 18:35:24 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/11 12:17:15 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,6 @@
 # define CONV_ID_NB 10
 # define FLAGS_NB 4
 
-typedef struct		s_conv_spec
-{
-	char            conv_id;
-	int				*flags;
-	int				*size_modif;
-	int				field_width;
-	int				precision;
-
-	char*           converted;
-}					t_conv_spec;
-
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
@@ -35,5 +24,15 @@ typedef struct		s_conv_spec
 # include "store/store.h"
 # include "data/data.h"
 # include "process/process.h"
+
+typedef struct			s_conv_spec
+{
+	char				conv_id;
+	int					*flags;
+	int					*size_modif;
+	int					field_width;
+	int					precision;
+	char				*converted;
+}						t_conv_spec;
 
 #endif
