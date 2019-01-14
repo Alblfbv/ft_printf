@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 17:05:30 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/14 17:38:53 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/14 19:09:21 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char			*ft_conv_process(t_conv_spec conv_spec, va_list *ap)
 	char	*str;
 
 	str = ft_process_table(conv_spec, ap);
+	str = ft_process_min_width(conv_spec, str);
+	str = ft_process_flags(conv_spec, str);
 	return (str);
 }
 
@@ -97,7 +99,7 @@ int				main(void)
 
 	a = 5500;
 
-	   printf("   printf : %o %u %x %X %s \n", a, a, a, a, "Hello");
-	ft_printf("ft_printf : %o %u %x %X %s \n", a, a, a, a, "Hello");
+	printf("   printf :%+010x\n", 12345);
+	ft_printf("ft_printf :%+010x\n", 12345);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 15:08:53 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/14 16:27:57 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/14 18:00:12 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_struct_init(t_conv_spec *conv_spec)
 	conv_spec->conv_id = 0;
 	conv_spec->size_modif = NULL;
 	conv_spec->field_width = 0;
-	conv_spec->precision = 0;
+	conv_spec->precision = -1;
 	conv_spec->flags = NULL;
 }
 

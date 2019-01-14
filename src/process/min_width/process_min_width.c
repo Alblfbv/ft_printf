@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 13:42:02 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/14 17:33:39 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/14 18:54:17 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_process_min_width(t_conv_spec conv_spec, char *str)
 	char	*tmp;
 	int		i;
 
-	if (conv_spec.flags[3] == 1)
+	if (conv_spec.flags[3] == 1 && (conv_spec.conv_id == 'i' || conv_spec.conv_id == 'd'))
 		i = ft_strlen(str) + 1;
 	else
 		i = ft_strlen(str);

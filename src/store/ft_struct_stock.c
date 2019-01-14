@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/07 15:06:10 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/11 18:01:23 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/14 18:46:19 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,9 @@ void	ft_size_modif(t_conv_spec *conv_spec, char *format, int i, int len)
 void	ft_flag(t_conv_spec *conv_spec, char *format, int i, int len)
 {
 	int		*tab_flags;
+	int		j;
 
+	j = 0;
 	tab_flags = (int *)ft_memalloc(sizeof(int) * 4);
 	tab_flags[0] = -1;
 	tab_flags[1] = -1;
@@ -77,7 +79,9 @@ void	ft_flag(t_conv_spec *conv_spec, char *format, int i, int len)
 	tab_flags[3] = -1;
 	if ((ft_strnchr(format + i, '#', len)) != NULL)
 		tab_flags[0] = 1;
-	if ((ft_strnchr(format + i, '0', len)) != NULL)
+	while (format[j] != '0')
+		j++;
+	if (!(ft_isdigit(format[j - 1]) && format[j - 1] != '.'))
 		tab_flags[1] = 1;
 	if ((ft_strnchr(format + i, '-', len)) != NULL)
 		tab_flags[2] = 1;
@@ -88,7 +92,6 @@ void	ft_flag(t_conv_spec *conv_spec, char *format, int i, int len)
 
 void	ft_precision(t_conv_spec *conv_spec, char *format, int i, int len)
 {
-	conv_spec->precision = 0;
 	while (len > 0)
 	{
 		if (format[i] == '.')
