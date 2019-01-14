@@ -6,7 +6,7 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 13:49:48 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/14 13:57:59 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/14 15:30:02 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ char	*ft_precision_di(t_conv_spec conv_spec, char *str)
 		str2 = ft_strnew(j);
 		ft_memset(str2, '0', j);
 		str2 = ft_strextend(str2, str);
+		free(str);
 		return (str2);
 	}
 	return (str);
