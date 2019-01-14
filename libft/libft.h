@@ -6,7 +6,7 @@
 /*   By: jfleury <jfleury@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 15:35:42 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/09 17:14:14 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/14 16:27:07 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,17 @@
 
 # define BUFF_SIZE 32
 
+typedef struct			s_base
+{
+	char				*tab;
+	char				*c;
+	unsigned int		value;
+	unsigned int		quotien;
+	unsigned int		div;
+	unsigned int		num_div;
+	unsigned int		result;
+}						t_base;
+
 int					ft_atoi(const char *str);
 void				ft_bzero(void *s, size_t n);
 int					ft_isalnum(int c);
@@ -27,6 +38,7 @@ int					ft_isascii(int c);
 int					ft_isdigit(int c);
 int					ft_isprint(int c);
 char				*ft_itoa(int n);
+char				*ft_itoa_base(unsigned int n, unsigned int base);
 void				*ft_memalloc(size_t size);
 void				*ft_memccpy(void *dest, const void *src, int c, size_t n);
 void				*ft_memchr(const void *s, int c, size_t n);

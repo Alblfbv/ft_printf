@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 17:05:30 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/14 14:13:08 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/14 16:46:40 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,11 @@ int				ft_printf(char *format, ...)
 
 int				main(void)
 {
-	printf("printf : %.2s\n", "Hello World");
-	ft_printf("ft_printf : %.2s\n", "Hello World");
+	int		a;
+
+	a = 12;
+
+	printf("\nprintf : %p\n", &a);
+	ft_printf("\nft_printf : %p\n", &a);
 	return (0);
 }

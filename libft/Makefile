@@ -6,7 +6,7 @@
 #    By: jfleury <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/14 20:22:58 by jfleury           #+#    #+#              #
-#    Updated: 2019/01/09 17:15:18 by jfleury          ###   ########.fr        #
+#    Updated: 2019/01/14 15:59:14 by jfleury          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,6 +61,7 @@ SRC =	ft_memset.c		\
 		ft_strtrim.c	\
 		ft_strsplit.c	\
 		ft_itoa.c		\
+		ft_itoa_base.c	\
 		ft_strjoin.c	\
 		ft_putchar.c	\
 		ft_putstr.c		\
