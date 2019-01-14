@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   precision_di.c                                     :+:      :+:    :+:   */
+/*   precision_s.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/11 13:49:48 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/14 13:57:59 by jfleury          ###   ########.fr       */
+/*   Created: 2019/01/14 14:06:14 by jfleury           #+#    #+#             */
+/*   Updated: 2019/01/14 14:08:41 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_precision_di(t_conv_spec conv_spec, char *str)
+char	*ft_precision_s(t_conv_spec conv_spec, char *str)
 {
-	int		i;
-	int		j;
 	char	*str2;
 
-	i = ft_strlen(str);
-	if (i < conv_spec.precision)
-	{
-		j = conv_spec.precision - i;
-		str2 = ft_strnew(j);
-		ft_memset(str2, '0', j);
-		str2 = ft_strextend(str2, str);
-		return (str2);
-	}
-	return (str);
+	str2 = ft_strnew(conv_spec.precision);
+	ft_strncat(str2, str, conv_spec.precision);
+	free(str);
+	return (str2);
 }

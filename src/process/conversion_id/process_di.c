@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 18:02:37 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/11 17:51:48 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/14 13:57:26 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,7 @@ char	*ft_process_di(t_conv_spec conv_spec, va_list *ap)
 	char	*str;
 
 	str = ft_itoa(va_arg(*ap, int));
+	str = ft_precision_di(conv_spec, str);
+	str = ft_process_flags(conv_spec, str);
 	return (str);
 }
