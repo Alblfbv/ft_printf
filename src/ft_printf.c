@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 17:05:30 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/11 19:41:54 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/14 14:13:08 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,8 @@
 char			*ft_conv_process(t_conv_spec conv_spec, va_list *ap)
 {
 	char	*str;
-	char	*tmp;
 
 	str = ft_process_table(conv_spec, ap);
-	str = ft_process_flags(conv_spec, str);
-	//free(str); il faut gerer le cas ou on ne cree pas de tmp car pas de flags... donc pas de free str
-	//str = tmp;
 	return (str);
 }
 
@@ -97,7 +93,7 @@ int				ft_printf(char *format, ...)
 
 int				main(void)
 {
-	//printf("printf(): %+d\n", 10);
-	ft_printf("ft_printf(): %+d\n", 10);
+	printf("printf : %.2s\n", "Hello World");
+	ft_printf("ft_printf : %.2s\n", "Hello World");
 	return (0);
 }
