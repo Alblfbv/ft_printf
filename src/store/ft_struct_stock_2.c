@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/08 10:50:02 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/11 15:09:52 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/14 16:18:25 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 
 void	ft_field_width(t_conv_spec *conv_spec, char *format, int i, int len)
 {
-	conv_spec->field_width = 0;
 	while (len > 0)
 	{
-		if (format[i] >= '1' && format[i] <= '9' && format[i - 1] != '.'
-			&& (format[i - 1] < '0' || format[i - 1] > '9'))
+		if (format[i] >= '1' && format[i] <= '9' && format[i - 1] != '.')
 		{
 			while (format[i] >= '0' && format[i] <= '9')
 			{
