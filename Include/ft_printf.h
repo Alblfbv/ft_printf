@@ -6,7 +6,7 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 14:21:30 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/14 16:50:19 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/14 17:26:29 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,9 @@ char			*ft_process_s(t_conv_spec c_s, va_list *ap);
 char			*ft_process_p(t_conv_spec c_s, va_list *ap);
 char			*ft_process_di(t_conv_spec c_s, va_list *ap);
 char			*ft_process_o(t_conv_spec c_s, va_list *ap);
+char			*ft_process_u(t_conv_spec c_s, va_list *ap);
+char			*ft_process_x(t_conv_spec c_s, va_list *ap);
+char			*ft_process_X(t_conv_spec c_s, va_list *ap);
 char			*ft_process_table(t_conv_spec c_s, va_list *ap);
 char			*ft_process_flags(t_conv_spec c_s, char *str);
 char			*ft_process_hash(t_conv_spec c_s, char *str);

@@ -6,9 +6,11 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 14:30:04 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/14 14:47:33 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/14 17:30:03 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ft_printf.h"
 
 char	*ft_process_f(t_conv_spec conv_spec, va_list *ap)
 {

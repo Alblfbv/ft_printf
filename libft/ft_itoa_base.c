@@ -6,7 +6,7 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 15:22:29 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/14 16:46:20 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/14 16:57:39 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,6 @@ char			*ft_itoa_base(unsigned int n, unsigned int base)
 	}
 	str = ft_cal(&stock, base, str);
 	str = ft_strrev(str);
-	free(str);
-	ft_putstr(str);
 	free(stock.tab);
 	return (str);
 }

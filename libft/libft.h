@@ -6,7 +6,7 @@
 /*   By: jfleury <jfleury@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 15:35:42 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/14 16:27:07 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/14 17:24:51 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int					ft_isalpha(int c);
 int					ft_isascii(int c);
 int					ft_isdigit(int c);
 int					ft_isprint(int c);
+char				*ft_strupcase(char *str);
 char				*ft_itoa(int n);
 char				*ft_itoa_base(unsigned int n, unsigned int base);
 void				*ft_memalloc(size_t size);
