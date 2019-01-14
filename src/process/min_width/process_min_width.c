@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   precision_di.c                                     :+:      :+:    :+:   */
+/*   process_min_width.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/11 13:49:48 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/14 15:30:02 by allefebv         ###   ########.fr       */
+/*   Created: 2019/01/11 13:42:02 by allefebv          #+#    #+#             */
+/*   Updated: 2019/01/14 15:28:46 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_precision_di(t_conv_spec conv_spec, char *str)
+char	*ft_process_min_width(t_conv_spec conv_spec, char *str)
 {
+	char	*tmp;
 	int		i;
-	int		j;
-	char	*str2;
 
 	i = ft_strlen(str);
-	if (i < conv_spec.precision)
+	if (i < conv_spec.field_width)
 	{
-		j = conv_spec.precision - i;
-		str2 = ft_strnew(j);
-		ft_memset(str2, '0', j);
-		str2 = ft_strextend(str2, str);
+		tmp = ft_strnew(conv_spec.field_width - i);
+		ft_memset(tmp, ' ', conv_spec.field_width - i);
+		tmp = ft_strextend(tmp, str);
 		free(str);
-		return (str2);
+		str = tmp;
 	}
 	return (str);
 }

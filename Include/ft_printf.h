@@ -6,7 +6,7 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 14:21:30 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/14 14:58:36 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/14 16:50:19 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,11 @@ char			*ft_process_flags(t_conv_spec c_s, char *str);
 char			*ft_process_hash(t_conv_spec c_s, char *str);
 char			*ft_process_plus(t_conv_spec c_s, char *str);
 char			*ft_process_zero(t_conv_spec c_s, char *str);
+char			*ft_process_minus(t_conv_spec c_s, char *str);
 
-char			*ft_precision_di(t_conv_spec c_s, char *str);char			*ft_precision_s(t_conv_spec c_s, char *str);
+char			*ft_process_min_width(t_conv_spec c_s, char *str);
+
+char			*ft_precision_di(t_conv_spec c_s, char *str);
+char			*ft_precision_s(t_conv_spec c_s, char *str);
 
 #endif

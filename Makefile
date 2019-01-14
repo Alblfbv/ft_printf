@@ -6,7 +6,7 @@
 #    By: jfleury <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/04 12:25:31 by jfleury           #+#    #+#              #
-#    Updated: 2019/01/14 14:57:49 by jfleury          ###   ########.fr        #
+#    Updated: 2019/01/14 16:50:36 by jfleury          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,9 +29,11 @@ SRC =	src/ft_printf.c 							\
 		src/process/flags/process_hash.c			\
 		src/process/flags/process_plus.c			\
 		src/process/flags/process_zero.c			\
+		src/process/flags/process_minus.c			\
+		src/process/min_width/process_min_width.c	\
 		src/process/precision/precision_di.c		\
 		src/process/precision/precision_s.c			\
-		src/data/ft_data.c						
+		src/data/ft_data.c
 
 LIB = libft/libft.a
 OBJ = $(SRC:.c=.o)
