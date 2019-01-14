@@ -6,7 +6,7 @@
 #    By: jfleury <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/04 12:25:31 by jfleury           #+#    #+#              #
-#    Updated: 2019/01/11 15:26:45 by allefebv         ###   ########.fr        #
+#    Updated: 2019/01/14 13:37:40 by allefebv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRC =	src/ft_printf.c 							\
 		src/process/flags/process_hash.c			\
 		src/process/flags/process_plus.c			\
 		src/process/flags/process_zero.c			\
+		src/process/flags/process_minus.c			\
 		src/data/ft_data.c						
 
 LIB = libft/libft.a
