@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/09 14:13:32 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/15 13:55:03 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/15 15:17:20 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,8 @@
 	return (max);
 }*/
 
-static int	ft_init_table(t_fptr_id *table)
+static void	ft_init_table(t_fptr_id *table)
 {
-	int	max;
-
-	max = 10;
 	table->conv_id_tab = ft_strdup("cspdiouxXf");
 	table->fptr[0] = ft_process_c;
 	table->fptr[1] = ft_process_s; 
@@ -52,7 +49,6 @@ static int	ft_init_table(t_fptr_id *table)
 	table->fptr[7] = ft_process_x;
 	table->fptr[8] = ft_process_X;
 	table->fptr[9] = ft_process_f;
-	return (max);
 }
 
 char		*ft_process_table(t_conv_spec conv_spec, va_list *ap)
@@ -60,12 +56,11 @@ char		*ft_process_table(t_conv_spec conv_spec, va_list *ap)
 	t_fptr_id	*table;
 	char		*str;
 	int			i;
-	int			max;
 
 	i = 0;
 	table = ft_memalloc(sizeof(*table));
-	max = ft_init_table(table);
-	while (i < max)
+	ft_init_table(table);
+	while (i < CONV_ID_NB)
 	{
 		if (conv_spec.conv_id == table->conv_id_tab[i])
 			str = table->fptr[i](conv_spec, ap);

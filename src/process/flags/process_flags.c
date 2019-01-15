@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 18:02:32 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/15 13:24:10 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/15 15:14:37 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,36 +31,33 @@
 	return (max);
 }*/
 
-static int	ft_init_table(t_fptr_flag *table)
+static void	ft_init_table(t_fptr_flag *table)
 {
-	int		max;
 	int		i;
 
-	max = 4;
 	i = 0;
-	table->flags = ft_memalloc(sizeof(int) * max);
-	while (i < max)
+	table->flags = ft_memalloc(sizeof(int) * FLAGS_NB);
+	while (i < FLAGS_NB)
 	{
 		table->flags[i] = 1;
 		i++;
 	}
-	table->fptr[0] = &ft_process_space;
-	table->fptr[1] = &ft_process_zero;
-	table->fptr[2] = &ft_process_minus;
-	table->fptr[3] = &ft_process_plus;
-	return (max);
+	table->fptr[0] = &ft_process_plus;
+	table->fptr[1] = &ft_process_space;
+	table->fptr[2] = &ft_process_hash;
+	table->fptr[3] = &ft_process_zero;
+	table->fptr[4] = &ft_process_minus;
 }
 
 char		*ft_process_flags(t_conv_spec conv_spec, char *str)
 {
 	t_fptr_flag		*table;
 	int				i;
-	int				max;
 
 	i = 0;
-	table = ft_memalloc(sizeof(*table) * FLAGS_NB);
-	max = ft_init_table(table);
-	while (i < max)
+	table = ft_memalloc(sizeof(*table));
+	ft_init_table(table);
+	while (i < FLAGS_NB)
 	{
 		if (conv_spec.flags[i] == table->flags[i])
 			str = table->fptr[i](conv_spec, str);

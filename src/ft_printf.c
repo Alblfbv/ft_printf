@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 17:05:30 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/15 13:48:11 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/15 14:27:11 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,13 +79,9 @@ int				ft_printf(char *format, ...)
 	while (format[i] != '\0')
 	{
 		if (format[i] != '%')
-		{
 			result = ft_ordinary_management(format, &i, result);
-		}
 		else
-		{
 			result = ft_conv_management(format, &i, &ap, result);
-		}
 	}
 	va_end(ap);
 	ft_putstr((char *)result);
@@ -99,7 +95,7 @@ int				main(void)
 
 	a = 5500;
 
-	ft_printf("ft_printf :%d\n", a);
-	printf("   printf :%d\n", a);
+	ft_printf("ft_printf :%- 10d\n", a);
+	printf("   printf :%- 10d\n", a);
 	return (0);
 }

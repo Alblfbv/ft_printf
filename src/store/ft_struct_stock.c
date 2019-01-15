@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/07 15:06:10 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/15 13:47:50 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/15 15:05:37 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,23 +71,27 @@ void	ft_flag(t_conv_spec *conv_spec, char *format, int i, int len)
 	int		j;
 	int		x;
 
+	j = 0;
+	conv_spec->flags = (int *)ft_memalloc(sizeof(int) * FLAGS_NB);
+	while (j < FLAGS_NB)
+	{
+		conv_spec->flags[j] = -1;
+		j++;
+	}
 	j = i;
 	x = j + len;
-	conv_spec->flags = (int *)ft_memalloc(sizeof(int) * 4);
-	conv_spec->flags[0] = -1;
-	conv_spec->flags[1] = -1;
-	conv_spec->flags[2] = -1;
-	conv_spec->flags[3] = -1;
-	if ((ft_strnchr(format + i, '#', len)) != NULL)
+	if ((ft_strnchr(format + i, '+', len)) != NULL)
 		conv_spec->flags[0] = 1;
+	if ((ft_strnchr(format + i, ' ', len)) != NULL)
+		conv_spec->flags[1] = 1;
+	if ((ft_strnchr(format + i, '#', len)) != NULL)
+		conv_spec->flags[2] = 1;
 	while (!(ft_isdigit(format[j])) && j < x)
 		j++;
 	if (format[j] == '0')
-		conv_spec->flags[1] = 1;
-	if ((ft_strnchr(format + i, '-', len)) != NULL)
-		conv_spec->flags[2] = 1;
-	if ((ft_strnchr(format + i, '+', len)) != NULL)
 		conv_spec->flags[3] = 1;
+	if ((ft_strnchr(format + i, '-', len)) != NULL)
+		conv_spec->flags[4] = 1;
 }
 
 void	ft_precision(t_conv_spec *conv_spec, char *format, int i, int len)

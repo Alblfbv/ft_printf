@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 18:00:04 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/11 12:15:44 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/15 15:23:06 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 char	*ft_process_hash(t_conv_spec conv_spec, char *str)
 {
+
 	return (str);
 }

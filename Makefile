@@ -6,7 +6,7 @@
 #    By: jfleury <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/04 12:25:31 by jfleury           #+#    #+#              #
-#    Updated: 2019/01/15 13:25:37 by allefebv         ###   ########.fr        #
+#    Updated: 2019/01/15 15:08:55 by allefebv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,8 +36,8 @@ SRC =	src/ft_printf.c 							\
 		src/process/flags/process_minus.c			\
 		src/process/flags/process_hash.c			\
 		src/process/min_width/process_min_width.c	\
-		src/process/precision/precision_di.c		\
-		src/process/precision/precision_s.c			\
+		src/process/precision/process_preci_di.c	\
+		src/process/precision/process_preci_s.c		\
 		src/data/ft_data.c
 
 LIB = libft/libft.a
