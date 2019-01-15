@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 17:05:30 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/15 15:24:58 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/15 17:19:18 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char			*ft_conv_process(t_conv_spec conv_spec, va_list *ap)
 {
 	char	*str;
 
-	str = ft_process_table(conv_spec, ap);
+	str = ft_process_id(conv_spec, ap);
 	str = ft_process_min_width(conv_spec, str);
 	str = ft_process_flags(conv_spec, str);
 	return (str);
@@ -28,7 +28,7 @@ int				ft_struct_create(t_conv_spec *conv_spec, char *format, int *i)
 
 	len = ft_conv_id(conv_spec, format, *i);
 	ft_flag(conv_spec, format, *i, len);
-	ft_size_modif(conv_spec, format, *i, len);
+	ft_modifier(conv_spec, format, *i, len);
 	ft_field_width(conv_spec, format, *i, len);
 	ft_precision(conv_spec, format, *i, len);
 	return (len);
@@ -91,13 +91,13 @@ int				ft_printf(char *format, ...)
 
 int				main(void)
 {
-	double	a;
+	int	a;
 	int		b;
 
 	b = 0;
-	a = 0.0000009;
+	a = 12345;
 
-	ft_printf("ft_printf :%- 10d\n", a);
-	printf("   printf :%- 10d\n", a);
+	ft_printf("ft_printf :%#10o\n", a);
+	printf("   printf :%#10o\n", a);
 	return (0);
 }

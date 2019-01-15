@@ -6,7 +6,7 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 14:21:30 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/15 16:04:25 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/15 17:13:54 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ typedef struct	s_fptr_flag
 
 char			*ft_data_conv_ids(void);
 int				ft_conv_id(t_conv_spec *c_s, char *format, int i);
-void			ft_size_modif(t_conv_spec *c_s, char *format, int i, int len);
+void			ft_modifier(t_conv_spec *c_s, char *format, int i, int len);
 void			ft_flag(t_conv_spec *c_s, char *format, int i, int len);
 void			ft_field_width(t_conv_spec *c_s, char *format, int i, int len);
 void			ft_precision(t_conv_spec *c_s, char *format, int i, int len);
