@@ -6,7 +6,7 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 14:21:30 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/15 15:08:19 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/15 16:04:25 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct	s_conv_spec
 {
 	char		conv_id;
 	int			*flags;
-	int			*size_modif;
+	int			*modifier;
 	int			field_width;
 	int			precision;
 	char		*converted;
@@ -75,7 +75,7 @@ char			*ft_process_u(t_conv_spec c_s, va_list *ap);
 char			*ft_process_x(t_conv_spec c_s, va_list *ap);
 char			*ft_process_X(t_conv_spec c_s, va_list *ap);
 char			*ft_process_f(t_conv_spec c_s, va_list *ap);
-char			*ft_process_table(t_conv_spec c_s, va_list *ap);
+char			*ft_process_id(t_conv_spec c_s, va_list *ap);
 char			*ft_process_flags(t_conv_spec c_s, char *str);
 char			*ft_process_hash(t_conv_spec c_s, char *str);
 char			*ft_process_plus(t_conv_spec c_s, char *str);

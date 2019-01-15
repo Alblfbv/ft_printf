@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/07 15:06:10 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/15 15:05:37 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/15 16:33:56 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,26 +41,26 @@ int		ft_conv_id(t_conv_spec *conv_spec, char *format, int i)
 	return (0);
 }
 
-void	ft_size_modif(t_conv_spec *conv_spec, char *format, int i, int len)
+void	ft_modifier(t_conv_spec *conv_spec, char *format, int i, int len)
 {
-	conv_spec->size_modif = (int *)ft_memalloc(sizeof(int) * 5);
-	conv_spec->size_modif[0] = 0;
-	conv_spec->size_modif[1] = 0;
-	conv_spec->size_modif[2] = 0;
-	conv_spec->size_modif[3] = 0;
-	conv_spec->size_modif[4] = 0;
+	conv_spec->modifier = (int *)ft_memalloc(sizeof(int) * 5);
+	conv_spec->modifier[0] = 0;
+	conv_spec->modifier[1] = 0;
+	conv_spec->modifier[2] = 0;
+	conv_spec->modifier[3] = 0;
+	conv_spec->modifier[4] = 0;
 	while (len > 0)
 	{
 		if (format[i] == 'h' && format[i + 1] != 'h' && format[i - 1] != 'h')
-			conv_spec->size_modif[0] = 1;
+			conv_spec->modifier[0] = 1;
 		if (format[i] == 'h' && format[i + 1] == 'h')
-			conv_spec->size_modif[1] = 1;
+			conv_spec->modifier[1] = 1;
 		if (format[i] == 'l' && format[i + 1] != 'l' && format[i - 1] != 'l')
-			conv_spec->size_modif[2] = 1;
+			conv_spec->modifier[2] = 1;
 		if (format[i] == 'l' && format[i + 1] == 'l')
-			conv_spec->size_modif[3] = 1;
+			conv_spec->modifier[3] = 1;
 		if (format[i] == 'L')
-			conv_spec->size_modif[4] = 1;
+			conv_spec->modifier[4] = 1;
 		i++;
 		len--;
 	}
