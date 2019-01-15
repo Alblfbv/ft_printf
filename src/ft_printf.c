@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 17:05:30 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/15 13:38:04 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/15 13:56:49 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,10 +101,7 @@ int				main(void)
 	b = 0;
 	a = 1.01;
 
-//	while (b < 20)
-//	{
-		printf("   printf :%d\n\n", 123456);
-		ft_printf("ft_printf :%d\n", 123456);
-//	}
+	ft_printf("ft_printf :%d\n", a);
+	printf("   printf :%d\n", a);
 	return (0);
 }
