@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 13:55:16 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/14 18:21:58 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/15 12:13:23 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,24 @@ char	*ft_process_plus(t_conv_spec conv_spec, char *str)
 	{
 		while (!(ft_isdigit(str[i])) && str[i] != '\0')
 				i++;
-		if (str[i] == '\0')
+		if (str[i] == '\0' || str[i - 1] == '-')
 			return (str);
-		start = ft_strsub(str, 0, i);
-		end = ft_strsub(str, i, ft_strlen((str + i)));
-		free(str);
-		str = ft_strnew(ft_strlen(start) + ft_strlen(end) + 1);
-		ft_strcpy(str, start);
-		ft_strcat(str, "+");
-		ft_strcat(str, end);
-		free(end);
-		free(start);
+		if (str[i - 1] == ' ')
+			str[i - 1] = '+';
+		else if (str[i] == '0' && conv_spec.precision == -1)
+			str[i] = '+';
+		else
+		{
+			start = ft_strsub(str, 0, i);
+			end = ft_strsub(str, i, ft_strlen((str + i)));
+			free(str);
+			str = ft_strnew(ft_strlen(start) + ft_strlen(end) + 1);
+			ft_strcpy(str, start);
+			ft_strcat(str, "+");
+			ft_strcat(str, end);
+			free(end);
+			free(start);
+		}
 	}
 	return (str);
 }
