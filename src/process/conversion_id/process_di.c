@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 18:02:37 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/15 16:38:05 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/15 17:51:00 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 char	*ft_process_di(t_conv_spec conv_spec, va_list *ap)
 {
 	if (conv_spec.modifier[0] == 1)
-		return (ft_itoa((int)va_arg(*ap, char)));
+		return (ft_itoa((char)va_arg(*ap, int)));
 	if (conv_spec.modifier[1] == 1)
-		return (ft_itoa((int)va_arg(*ap, short)));
+		return (ft_itoa((short)va_arg(*ap, int)));
 	if (conv_spec.modifier[2] == 1)
-		return (ft_itoa_ll((long long)va_arg(*ap, long)));
+		return (ft_itoa_ll(va_arg(*ap, long)));
 	if (conv_spec.modifier[3] == 1)
-		return (ft_itoa_ll((long long)va_arg(*ap, long long)));
+		return (ft_itoa_ll(va_arg(*ap, long long)));
 	return (ft_itoa(va_arg(*ap, int)));
 }
