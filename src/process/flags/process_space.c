@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 13:23:07 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/15 15:06:52 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/15 15:49:57 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_process_space(t_conv_spec conv_spec, char *str)
 	char	*end;
 
 	i = 0;
-	if ((conv_spec.conv_id == 'd' || conv_spec.conv_id == 'i') && conv_spec.flags[3] == -1)
+	if ((conv_spec.conv_id == 'd' || conv_spec.conv_id == 'i') && conv_spec.flags[0] == -1)
 	{
 		while (!(ft_isdigit(str[i])) && str[i] != '\0')
 			i++;
