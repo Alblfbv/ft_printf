@@ -6,7 +6,8 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 17:05:30 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/15 16:32:01 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/15 16:35:50 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/15 15:24:58 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,13 +80,9 @@ int				ft_printf(char *format, ...)
 	while (format[i] != '\0')
 	{
 		if (format[i] != '%')
-		{
 			result = ft_ordinary_management(format, &i, result);
-		}
 		else
-		{
 			result = ft_conv_management(format, &i, &ap, result);
-		}
 	}
 	va_end(ap);
 	ft_putstr((char *)result);

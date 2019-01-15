@@ -6,7 +6,7 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 14:21:30 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/15 13:53:50 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/15 16:04:25 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@
 # include "../libft/libft.h"
 
 # define CONV_ID_NB 10
-# define FLAGS_NB 4
+# define FLAGS_NB 5
 
 typedef struct	s_conv_spec
 {
 	char		conv_id;
 	int			*flags;
-	int			*size_modif;
+	int			*modifier;
 	int			field_width;
 	int			precision;
 	char		*converted;
@@ -47,16 +47,12 @@ typedef struct	s_fptr_id
 {
 	char		*conv_id_tab;
 	char		*(*fptr[CONV_ID_NB])(t_conv_spec c_s, va_list *list);
-	//char		conv_id_tab;
-	//char		*(*fptr)(t_conv_spec c_s, va_list *list);
 }				t_fptr_id;
 
 typedef struct	s_fptr_flag
 {
 	int			*flags;
 	char		*(*fptr[FLAGS_NB])(t_conv_spec c_s, char *str);
-	//int		flags;
-	//char		*(*fptr)(t_conv_spec c_s, char *str);
 }				t_fptr_flag;
 
 char			*ft_data_conv_ids(void);
@@ -79,7 +75,7 @@ char			*ft_process_u(t_conv_spec c_s, va_list *ap);
 char			*ft_process_x(t_conv_spec c_s, va_list *ap);
 char			*ft_process_X(t_conv_spec c_s, va_list *ap);
 char			*ft_process_f(t_conv_spec c_s, va_list *ap);
-char			*ft_process_table(t_conv_spec c_s, va_list *ap);
+char			*ft_process_id(t_conv_spec c_s, va_list *ap);
 char			*ft_process_flags(t_conv_spec c_s, char *str);
 char			*ft_process_hash(t_conv_spec c_s, char *str);
 char			*ft_process_plus(t_conv_spec c_s, char *str);
