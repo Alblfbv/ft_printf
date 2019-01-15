@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 17:05:30 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/15 15:18:21 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/15 16:32:01 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,13 +95,13 @@ int				ft_printf(char *format, ...)
 
 int				main(void)
 {
-	double	a;
+	char	a;
 	int		b;
 
 	b = 0;
-	a = 0.0000009;
+	a = '0';
 
-	ft_printf("\nft_printf : %f\n", a);
-	printf("   printf : %f\n", a);
+	ft_printf("ft_printf : %hhd\n", a);
+	printf("   printf : %hhd\n", a);
 	return (0);
 }
