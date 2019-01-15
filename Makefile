@@ -6,7 +6,7 @@
 #    By: jfleury <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/04 12:25:31 by jfleury           #+#    #+#              #
-#    Updated: 2019/01/14 17:28:34 by jfleury          ###   ########.fr        #
+#    Updated: 2019/01/15 11:13:33 by jfleury          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRC =	src/ft_printf.c 							\
 		src/process/conversion_id/process_u.c		\
 		src/process/conversion_id/process_x.c		\
 		src/process/conversion_id/process_xx.c		\
+		src/process/conversion_id/process_f.c		\
 		src/process/flags/process_flags.c			\
 		src/process/flags/process_hash.c			\
 		src/process/flags/process_plus.c			\
