@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/09 14:13:32 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/15 11:15:44 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/15 13:55:03 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,11 @@ char		*ft_process_table(t_conv_spec conv_spec, va_list *ap)
 	int			max;
 
 	i = 0;
-	table = ft_memalloc(sizeof(table) * 10);
+	table = ft_memalloc(sizeof(*table));
 	max = ft_init_table(table);
 	while (i < max)
 	{
 		if (conv_spec.conv_id == table->conv_id_tab[i])
-			//str = table[i].fptr(conv_spec, ap);
 			str = table->fptr[i](conv_spec, ap);
 		i++;
 	}
