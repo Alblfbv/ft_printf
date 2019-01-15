@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/09 14:13:32 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/15 15:17:20 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/15 16:55:04 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static void	ft_init_table(t_fptr_id *table)
 	table->fptr[9] = ft_process_f;
 }
 
-char		*ft_process_table(t_conv_spec conv_spec, va_list *ap)
+char		*ft_process_id(t_conv_spec conv_spec, va_list *ap)
 {
 	t_fptr_id	*table;
 	char		*str;
