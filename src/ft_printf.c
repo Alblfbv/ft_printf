@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 17:05:30 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/15 12:15:49 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/15 12:17:43 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ int				main(void)
 
 	a = 5500;
 
-	printf("   printf :%+05d\n", a);
-	ft_printf("ft_printf :%+05d\n", a);
+	ft_printf("ft_printf :%.3f\n", 333.4444);
+	printf("   printf :%.3f\n", 333.4444);
 	return (0);
 }
