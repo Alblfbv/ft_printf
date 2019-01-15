@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 17:05:30 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/15 13:56:49 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/15 15:18:21 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,9 +99,9 @@ int				main(void)
 	int		b;
 
 	b = 0;
-	a = 1.01;
+	a = 0.0000009;
 
-	ft_printf("ft_printf :%d\n", a);
-	printf("   printf :%d\n", a);
+	ft_printf("\nft_printf : %f\n", a);
+	printf("   printf : %f\n", a);
 	return (0);
 }

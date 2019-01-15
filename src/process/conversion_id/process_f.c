@@ -6,42 +6,75 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 14:30:04 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/15 13:51:11 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/15 15:17:14 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int		ft_cal_nb(t_conv_spec conv_spec, double *nb)
+static char		*ft_cal_rounded(t_conv_spec conv_spec, char *final_str,
+				double *nb, int flag)
+{
+	int		result;
+	int		tmp;
+	char	*str;
+
+	*nb = *nb * 10;
+	result = *nb;
+	result = result % 10;
+	*nb = *nb * 10;
+	tmp = *nb;
+	tmp = tmp % 10;
+	if (tmp > 5)
+		result++;
+	str = ft_strnew(1);
+	str[0] = result + 48;
+	final_str = ft_strextend(final_str, str);
+	free(str);
+	if (flag == 1)
+		conv_spec.precision = -1;
+	return (final_str);
+}
+
+static int		ft_cal_nb(double *nb)
 {
 	int		result;
 
-	*nb = *nb * 10
-	result = nb;
+	*nb = *nb * 10;
+	result = *nb;
+	result = result % 10;
 	return (result);
 }
 
 char			*ft_process_f(t_conv_spec conv_spec, va_list *ap)
 {
 	char	*str;
-	char	*str2;
+	char	*final_str;
 	int		tmp;
 	double	nb;
+	int		flag;
 
+	flag = 0;
 	nb = va_arg(*ap, double);
 	tmp = nb;
-	str = ft_itoa(tmp);
-	str2 = ft_strdup(".");
-	str2 = ft_strextend(str, str2);
+	final_str = ft_itoa(tmp);
+	str = ft_strdup(".");
+	final_str = ft_strextend(final_str, str);
+	free(str);
 	nb = nb - tmp;
-	if (conv_spec.precision = -1)
-		conv_spec.precision = 6;
-	while (conv_spec.precision > 0)
+	if (conv_spec.precision == -1)
 	{
-		tmp = ft_cal_nb(conv_spec, &nb);
-		str2 = ft_itoa(tmp);
-		str = ft_strextend(str, str2);
+		conv_spec.precision = 6;
+		flag = 1;
 	}
-	return (str);
+	while (conv_spec.precision > 1)
+	{
+		str = ft_strnew(1);
+		str[0] = ft_cal_nb(&nb) + 48;
+		final_str = ft_strextend(final_str, str);
+		free(str);
+		conv_spec.precision--;
+	}
+	final_str = ft_cal_rounded(conv_spec, final_str, &nb, flag);
+	return (final_str);
 }
-
