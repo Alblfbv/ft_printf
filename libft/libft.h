@@ -6,7 +6,7 @@
 /*   By: jfleury <jfleury@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 15:35:42 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/14 17:24:51 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/15 16:27:56 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,21 @@ typedef struct			s_base
 	char				*c;
 	unsigned int		value;
 	unsigned int		quotien;
-	unsigned int		div;
+	unsigned int 		div;
 	unsigned int		num_div;
 	unsigned int		result;
 }						t_base;
+
+typedef struct			s_base_ll
+{
+	char				*tab;
+	char				*c;
+	unsigned long long	value;
+	unsigned long long	quotien;
+	unsigned long long 	div;
+	unsigned long long	num_div;
+	unsigned long long	result;
+}						t_base_ll;
 
 int					ft_atoi(const char *str);
 void				ft_bzero(void *s, size_t n);
@@ -40,6 +51,8 @@ int					ft_isprint(int c);
 char				*ft_strupcase(char *str);
 char				*ft_itoa(int n);
 char				*ft_itoa_base(unsigned int n, unsigned int base);
+char				*ft_itoa_ll(long long n);
+char				*ft_itoa_base_ll(unsigned long long n, unsigned long long base);
 void				*ft_memalloc(size_t size);
 void				*ft_memccpy(void *dest, const void *src, int c, size_t n);
 void				*ft_memchr(const void *s, int c, size_t n);
