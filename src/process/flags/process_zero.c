@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 12:16:02 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/16 18:42:26 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/16 19:16:23 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 char	*ft_process_zero(t_conv_spec conv_spec, char *str)
 {
-	int	i;
+	int		i;
+	char	*tmp;
 
 	if (conv_spec.precision != -1 || conv_spec.flags[4] == 1
 		|| conv_spec.conv_id == 'c' || conv_spec.conv_id == 's'
@@ -25,6 +26,15 @@ char	*ft_process_zero(t_conv_spec conv_spec, char *str)
 	{
 		str[i] = '0';
 		i++;
+	}
+	if (((strchr(str, '+')) || (strchr(str, '-'))) && i != 0)
+	{
+		tmp = ft_strnew(ft_strlen(str));
+		ft_strncpy(tmp, str + i, 1);
+		ft_strncat(tmp, str, i);
+		ft_strcat(tmp, str + i + 1);
+		free(str);
+		str = tmp;
 	}
 	return (str);
 }
