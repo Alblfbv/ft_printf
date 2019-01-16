@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 17:05:30 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/16 16:40:01 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/16 18:10:37 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,7 @@ int				ft_struct_create(t_conv_spec *conv_spec, char *format, int *i)
 	return (len);
 }
 
-unsigned char	*ft_conv_management(char *format, int *i, va_list *ap,
-									unsigned char *result)
+char	*ft_conv_management(char *format, int *i, va_list *ap, int *f)
 {
 	t_conv_spec		conv_spec;
 	int				len;
@@ -45,46 +44,57 @@ unsigned char	*ft_conv_management(char *format, int *i, va_list *ap,
 	ft_struct_init(&conv_spec);
 	len = ft_struct_create(&conv_spec, format, i);
 	str = ft_conv_process(conv_spec, ap);
-	result = str;
 	*i = *i + len + 1;
+	if (conv_spec.conv_id == 'c')
+		*f = 1;
 	ft_struct_del(&conv_spec);
-	return (result);
+	return (str);
 }
 
-unsigned char	*ft_ordinary_management(char *format, int *i,
-										unsigned char *result)
+char	*ft_ordinary_management(char *format, int *i)
 {
-	int	j;
+	int		j;
+	char	*str;
 
 	j = *i;
 	while (format[j] != '%' && format[j] != '\0')
 		j++;
 	j = j - *i;
-	result = (unsigned char *)ft_strndup((format + *i), j);
+	str = ft_strndup((format + *i), j);
 	*i = *i + j;
-	return (result);
+	return (str);
 }
 
 int				ft_printf(char *format, ...)
 {
 	va_list			ap;
-	unsigned char	*result;
+	char			*result;
 	int				i;
 	int				ret;
+	int				flag;
 
 	i = 0;
 	ret = 0;
-	result = (unsigned char *)ft_strnew(0);
+	flag = 0;
 	va_start(ap, format);
 	while (format[i] != '\0')
 	{
+		result = ft_strnew(0);
 		if (format[i] != '%')
-			result = ft_ordinary_management(format, &i, result);
+			result = ft_ordinary_management(format, &i);
 		else
-			result = ft_conv_management(format, &i, &ap, result);
-		
-		ret = (int)ft_strlen((char*)result);
-		write(1, result, ret);
+			result = ft_conv_management(format, &i, &ap, &flag);
+		if (result[0] == 0 && flag == 1)
+		{
+			ret = ret + (int)ft_strlen(result);
+			ret++;
+			write(1, result, 1);
+		}
+		else
+		{
+			ret = ret + (int)ft_strlen(result);
+			write(1, result, (int)ft_strlen(result));
+		}
 		free(result);
 	}
 	va_end(ap);
