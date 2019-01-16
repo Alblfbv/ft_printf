@@ -6,7 +6,7 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 14:21:30 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/15 17:48:55 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/16 13:51:35 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdio.h>
-# include "../libft/libft.h"
 
 # define CONV_ID_NB 10
 # define FLAGS_NB 5
@@ -32,17 +31,6 @@ typedef struct	s_conv_spec
 	char		*converted;
 }				t_conv_spec;
 
-typedef struct	s_hexa
-{
-	char		*tab;
-	int			value;
-	int			quotien;
-	int			div;
-	char		*c;
-	int			num_div;
-	int			result;
-}				t_hexa;
-
 typedef struct	s_fptr_id
 {
 	char		*conv_id_tab;
@@ -55,6 +43,28 @@ typedef struct	s_fptr_flag
 	char		*(*fptr[FLAGS_NB])(t_conv_spec c_s, char *str);
 }				t_fptr_flag;
 
+typedef struct			s_base
+{
+	char				*tab;
+	char				*c;
+	unsigned int		value;
+	unsigned int		quotien;
+	unsigned int 		div;
+	unsigned int		num_div;
+	unsigned int		result;
+}						t_base;
+
+typedef struct			s_base_ll
+{
+	char				*tab;
+	char				*c;
+	unsigned long long	value;
+	unsigned long long	quotien;
+	unsigned long long 	div;
+	unsigned long long	num_div;
+	unsigned long long	result;
+}						t_base_ll;
+
 char			*ft_data_conv_ids(void);
 int				ft_conv_id(t_conv_spec *c_s, char *format, int i);
 void			ft_modifier(t_conv_spec *c_s, char *format, int i, int len);
@@ -63,9 +73,7 @@ void			ft_field_width(t_conv_spec *c_s, char *format, int i, int len);
 void			ft_precision(t_conv_spec *c_s, char *format, int i, int len);
 void			ft_struct_init(t_conv_spec *c_s);
 void			ft_struct_del(t_conv_spec *c_s);
-
 char			*ft_data_conv_ids(void);
-
 char			*ft_process_c(t_conv_spec c_s, va_list *ap);
 char			*ft_process_s(t_conv_spec c_s, va_list *ap);
 char			*ft_process_p(t_conv_spec c_s, va_list *ap);
@@ -82,10 +90,33 @@ char			*ft_process_plus(t_conv_spec c_s, char *str);
 char			*ft_process_zero(t_conv_spec c_s, char *str);
 char			*ft_process_minus(t_conv_spec c_s, char *str);
 char			*ft_process_space(t_conv_spec c_s, char *str);
-
 char			*ft_process_min_width(t_conv_spec c_s, char *str);
-
 char			*ft_precision_di(t_conv_spec c_s, char *str);
 char			*ft_precision_s(t_conv_spec c_s, char *str);
+
+void			ft_bzero(void *s, size_t n);
+int				ft_isdigit(int c);
+char			*ft_itoa(int n);
+char			*ft_itoa_base(unsigned int n, unsigned int base);
+char			*ft_itoa_ll(long long n);
+char			*ft_itoa_base_ll(unsigned long long n, unsigned long long base);
+void			*ft_memalloc(size_t size);
+void			*ft_memmove(void *dest, const void *src, size_t n);
+void			*ft_memset(void *s, int c, size_t n);
+void			*ft_memcpy(void *dest, const void *src, size_t n);
+void			ft_putstr(char const *s);
+char			*ft_strcat(char *dest, const char *src);
+char			*ft_strcpy(char *dest, const char *src);
+char			*ft_strdup(const char *src);
+char			*ft_strextend(char *s1, char const *s2);
+size_t			ft_strlen(const char *str);
+char			*ft_strncat(char *dest, const char *src, size_t n);
+char			*ft_strnchr(const char *s, int c, int n);
+char			*ft_strnew(size_t size);
+char			*ft_strnextend(char *s1, char const *s2, size_t len);
+char			*ft_strsub(char const *s, unsigned int start, size_t len);
+char			*ft_strupcase(char *str);
+char			*ft_strrev(char *str);
+void			ft_putchar(char c);
 
 #endif
