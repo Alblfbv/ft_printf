@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   process_c.c                                        :+:      :+:    :+:   */
+/*   ft_char_replace.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/09 12:02:58 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/16 18:54:07 by jfleury          ###   ########.fr       */
+/*   Created: 2019/01/16 18:50:02 by jfleury           #+#    #+#             */
+/*   Updated: 2019/01/16 18:54:31 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-char	*ft_process_c(t_conv_spec conv_spec, va_list *ap)
+char	*ft_char_replace(char *str, char c, char r)
 {
-	char	c;
-	char	*str;
+	int		i;
 
-	(void)conv_spec;
-	c = va_arg(*ap, int);
-	if (c == 0)
-		c = -1;
-	str = ft_strnew(1);
-	str[0] = c;
+	i = 0;
+	while (str[i] != 0)
+	{
+		if (str[i] == c)
+			str[i] = r;
+		i++;
+	}
 	return (str);
 }

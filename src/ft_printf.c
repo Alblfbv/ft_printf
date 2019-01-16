@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 17:05:30 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/16 18:18:52 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/16 19:02:34 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int				ft_struct_create(t_conv_spec *conv_spec, char *format, int *i)
 	return (len);
 }
 
-char	*ft_conv_management(char *format, int *i, va_list *ap, int *f)
+char	*ft_conv_management(char *format, int *i, va_list *ap)
 {
 	t_conv_spec		conv_spec;
 	int				len;
@@ -45,8 +45,6 @@ char	*ft_conv_management(char *format, int *i, va_list *ap, int *f)
 	len = ft_struct_create(&conv_spec, format, i);
 	str = ft_conv_process(conv_spec, ap);
 	*i = *i + len + 1;
-	if (conv_spec.conv_id == 'c')
-		*f = 1;
 	ft_struct_del(&conv_spec);
 	return (str);
 }
@@ -71,31 +69,22 @@ int				ft_printf(char *format, ...)
 	char			*result;
 	int				i;
 	int				ret;
-	int				flag;
 
 	i = 0;
 	ret = 0;
-	flag = 0;
 	va_start(ap, format);
+	result = ft_strnew(0);
 	while (format[i] != '\0')
 	{
-		result = ft_strnew(0);
 		if (format[i] != '%')
-			result = ft_ordinary_management(format, &i);
+			result = ft_strextend(result, ft_ordinary_management(format, &i));
 		else
-			result = ft_conv_management(format, &i, &ap, &flag);
-		if (result[0] == 0 && flag == 1)
-		{
-			ret = ret + (int)ft_strlen(result) + 1;
-			write(1, result, 1);
-		}
-		else
-		{
-			ret = ret + (int)ft_strlen(result);
-			write(1, result, (int)ft_strlen(result));
-		}
-		free(result);
+			result = ft_strextend(result, ft_conv_management(format, &i, &ap));
 	}
+	ret = (int)ft_strlen(result);
+	ft_char_replace(result, -1, 0);
+	write(1, result, ret);
+	free(result);
 	va_end(ap);
 	return (ret);
 }

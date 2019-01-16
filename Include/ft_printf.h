@@ -6,7 +6,7 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 14:21:30 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/16 16:47:18 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/16 18:52:48 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,5 +133,6 @@ char			*ft_strupcase(char *str);
 char			*ft_strrev(char *str);
 void			ft_putchar(char c);
 char			*ft_strncpy(char *dest, const char *src, size_t n);
+char			*ft_char_replace(char *str, char c, char r);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: jfleury <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/04 12:25:31 by jfleury           #+#    #+#              #
-#    Updated: 2019/01/16 16:47:41 by jfleury          ###   ########.fr        #
+#    Updated: 2019/01/16 18:52:06 by jfleury          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,6 +71,7 @@ SRC =		src/ft_printf.c 								\
 			src/libft/ft_strnextend.c						\
 			src/libft/ft_strrev.c							\
 			src/libft/ft_strncpy.c							\
+			src/libft/ft_char_replace.c						\
 			src/libft/ft_strupcase.c					
 
 OBJ = $(SRC:.c=.o)
