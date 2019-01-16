@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/09 14:13:32 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/16 13:53:56 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/16 15:07:04 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	ft_init_table(t_fptr_id *table)
 {
-	table->conv_id_tab = ft_strdup("cspdiouxXf");
+	table->conv_id_tab = ft_strdup("cspdiouxXf%");
 	table->fptr[0] = ft_process_c;
 	table->fptr[1] = ft_process_s;
 	table->fptr[2] = ft_process_p;
@@ -25,6 +25,7 @@ static void	ft_init_table(t_fptr_id *table)
 	table->fptr[7] = ft_process_x;
 	table->fptr[8] = ft_process_xx;
 	table->fptr[9] = ft_process_f;
+	table->fptr[10] = ft_process_percent;
 }
 
 char		*ft_process_id(t_conv_spec conv_spec, va_list *ap)
