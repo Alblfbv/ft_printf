@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/07 14:59:37 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/11 12:12:58 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/16 15:36:06 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ char	*ft_data_conv_ids(void)
 	conv_ids[7] = 's';
 	conv_ids[8] = 'p';
 	conv_ids[9] = 'f';
-	conv_ids[10] = '\0';
+	conv_ids[10] = '%';
+	conv_ids[CONV_ID_NB] = '\0';
 	return (conv_ids);
 }

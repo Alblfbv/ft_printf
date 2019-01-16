@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/07 15:06:10 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/15 16:33:56 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/16 15:44:52 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int		ft_conv_id(t_conv_spec *conv_spec, char *format, int i)
 	while (format[i] != '\0')
 	{
 		j = tmp;
+		i++;
 		while (j >= 0)
 		{
 			if (conv_ids[j] == format[i])
@@ -35,7 +36,6 @@ int		ft_conv_id(t_conv_spec *conv_spec, char *format, int i)
 			}
 			j--;
 		}
-		i++;
 	}
 	free(conv_ids);
 	return (0);

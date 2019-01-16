@@ -6,7 +6,7 @@
 #    By: jfleury <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/04 12:25:31 by jfleury           #+#    #+#              #
-#    Updated: 2019/01/16 14:58:28 by allefebv         ###   ########.fr        #
+#    Updated: 2019/01/16 15:25:57 by jfleury          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ RL = ranlib
 CC = gcc
 RM = rm -f
 INCLUDE = ./include
-CFLAGS = -Wall -Wextra -Werror -I$(INCLUDE) -c
+CFLAGS = -Wall -Wextra -I$(INCLUDE) -c
 
 SRC =		src/ft_printf.c 							\
 			src/store/ft_struct_stock.c					\
