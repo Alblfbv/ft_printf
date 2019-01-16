@@ -6,7 +6,7 @@
 #    By: jfleury <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/04 12:25:31 by jfleury           #+#    #+#              #
-#    Updated: 2019/01/15 17:48:41 by jfleury          ###   ########.fr        #
+#    Updated: 2019/01/16 13:31:22 by allefebv         ###   ########.fr        #
 #    Updated: 2019/01/15 15:28:46 by allefebv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
@@ -39,6 +39,7 @@ SRC =	src/ft_printf.c 							\
 		src/process/min_width/process_min_width.c	\
 		src/process/precision/process_preci_di.c	\
 		src/process/precision/process_preci_s.c		\
+		src/process/precision/process_preci_table.c	\
 		src/data/ft_data.c
 
 LIB = libft/libft.a

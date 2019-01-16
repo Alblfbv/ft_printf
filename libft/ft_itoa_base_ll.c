@@ -6,7 +6,7 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 15:22:29 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/15 16:29:06 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/16 13:51:15 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 static char		ft_check_result(t_base_ll stock)
 {
-	unsigned long long		i;
+	unsigned long long	i;
 
 	i = 0;
 	while (stock.tab[i] != '\0')
@@ -29,7 +29,7 @@ static char		ft_check_result(t_base_ll stock)
 	return (0);
 }
 
-static char		*ft_cal(t_base_ll *stock, unsigned long long  base, char *str)
+static char		*ft_cal(t_base_ll *stock, unsigned long long base, char *str)
 {
 	stock->c = ft_strnew(1);
 	stock->quotien = stock->value / base;
@@ -40,10 +40,10 @@ static char		*ft_cal(t_base_ll *stock, unsigned long long  base, char *str)
 	return (str);
 }
 
-char			*ft_itoa_base_ll(unsigned long long  n, unsigned long long base)
+char			*ft_itoa_base_ll(unsigned long long n, unsigned long long base)
 {
-	char			*str;
-	t_base_ll		stock;
+	char				*str;
+	t_base_ll			stock;
 
 	if (base < 2 && base > 16)
 		return (NULL);
@@ -54,7 +54,7 @@ char			*ft_itoa_base_ll(unsigned long long  n, unsigned long long base)
 	while (stock.div > base)
 	{
 		stock.div = stock.div / base;
-		stock.num_div++;	
+		stock.num_div++;
 	}
 	str = ft_strnew(stock.num_div + 1);
 	while (stock.value >= base)

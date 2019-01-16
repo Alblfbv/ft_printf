@@ -6,14 +6,14 @@
 /*   By: jfleury <jfleury@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 11:06:12 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/15 16:27:10 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/16 13:52:22 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-static int		ft_isneg(long long n)
+static int			ft_isneg(long long n)
 {
 	if (n >= 0)
 		return (0);

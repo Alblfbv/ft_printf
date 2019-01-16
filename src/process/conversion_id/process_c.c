@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/09 12:02:58 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/15 17:34:12 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/16 13:53:11 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_process_c(t_conv_spec conv_spec, va_list *ap)
 {
 	unsigned char	c;
-	char	*str;
+	char			*str;
 
 	(void)conv_spec;
 	c = (unsigned char)va_arg(*ap, int);

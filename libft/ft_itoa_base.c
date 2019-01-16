@@ -6,7 +6,7 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 15:22:29 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/14 16:57:39 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/16 13:51:40 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char			*ft_itoa_base(unsigned int n, unsigned int base)
 	while (stock.div > base)
 	{
 		stock.div = stock.div / base;
-		stock.num_div++;	
+		stock.num_div++;
 	}
 	str = ft_strnew(stock.num_div + 1);
 	while (stock.value >= base)
