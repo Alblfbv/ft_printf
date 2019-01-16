@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 17:05:30 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/16 15:46:29 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/16 16:40:01 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,9 @@ unsigned char	*ft_conv_management(char *format, int *i, va_list *ap,
 	ft_struct_init(&conv_spec);
 	len = ft_struct_create(&conv_spec, format, i);
 	str = ft_conv_process(conv_spec, ap);
-	result = (unsigned char *)ft_strextend((char *)result, str);
+	result = str;
 	*i = *i + len + 1;
 	ft_struct_del(&conv_spec);
-	free(str);
 	return (result);
 }
 
@@ -61,7 +60,7 @@ unsigned char	*ft_ordinary_management(char *format, int *i,
 	while (format[j] != '%' && format[j] != '\0')
 		j++;
 	j = j - *i;
-	result = (unsigned char *)ft_strnextend((char *)result, (format + *i), j);
+	result = (unsigned char *)ft_strndup((format + *i), j);
 	*i = *i + j;
 	return (result);
 }
@@ -83,10 +82,11 @@ int				ft_printf(char *format, ...)
 			result = ft_ordinary_management(format, &i, result);
 		else
 			result = ft_conv_management(format, &i, &ap, result);
+		
+		ret = (int)ft_strlen((char*)result);
+		write(1, result, ret);
+		free(result);
 	}
 	va_end(ap);
-	ret = (int)ft_strlen((char*)result);
-	write(1, result, ret);
-	free(result);
 	return (ret);
 }
