@@ -6,7 +6,7 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 14:21:30 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/16 14:05:06 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/16 14:10:59 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 
 # define CONV_ID_NB 10
 # define FLAGS_NB 5
+# define PRECI_GROUPS 2
 
 typedef struct	s_conv_spec
 {
@@ -42,6 +43,12 @@ typedef struct	s_fptr_flag
 	int			*flags;
 	char		*(*fptr[FLAGS_NB])(t_conv_spec c_s, char *str);
 }				t_fptr_flag;
+
+typedef struct	s_fptr_preci
+{
+	char		**preci_group;
+	char		*(*fptr[PRECI_GROUPS])(t_conv_spec c_s, char *str);
+}				t_fptr_preci;
 
 typedef struct			s_base
 {
@@ -81,7 +88,7 @@ char			*ft_process_di(t_conv_spec c_s, va_list *ap);
 char			*ft_process_o(t_conv_spec c_s, va_list *ap);
 char			*ft_process_u(t_conv_spec c_s, va_list *ap);
 char			*ft_process_x(t_conv_spec c_s, va_list *ap);
-char			*ft_process_X(t_conv_spec c_s, va_list *ap);
+char			*ft_process_xx(t_conv_spec c_s, va_list *ap);
 char			*ft_process_f(t_conv_spec c_s, va_list *ap);
 char			*ft_process_id(t_conv_spec c_s, va_list *ap);
 char			*ft_process_flags(t_conv_spec c_s, char *str);
@@ -91,8 +98,10 @@ char			*ft_process_zero(t_conv_spec c_s, char *str);
 char			*ft_process_minus(t_conv_spec c_s, char *str);
 char			*ft_process_space(t_conv_spec c_s, char *str);
 char			*ft_process_min_width(t_conv_spec c_s, char *str);
-char			*ft_precision_di(t_conv_spec c_s, char *str);
+
+char			*ft_precision_diouxx(t_conv_spec c_s, char *str);
 char			*ft_precision_s(t_conv_spec c_s, char *str);
+char			*ft_process_preci(t_conv_spec c_s, char *str);
 
 void			ft_bzero(void *s, size_t n);
 int				ft_isdigit(int c);

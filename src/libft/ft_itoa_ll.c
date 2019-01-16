@@ -6,13 +6,13 @@
 /*   By: jfleury <jfleury@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 11:06:12 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/16 13:33:12 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/16 14:06:41 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int		ft_isneg(long long n)
+static int			ft_isneg(long long n)
 {
 	if (n >= 0)
 		return (0);

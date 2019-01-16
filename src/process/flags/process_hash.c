@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 18:00:04 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/16 13:52:56 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/16 14:05:56 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ static char	*ft_o(char *str, int i)
 	return (str);
 }
 
-char	*ft_process_hash(t_conv_spec conv_spec, char *str)
+char		*ft_process_hash(t_conv_spec conv_spec, char *str)
 {
 	int		i;
 
@@ -102,7 +102,7 @@ char	*ft_process_hash(t_conv_spec conv_spec, char *str)
 		str = ft_x(str, i);
 	else if (conv_spec.conv_id == 'X')
 		str = ft_xx(str, i);
-	else if	(conv_spec.conv_id == 'o')
+	else if (conv_spec.conv_id == 'o')
 		str = ft_o(str, i);
 	return (str);
 }

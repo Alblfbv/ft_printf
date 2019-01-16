@@ -6,13 +6,13 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 13:49:48 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/15 12:13:56 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/16 13:36:21 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_precision_di(t_conv_spec conv_spec, char *str)
+char	*ft_precision_diouxx(t_conv_spec conv_spec, char *str)
 {
 	int		i;
 	int		j;

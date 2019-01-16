@@ -6,30 +6,11 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 18:02:32 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/15 15:50:06 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/16 14:00:25 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-/*static int	ft_init_table(t_fptr_flag *table)
-{
-	int		max;
-	int		i;
-
-	i = 0;
-	max = 4;
-	while (i < max)
-	{
-		table[i].flags = 1;
-		i++;
-	}
-	table[0].fptr = &ft_process_hash;
-	table[1].fptr = &ft_process_zero;
-	//table->fptr[2] = &ft_process_minus;
-	table[3].fptr = &ft_process_plus;
-	return (max);
-}*/
 
 static void	ft_init_table(t_fptr_flag *table)
 {

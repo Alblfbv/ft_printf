@@ -1,4 +1,4 @@
-/************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   process_x.c                                        :+:      :+:    :+:   */
@@ -6,13 +6,13 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 17:19:56 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/15 17:45:47 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/16 13:58:39 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_process_X(t_conv_spec conv_spec, va_list *ap)
+char	*ft_process_xx(t_conv_spec conv_spec, va_list *ap)
 {
 	if (conv_spec.modifier[0] == 1)
 		return (ft_strupcase(ft_itoa_base((unsigned char)va_arg(*ap, unsigned int), 16)));
