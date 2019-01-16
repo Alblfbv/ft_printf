@@ -6,11 +6,11 @@
 /*   By: jfleury <jfleury@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 11:11:11 by jfleury           #+#    #+#             */
-/*   Updated: 2018/11/13 18:25:47 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/16 14:29:29 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "ft_printf.h"
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {

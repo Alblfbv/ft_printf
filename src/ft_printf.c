@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 17:05:30 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/16 14:11:54 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/16 14:46:12 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,8 @@ int				ft_printf(char *format, ...)
 			result = ft_conv_management(format, &i, &ap, result);
 	}
 	va_end(ap);
-	ft_putstr((char *)result);
+	ret = (int)ft_strlen((char*)result);
+	write(1, result, ret);
 	free(result);
 	return (ret);
 }

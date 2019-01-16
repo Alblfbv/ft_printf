@@ -6,7 +6,7 @@
 #    By: jfleury <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/04 12:25:31 by jfleury           #+#    #+#              #
-#    Updated: 2019/01/16 14:10:36 by jfleury          ###   ########.fr        #
+#    Updated: 2019/01/16 14:39:21 by jfleury          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,7 @@ SRC =		src/ft_printf.c 							\
 			src/process/min_width/process_min_width.c	\
 			src/process/precision/process_preci_di.c	\
 			src/process/precision/process_preci_s.c		\
+			src/process/precision/process_preci_table.c	\
 			src/data/ft_data.c
 
 SRC_LIB = 	src/libft/ft_isdigit.c 						\
@@ -59,9 +60,15 @@ SRC_LIB = 	src/libft/ft_isdigit.c 						\
 			src/libft/ft_strlen.c						\
 			src/libft/ft_strncat.c						\
 			src/libft/ft_strnchr.c						\
+			src/libft/ft_strchr.c						\
 			src/libft/ft_strnew.c						\
-			src/libft/ft_strextend.c					\
 			src/libft/ft_strsub.c						\
+			src/libft/ft_strextend.c					\
+			src/libft/ft_bzero.c						\
+			src/libft/ft_memcpy.c						\
+			src/libft/ft_putchar.c						\
+			src/libft/ft_strnextend.c					\
+			src/libft/ft_strrev.c						\
 			src/libft/ft_strupcase.c					
 
 all: $(NAME)
