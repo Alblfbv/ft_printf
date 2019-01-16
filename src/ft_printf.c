@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 17:05:30 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/16 14:07:23 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/16 14:11:54 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,14 +88,4 @@ int				ft_printf(char *format, ...)
 	ft_putstr((char *)result);
 	free(result);
 	return (ret);
-}
-
-int				main(void)
-{
-	int	a;
-
-	a = 12345;
-	ft_printf("ft_printf :%#-15.10X\n", a);
-	printf("   printf :%#-15.10X\n", a);
-	return (0);
 }
