@@ -6,12 +6,12 @@
 #    By: jfleury <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/04 12:25:31 by jfleury           #+#    #+#              #
-#    Updated: 2019/01/16 13:54:04 by jfleury          ###   ########.fr        #
+#    Updated: 2019/01/16 14:03:35 by jfleury          ###   ########.fr        #
 #    Updated: 2019/01/15 15:28:46 by allefebv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ft_printf.a
+NAME = libftprintf.a
 AR = ar rc
 RL = ranlib
 CC = gcc
@@ -78,7 +78,7 @@ clean:
 		echo "Make clean"
 
 fclean: clean
-	@$(RM) $(NAME)
+	@$(RM) $(NAME) *.a
 		echo "Make fclean"
 
 re: fclean all

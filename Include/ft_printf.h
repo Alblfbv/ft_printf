@@ -6,7 +6,7 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 14:21:30 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/16 13:51:35 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/16 14:05:06 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
-# include <stdio.h>
+# include <string.h>
 
 # define CONV_ID_NB 10
 # define FLAGS_NB 5
