@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 17:05:30 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/16 18:10:37 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/16 18:18:52 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,7 @@ int				ft_printf(char *format, ...)
 			result = ft_conv_management(format, &i, &ap, &flag);
 		if (result[0] == 0 && flag == 1)
 		{
-			ret = ret + (int)ft_strlen(result);
-			ret++;
+			ret = ret + (int)ft_strlen(result) + 1;
 			write(1, result, 1);
 		}
 		else
