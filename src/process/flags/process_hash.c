@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 18:00:04 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/16 14:02:43 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/16 14:05:56 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,13 @@ static char	*ft_x(char *str, int i)
 	else if (i == 1)
 	{
 		str[i - 1] = 'x';
-		to_add = strdup("0");
+		to_add = ft_strdup("0");
 		i--;
 		str = ft_add(str, to_add, i);
 	}
 	else
 	{
-		to_add = strdup("0x");
+		to_add = ft_strdup("0x");
 		str = ft_add(str, to_add, i);
 	}
 	return (str);
@@ -65,13 +65,13 @@ static char	*ft_xx(char *str, int i)
 	else if (i == 1)
 	{
 		str[i - 1] = 'X';
-		to_add = strdup("0");
+		to_add = ft_strdup("0");
 		i--;
 		str = ft_add(str, to_add, i);
 	}
 	else
 	{
-		to_add = strdup("0X");
+		to_add = ft_strdup("0X");
 		str = ft_add(str, to_add, i);
 	}
 	return (str);
@@ -85,7 +85,7 @@ static char	*ft_o(char *str, int i)
 		str[i - 1] = '0';
 	else
 	{
-		to_add = strdup("0");
+		to_add = ft_strdup("0");
 		str = ft_add(str, to_add, i);
 	}
 	return (str);
