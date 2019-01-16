@@ -6,7 +6,7 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 13:49:48 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/16 13:36:21 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/16 17:34:23 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,22 @@ char	*ft_precision_diouxx(t_conv_spec conv_spec, char *str)
 {
 	int		i;
 	int		j;
-	char	*str2;
+	char	*tmp;
 
 	i = ft_strlen(str);
+	if (conv_spec.precision == 0)
+	{
+		free(str);
+		str = ft_strdup("");
+	}
 	if (i < conv_spec.precision)
 	{
 		j = conv_spec.precision - i;
-		str2 = ft_strnew(j);
-		ft_memset(str2, '0', j);
-		str2 = ft_strextend(str2, str);
+		tmp = ft_strnew(j);
+		ft_memset(tmp, '0', j);
+		tmp = ft_strextend(tmp, str);
 		free(str);
-		return (str2);
+		str = tmp;
 	}
 	return (str);
 }
