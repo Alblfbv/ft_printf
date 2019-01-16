@@ -6,7 +6,7 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 14:21:30 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/16 14:58:45 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/16 16:47:18 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,7 @@ void			ft_putstr(char const *s);
 char			*ft_strcat(char *dest, const char *src);
 char			*ft_strcpy(char *dest, const char *src);
 char			*ft_strdup(const char *src);
+char			*ft_strndup(const char *src, size_t n);
 char			*ft_strextend(char *s1, char const *s2);
 size_t			ft_strlen(const char *str);
 char			*ft_strncat(char *dest, const char *src, size_t n);
@@ -131,5 +132,6 @@ char			*ft_strsub(char const *s, unsigned int start, size_t len);
 char			*ft_strupcase(char *str);
 char			*ft_strrev(char *str);
 void			ft_putchar(char c);
+char			*ft_strncpy(char *dest, const char *src, size_t n);
 
 #endif

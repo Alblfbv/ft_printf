@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   process_s.c                                        :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: jfleury <jfleury@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/09 12:04:24 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/16 18:29:12 by jfleury          ###   ########.fr       */
+/*   Created: 2018/11/05 14:49:53 by jfleury           #+#    #+#             */
+/*   Updated: 2019/01/16 16:46:23 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_process_s(t_conv_spec conv_spec, va_list *ap)
+char	*ft_strncpy(char *dest, const char *src, size_t n)
 {
-	char	*str;
+	unsigned int		i;
 
-	(void)conv_spec;
-	if ((str = ft_strdup(va_arg(*ap, char*))) == NULL)
-		str = ft_strdup("(null)");
-	str = ft_precision_s(conv_spec, str);
-	return (str);
+	i = 0;
+	while (i < n && src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	while (i < n)
+	{
+		dest[i] = '\0';
+		i++;
+	}
+	return (dest);
 }

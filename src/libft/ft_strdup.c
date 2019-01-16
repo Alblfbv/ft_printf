@@ -6,7 +6,7 @@
 /*   By: jfleury <jfleury@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 14:48:56 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/16 13:35:02 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/16 18:27:57 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ char	*ft_strdup(const char *src)
 
 	i = 0;
 	j = 0;
+	if (src == NULL)
+		return (NULL);
 	while (src[j] != '\0')
 		j++;
 	str = (char*)malloc(sizeof(*str) * (j + 1));
