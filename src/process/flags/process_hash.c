@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 18:00:04 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/17 14:09:40 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/17 14:42:39 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static char	*ft_add(char *str, char *to_add, int i)
 	return (str);
 }
 
-static char	*ft_x(char *str, int i, t_conv_spec conv_spec)
+static char	*ft_x(char *str, int i)
 {
 	char	*to_add;
 
@@ -53,7 +53,7 @@ static char	*ft_x(char *str, int i, t_conv_spec conv_spec)
 	return (str);
 }
 
-static char	*ft_xx(char *str, int i, t_conv_spec conv_spec)
+static char	*ft_xx(char *str, int i)
 {
 	char	*to_add;
 
@@ -77,7 +77,7 @@ static char	*ft_xx(char *str, int i, t_conv_spec conv_spec)
 	return (str);
 }
 
-static char	*ft_o(char *str, int i, t_conv_spec conv_spec)
+static char	*ft_o(char *str, int i)
 {
 	char	*to_add;
 	if (i > 0)
@@ -100,13 +100,13 @@ char		*ft_process_hash(t_conv_spec conv_spec, char *str)
 	if (str[i] != '\0')
 	{
 		if (conv_spec.conv_id == 'x')
-			str = ft_x(str, i, conv_spec);
+			str = ft_x(str, i);
 		else if (conv_spec.conv_id == 'X')
-			str = ft_xx(str, i, conv_spec);
+			str = ft_xx(str, i);
 		else if (conv_spec.conv_id == 'o')
-			str = ft_o(str, i, conv_spec);
+			str = ft_o(str, i);
 	}
 	else if (str[i] == '\0' && conv_spec.conv_id == 'o')
-			str = ft_o(str, i, conv_spec);
+			str = ft_o(str, i);
 	return (str);
 }
