@@ -6,7 +6,7 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 14:30:04 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/15 15:17:14 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/17 13:49:13 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,17 @@ static int		ft_cal_nb(double *nb)
 	return (result);
 }
 
+static char		*ft_while_process(t_conv_spec *conv_spec, char *str,
+									char *fs, double *nb)
+{
+	str = ft_strnew(1);
+	str[0] = ft_cal_nb(nb) + 48;
+	fs = ft_strextend(fs, str);
+	free(str);
+	conv_spec->precision--;
+	return (fs);
+}
+
 char			*ft_process_f(t_conv_spec conv_spec, va_list *ap)
 {
 	char	*str;
@@ -68,13 +79,7 @@ char			*ft_process_f(t_conv_spec conv_spec, va_list *ap)
 		flag = 1;
 	}
 	while (conv_spec.precision > 1)
-	{
-		str = ft_strnew(1);
-		str[0] = ft_cal_nb(&nb) + 48;
-		final_str = ft_strextend(final_str, str);
-		free(str);
-		conv_spec.precision--;
-	}
+		final_str = ft_while_process(&conv_spec, str, final_str, &nb);
 	final_str = ft_cal_rounded(conv_spec, final_str, &nb, flag);
 	return (final_str);
 }

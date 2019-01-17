@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 17:05:30 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/16 19:02:34 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/17 13:33:36 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char			*ft_conv_process(t_conv_spec conv_spec, va_list *ap)
 {
 	char	*str;
-	
+
 	str = ft_process_id(conv_spec, ap);
 	str = ft_process_preci(conv_spec, str);
 	str = ft_process_min_width(conv_spec, str);
@@ -35,12 +35,12 @@ int				ft_struct_create(t_conv_spec *conv_spec, char *format, int *i)
 	return (len);
 }
 
-char	*ft_conv_management(char *format, int *i, va_list *ap)
+char			*ft_conv_management(char *format, int *i, va_list *ap)
 {
 	t_conv_spec		conv_spec;
 	int				len;
 	char			*str;
-	
+
 	ft_struct_init(&conv_spec);
 	len = ft_struct_create(&conv_spec, format, i);
 	str = ft_conv_process(conv_spec, ap);
@@ -49,7 +49,7 @@ char	*ft_conv_management(char *format, int *i, va_list *ap)
 	return (str);
 }
 
-char	*ft_ordinary_management(char *format, int *i)
+char			*ft_ordinary_management(char *format, int *i)
 {
 	int		j;
 	char	*str;
