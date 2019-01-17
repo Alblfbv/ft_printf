@@ -6,7 +6,7 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 14:21:30 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/17 18:42:14 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/17 18:57:34 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,9 @@ char					*ft_itoa_base(unsigned int n, unsigned int base);
 char					*ft_itoa_ll(long long n);
 char					*ft_itoa_base_ll(unsigned long long n,
 											unsigned long long base);
+char					*ft_itoa_double(t_conv_spec conv_spec, double nb);
+char					*ft_itoa_double_l(t_conv_spec conv_spec,
+											long double nb);
 void					*ft_memalloc(size_t size);
 void					*ft_memmove(void *dest, const void *src, size_t n);
 void					*ft_memset(void *s, int c, size_t n);

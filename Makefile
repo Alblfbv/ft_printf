@@ -6,7 +6,7 @@
 #    By: jfleury <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/04 12:25:31 by jfleury           #+#    #+#              #
-#    Updated: 2019/01/17 18:41:51 by allefebv         ###   ########.fr        #
+#    Updated: 2019/01/17 18:57:23 by allefebv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,6 +50,8 @@ SRC =		src/ft_printf.c 								\
 			src/libft/ft_itoa_base.c						\
 			src/libft/ft_itoa_base_ll.c						\
 			src/libft/ft_itoa_ll.c							\
+			src/libft/ft_itoa_double.c						\
+			src/libft/ft_itoa_double_l.c					\
 			src/libft/ft_memalloc.c							\
 			src/libft/ft_memmove.c							\
 			src/libft/ft_memset.c							\
