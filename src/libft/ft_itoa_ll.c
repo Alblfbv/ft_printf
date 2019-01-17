@@ -6,7 +6,7 @@
 /*   By: jfleury <jfleury@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 11:06:12 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/16 14:06:41 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/17 13:13:20 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ char				*ft_itoa_ll(long long n)
 	long long	len;
 	long long	nb;
 
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
+	if (n == -9223372036854775807 - 1)
+		return (ft_strdup("-9223372036854775808"));
 	nb = n;
 	len = ft_nbrlen(n) + ft_isneg(n);
 	if (!(str = (char*)malloc(sizeof(char) * len + 1)))
