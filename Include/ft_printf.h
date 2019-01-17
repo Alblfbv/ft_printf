@@ -6,7 +6,7 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 14:21:30 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/17 13:30:35 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/17 18:42:14 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,10 @@ char					*ft_process_percent(t_conv_spec c_s, va_list *ap);
 char					*ft_process_id(t_conv_spec c_s, va_list *ap);
 char					*ft_process_flags(t_conv_spec c_s, char *str);
 char					*ft_process_hash(t_conv_spec c_s, char *str);
+char					*ft_hash_xx_preci(char *str, int i);
+char					*ft_hash_xx_zero(char *str, int i);
+char					*ft_hash_x_preci(char *str, int i);
+char					*ft_hash_x_zero(char *str, int i);
 char					*ft_process_plus(t_conv_spec c_s, char *str);
 char					*ft_process_zero(t_conv_spec c_s, char *str);
 char					*ft_process_minus(t_conv_spec c_s, char *str);
