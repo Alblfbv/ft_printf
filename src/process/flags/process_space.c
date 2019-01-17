@@ -6,26 +6,24 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 13:23:07 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/16 13:59:57 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/17 13:53:19 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_process_space(t_conv_spec conv_spec, char *str)
+char	*ft_process_space(t_conv_spec cs, char *str)
 {
 	int		i;
 	char	*start;
 	char	*end;
 
 	i = 0;
-	if ((conv_spec.conv_id == 'd' || conv_spec.conv_id == 'i')
-		&& conv_spec.flags[0] == -1)
+	if ((cs.conv_id == 'd' || cs.conv_id == 'i') && cs.flags[0] == -1)
 	{
 		while (!(ft_isdigit(str[i])) && str[i] != '\0')
 			i++;
-		if (str[i] == '\0' || str[i - 1] == '-'
-			|| (i != 0 && str[i - 1] == ' '))
+		if (str[i] == 0 || str[i - 1] == '-' || (i != 0 && str[i - 1] == ' '))
 			return (str);
 		else
 		{

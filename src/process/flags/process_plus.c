@@ -6,13 +6,20 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 13:55:16 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/15 14:58:17 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/17 14:03:16 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_process_plus(t_conv_spec conv_spec, char *str)
+static void		ft_str_c(char *str, char *start, char *end)
+{
+	ft_strcpy(str, start);
+	ft_strcat(str, "+");
+	ft_strcat(str, end);
+}
+
+char			*ft_process_plus(t_conv_spec conv_spec, char *str)
 {
 	int		i;
 	char	*end;
@@ -33,9 +40,7 @@ char	*ft_process_plus(t_conv_spec conv_spec, char *str)
 			end = ft_strsub(str, i, ft_strlen((str + i)));
 			free(str);
 			str = ft_strnew(ft_strlen(start) + ft_strlen(end) + 1);
-			ft_strcpy(str, start);
-			ft_strcat(str, "+");
-			ft_strcat(str, end);
+			ft_str_c(str, start, end);
 			free(end);
 			free(start);
 		}
