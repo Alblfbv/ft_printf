@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/07 15:06:10 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/16 20:20:26 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/17 14:40:48 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,11 +84,11 @@ void	ft_flag(t_conv_spec *conv_spec, char *format, int i, int len)
 		conv_spec->flags[0] = 1;
 	if ((ft_strnchr(format + i, ' ', len)) != NULL)
 		conv_spec->flags[1] = 1;
-	if ((ft_strnchr(format + i, '#', len)) != NULL)
-		conv_spec->flags[2] = 1;
 	while (!(ft_isdigit(format[j])) && j < x)
 		j++;
 	if (format[j] == '0')
+		conv_spec->flags[2] = 1;
+	if ((ft_strnchr(format + i, '#', len)) != NULL)
 		conv_spec->flags[3] = 1;
 	if ((ft_strnchr(format + i, '-', len)) != NULL)
 		conv_spec->flags[4] = 1;

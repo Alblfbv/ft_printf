@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 18:02:32 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/16 14:00:25 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/16 20:04:12 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ static void	ft_init_table(t_fptr_flag *table)
 	}
 	table->fptr[0] = &ft_process_plus;
 	table->fptr[1] = &ft_process_space;
-	table->fptr[2] = &ft_process_hash;
-	table->fptr[3] = &ft_process_zero;
+	table->fptr[2] = &ft_process_zero;
+	table->fptr[3] = &ft_process_hash;
 	table->fptr[4] = &ft_process_minus;
 }
 
