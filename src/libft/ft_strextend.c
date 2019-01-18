@@ -6,7 +6,7 @@
 /*   By: jfleury <jfleury@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 11:15:30 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/16 13:35:21 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/18 15:59:25 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,11 @@ char	*ft_strextend(char *s1, char const *s2)
 	int		i;
 
 	if (s1 == NULL || s2 == NULL)
+	{
+		if (s1 != NULL)
+			free(s1);
 		return (NULL);
+	}
 	i = ft_strlen(s1) + ft_strlen(s2);
 	str = s1;
 	if (!(s1 = (char*)malloc(sizeof(s1) * i + 1)))

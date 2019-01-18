@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 17:05:30 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/18 15:20:08 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/18 15:57:21 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,19 +75,36 @@ int				ft_printf(char *format, ...)
 	ret = 0;
 	va_start(ap, format);
 	result = ft_strnew(0);
+	tmp = NULL;
 	while (format[i] != '\0')
 	{
 		if (format[i] != '%')
-			tmp = ft_ordinary_management(format, &i);
+		{
+			if (!(tmp = ft_ordinary_management(format, &i)))
+				return (0);
+		}
 		else
-			tmp = ft_conv_management(format, &i, &ap);
-		result = ft_strextend(result, tmp);
-//		free(tmp);
+		{
+			if (!(tmp = ft_conv_management(format, &i, &ap)))
+				return (0);
+		}
+		if (!(result = ft_strextend(result, tmp)))
+		{
+			if (result)
+				free(result);
+			return (0);
+		}
+		if (tmp != NULL)
+		{
+			free(tmp);
+			tmp = NULL;
+		}
 	}
 	ret = (int)ft_strlen(result);
 	ft_char_replace(result, -1, 0);
 	write(1, result, ret);
-	free(result);
+	if (result)
+		free(result);
 	va_end(ap);
 	return (ret);
 }
