@@ -6,7 +6,7 @@
 #    By: jfleury <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/04 12:25:31 by jfleury           #+#    #+#              #
-#    Updated: 2019/01/17 18:57:23 by allefebv         ###   ########.fr        #
+#    Updated: 2019/01/18 19:34:09 by allefebv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,7 @@ SRC =		src/ft_printf.c 								\
 			src/process/min_width/process_min_width.c		\
 			src/process/precision/process_preci_diouxx.c	\
 			src/process/precision/process_preci_s.c			\
+			src/process/precision/process_preci_p.c			\
 			src/process/precision/process_preci_table.c		\
 			src/data/ft_data.c								\
 			src/libft/ft_isdigit.c 							\
@@ -75,6 +76,8 @@ SRC =		src/ft_printf.c 								\
 			src/libft/ft_strrev.c							\
 			src/libft/ft_strncpy.c							\
 			src/libft/ft_char_replace.c						\
+			src/libft/ft_strequ.c							\
+			src/libft/ft_strcmp.c							\
 			src/libft/ft_strupcase.c					
 
 OBJ = $(SRC:.c=.o)

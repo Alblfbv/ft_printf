@@ -6,34 +6,11 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 17:05:30 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/18 15:57:21 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/18 18:47:40 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-char			*ft_conv_process(t_conv_spec conv_spec, va_list *ap)
-{
-	char	*str;
-
-	str = ft_process_id(conv_spec, ap);
-	str = ft_process_preci(conv_spec, str);
-	str = ft_process_min_width(conv_spec, str);
-	str = ft_process_flags(conv_spec, str);
-	return (str);
-}
-
-int				ft_struct_create(t_conv_spec *conv_spec, char *format, int *i)
-{
-	int	len;
-
-	len = ft_conv_id(conv_spec, format, *i);
-	ft_flag(conv_spec, format, *i, len);
-	ft_modifier(conv_spec, format, *i, len);
-	ft_field_width(conv_spec, format, *i, len);
-	ft_precision(conv_spec, format, *i, len);
-	return (len);
-}
 
 char			*ft_conv_management(char *format, int *i, va_list *ap)
 {
@@ -42,8 +19,21 @@ char			*ft_conv_management(char *format, int *i, va_list *ap)
 	char			*str;
 
 	ft_struct_init(&conv_spec);
-	len = ft_struct_create(&conv_spec, format, i);
-	str = ft_conv_process(conv_spec, ap);
+	len = ft_conv_id(&conv_spec, format, *i);
+	if (len == 0)
+	{
+		while (format[*i] != '\0')
+			*i = *i + 1;
+		return (NULL);
+	}
+	ft_flag(&conv_spec, format, *i, len);
+	ft_modifier(&conv_spec, format, *i, len);
+	ft_field_width(&conv_spec, format, *i, len);
+	ft_precision(&conv_spec, format, *i, len);
+	str = ft_process_id(conv_spec, ap);
+	str = ft_process_preci(conv_spec, str);
+	str = ft_process_min_width(conv_spec, str);
+	str = ft_process_flags(conv_spec, str);
 	*i = *i + len + 1;
 	ft_struct_del(&conv_spec);
 	return (str);
@@ -63,43 +53,41 @@ char			*ft_ordinary_management(char *format, int *i)
 	return (str);
 }
 
-int				ft_printf(char *format, ...)
+char			*ft_prepare_result(char *format, va_list *ap)
 {
-	va_list			ap;
-	char			*result;
-	int				i;
-	int				ret;
-	char			*tmp;
+	char	*result;
+	char	*tmp;
+	int		i;
 
 	i = 0;
-	ret = 0;
-	va_start(ap, format);
-	result = ft_strnew(0);
 	tmp = NULL;
+	result = ft_strnew(0);
 	while (format[i] != '\0')
 	{
 		if (format[i] != '%')
-		{
-			if (!(tmp = ft_ordinary_management(format, &i)))
-				return (0);
-		}
-		else
-		{
-			if (!(tmp = ft_conv_management(format, &i, &ap)))
-				return (0);
-		}
+			tmp = ft_ordinary_management(format, &i);
+		else if (!(tmp = ft_conv_management(format, &i, ap)))
+			break ;
 		if (!(result = ft_strextend(result, tmp)))
-		{
-			if (result)
-				free(result);
 			return (0);
-		}
 		if (tmp != NULL)
 		{
 			free(tmp);
 			tmp = NULL;
 		}
 	}
+	return (result);
+}
+
+int				ft_printf(char *format, ...)
+{
+	va_list			ap;
+	char			*result;
+	int				ret;
+
+	ret = 0;
+	va_start(ap, format);
+	result = ft_prepare_result(format, &ap);
 	ret = (int)ft_strlen(result);
 	ft_char_replace(result, -1, 0);
 	write(1, result, ret);

@@ -6,7 +6,7 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 14:21:30 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/17 18:57:34 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/18 19:34:40 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 # define CONV_ID_NB 11
 # define FLAGS_NB 5
-# define PRECI_GROUPS 2
+# define PRECI_GROUPS 3
 
 typedef struct			s_conv_spec
 {
@@ -111,6 +111,7 @@ char					*ft_process_min_width(t_conv_spec c_s, char *str);
 
 char					*ft_precision_diouxx(t_conv_spec c_s, char *str);
 char					*ft_precision_s(t_conv_spec c_s, char *str);
+char					*ft_precision_p(t_conv_spec c_s, char *str);
 char					*ft_process_preci(t_conv_spec c_s, char *str);
 
 void					ft_bzero(void *s, size_t n);
@@ -146,5 +147,7 @@ char					*ft_strrev(char *str);
 void					ft_putchar(char c);
 char					*ft_strncpy(char *dest, const char *src, size_t n);
 char					*ft_char_replace(char *str, char c, char r);
+int						ft_strequ(char const *s1, char const *s2);
+int						ft_strcmp(char const *s1, char const *s2);
 
 #endif

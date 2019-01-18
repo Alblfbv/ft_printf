@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 15:20:36 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/17 18:39:49 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/18 17:34:48 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 char	*ft_hash_xx_preci(char *str, int i)
 {
+	char	*tmp;
+
+	tmp = NULL;
 	if (i > 1)
 	{
 		str[i - 2] = '0';
@@ -22,15 +25,24 @@ char	*ft_hash_xx_preci(char *str, int i)
 	else if (i == 1)
 	{
 		str[i - 1] = 'X';
-		str = ft_strextend(ft_strdup("0"), str);
+		tmp = ft_strextend(ft_strdup("0"), str);
+		free(str);
+		str = tmp;
 	}
 	else
-		str = ft_strextend(ft_strdup("0X"), str);
+	{
+		tmp = ft_strextend(ft_strdup("0X"), str);
+		free(str);
+		str = tmp;
+	}
 	return (str);
 }
 
 char	*ft_hash_xx_zero(char *str, int i)
 {
+	char	*tmp;
+
+	tmp = NULL;
 	if (i > 1)
 	{
 		str[0] = '0';
@@ -39,15 +51,24 @@ char	*ft_hash_xx_zero(char *str, int i)
 	else if (i == 1)
 	{
 		str[1] = 'X';
-		str = ft_strextend(ft_strdup("0"), str);
+		tmp = ft_strextend(ft_strdup("0"), str);
+		free(str);
+		str = tmp;
 	}
 	else
-		str = ft_strextend(ft_strdup("0X"), str);
+	{
+		tmp = ft_strextend(ft_strdup("0X"), str);
+		free(str);
+		str = tmp;
+	}
 	return (str);
 }
 
 char	*ft_hash_x_preci(char *str, int i)
 {
+	char	*tmp;
+
+	tmp = NULL;
 	if (i > 1)
 	{
 		str[i - 2] = '0';
@@ -56,15 +77,24 @@ char	*ft_hash_x_preci(char *str, int i)
 	else if (i == 1)
 	{
 		str[i - 1] = 'x';
-		str = ft_strextend(ft_strdup("0"), str);
+		tmp = ft_strextend(ft_strdup("0"), str);
+		free(str);
+		str = tmp;
 	}
 	else
-		str = ft_strextend(ft_strdup("0x"), str);
+	{
+		tmp = ft_strextend(ft_strdup("0x"), str);
+		free(str);
+		str = tmp;
+	}
 	return (str);
 }
 
 char	*ft_hash_x_zero(char *str, int i)
 {
+	char	*tmp;
+
+	tmp = NULL;
 	if (i > 1)
 	{
 		str[0] = '0';
@@ -73,9 +103,15 @@ char	*ft_hash_x_zero(char *str, int i)
 	else if (i == 1)
 	{
 		str[1] = 'x';
-		str = ft_strextend(ft_strdup("0"), str);
+		tmp = ft_strextend(ft_strdup("0"), str);
+		free(str);
+		str = tmp;
 	}
 	else
-		str = ft_strextend(ft_strdup("0x"), str);
+	{
+		tmp = ft_strextend(ft_strdup("0x"), str);
+		free(str);
+		str = tmp;
+	}
 	return (str);
 }

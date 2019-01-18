@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 15:20:36 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/17 18:40:27 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/18 18:48:43 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,37 @@
 
 static char	*ft_o_preci(char *str, int i)
 {
+	char	*tmp;
+
+	tmp = NULL;
 	if (str[i] == '0')
 		return (str);
 	else if (i > 1)
 		str[i - 1] = '0';
 	else
-		str = ft_strextend(ft_strdup("0"), str);
+	{
+		tmp = ft_strextend(ft_strdup("0"), str);
+		free(str);
+		str = tmp;
+	}
 	return (str);
 }
 
 static char	*ft_o_zero(char *str, int i)
 {
+	char	*tmp;
+
+	tmp = NULL;
 	if (str[0] == '0')
 		return (str);
 	else if (i > 1)
 		str[i - 1] = '0';
 	else
-		str = ft_strextend(ft_strdup("0"), str);
+	{
+		tmp = ft_strextend(ft_strdup("0"), str);
+		free(str);
+		str = tmp;
+	}
 	return (str);
 }
 
