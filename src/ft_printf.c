@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 17:05:30 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/17 13:33:36 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/18 15:20:08 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ char			*ft_ordinary_management(char *format, int *i)
 	while (format[j] != '%' && format[j] != '\0')
 		j++;
 	j = j - *i;
-	str = ft_strndup((format + *i), j);
+	str = ft_strsub(format, *i, j);
 	*i = *i + j;
 	return (str);
 }
@@ -69,6 +69,7 @@ int				ft_printf(char *format, ...)
 	char			*result;
 	int				i;
 	int				ret;
+	char			*tmp;
 
 	i = 0;
 	ret = 0;
@@ -77,9 +78,11 @@ int				ft_printf(char *format, ...)
 	while (format[i] != '\0')
 	{
 		if (format[i] != '%')
-			result = ft_strextend(result, ft_ordinary_management(format, &i));
+			tmp = ft_ordinary_management(format, &i);
 		else
-			result = ft_strextend(result, ft_conv_management(format, &i, &ap));
+			tmp = ft_conv_management(format, &i, &ap);
+		result = ft_strextend(result, tmp);
+//		free(tmp);
 	}
 	ret = (int)ft_strlen(result);
 	ft_char_replace(result, -1, 0);
