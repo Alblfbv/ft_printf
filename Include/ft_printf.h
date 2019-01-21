@@ -6,7 +6,7 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 14:21:30 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/18 19:34:40 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/21 17:39:02 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,5 +149,7 @@ char					*ft_strncpy(char *dest, const char *src, size_t n);
 char					*ft_char_replace(char *str, char c, char r);
 int						ft_strequ(char const *s1, char const *s2);
 int						ft_strcmp(char const *s1, char const *s2);
+unsigned long long		ft_power(unsigned long long nb,
+									unsigned long long power);
 
 #endif
