@@ -1,83 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   process_f.c                                        :+:      :+:    :+:   */
+/*   ft_itoa_double.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/14 14:30:04 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/17 15:08:11 by jfleury          ###   ########.fr       */
+/*   Created: 2019/01/21 16:36:44 by jfleury           #+#    #+#             */
+/*   Updated: 2019/01/21 19:13:49 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static char		*ft_cal_rounded(t_conv_spec conv_spec, char *final_str,
-				double *nb, int flag)
+static char			*ft_place_point(t_conv_spec conv_spec, char *str)
 {
-	int		result;
-	int		tmp;
-	char	*str;
+	char	*final_str;
+	int		i;
 
-	*nb = *nb * 10;
-	result = *nb;
-	result = result % 10;
-	*nb = *nb * 10;
-	tmp = *nb;
-	tmp = tmp % 10;
-	if (tmp > 5)
-		result++;
-	str = ft_strnew(1);
-	str[0] = result + 48;
-	final_str = ft_strextend(final_str, str);
+	final_str = ft_strnew(ft_strlen(str) + 1);
+	i = ft_strlen(str) - conv_spec.precision;
+	ft_strncpy(final_str, str, i);
+	final_str[i] = '.';
+	ft_strcat(final_str, str + i);
 	free(str);
-	if (flag == 1)
-		conv_spec.precision = -1;
 	return (final_str);
-}
-
-static int		ft_cal_nb(double *nb)
-{
-	int		result;
-
-	*nb = *nb * 10;
-	result = *nb;
-	result = result % 10;
-	return (result);
-}
-
-static char		*ft_while_process(t_conv_spec *conv_spec, char *str,
-									char *fs, double *nb)
-{
-	str = ft_strnew(1);
-	str[0] = ft_cal_nb(nb) + 48;
-	fs = ft_strextend(fs, str);
-	free(str);
-	conv_spec->precision--;
-	return (fs);
 }
 
 char			*ft_itoa_double(t_conv_spec conv_spec, double nb)
 {
-	char	*str;
-	char	*final_str;
-	int		tmp;
-	int		flag;
+	unsigned long long		result;
+	unsigned long long		tmp;
+	unsigned long long		power;
+	char					*str;
 
-	flag = 0;
-	tmp = nb;
-	final_str = ft_itoa(tmp);
-	str = ft_strdup(".");
-	final_str = ft_strextend(final_str, str);
-	free(str);
-	nb = nb - tmp;
 	if (conv_spec.precision == -1)
-	{
 		conv_spec.precision = 6;
-		flag = 1;
-	}
-	while (conv_spec.precision > 1)
-		final_str = ft_while_process(&conv_spec, str, final_str, &nb);
-	final_str = ft_cal_rounded(conv_spec, final_str, &nb, flag);
-	return (final_str);
+	power = ft_power(10, conv_spec.precision);
+	result = nb * power;
+	tmp = nb * power * 10;
+	if ((tmp - (result * 10)) > 5)
+		result++;
+	str = ft_itoa_ll(result);
+	str = ft_place_point(conv_spec, str);
+	return (str);
 }

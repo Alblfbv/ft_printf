@@ -6,7 +6,7 @@
 #    By: jfleury <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/04 12:25:31 by jfleury           #+#    #+#              #
-#    Updated: 2019/01/18 19:34:09 by allefebv         ###   ########.fr        #
+#    Updated: 2019/01/21 17:40:42 by jfleury          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,9 +73,11 @@ SRC =		src/ft_printf.c 								\
 			src/libft/ft_memcpy.c							\
 			src/libft/ft_putchar.c							\
 			src/libft/ft_strnextend.c						\
+			src/libft/ft_power.c							\
 			src/libft/ft_strrev.c							\
 			src/libft/ft_strncpy.c							\
 			src/libft/ft_char_replace.c						\
+			src/libft/ft_isdigit.c							\
 			src/libft/ft_strequ.c							\
 			src/libft/ft_strcmp.c							\
 			src/libft/ft_strupcase.c					
