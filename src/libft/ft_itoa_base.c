@@ -6,7 +6,7 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 15:22:29 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/16 14:06:53 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/21 14:03:27 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static char		ft_check_result(t_base stock)
 	return (0);
 }
 
-static char		*ft_cal(t_base *stock, int base, char *str)
+static char		*ft_cal(t_base *stock, unsigned int base, char *str)
 {
 	stock->c = ft_strnew(1);
 	stock->quotien = stock->value / base;
