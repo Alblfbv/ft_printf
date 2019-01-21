@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 12:16:02 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/18 18:27:38 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/21 15:40:33 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ char	*ft_process_zero(t_conv_spec conv_spec, char *str)
 	int		i;
 	char	*tmp;
 
-	if (conv_spec.precision != -1 || conv_spec.flags[4] == 1
-		|| conv_spec.conv_id == 'p')
+	if ((conv_spec.precision != -1 && (conv_spec.conv_id != 'c' && conv_spec.conv_id != 's' && conv_spec.conv_id != '%'))
+		|| conv_spec.flags[4] == 1 || conv_spec.conv_id == 'p')
 		return (str);
 	i = 0;
 	if (conv_spec.flags[1] == 1 && conv_spec.flags[0] == -1 &&
