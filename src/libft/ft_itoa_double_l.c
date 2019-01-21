@@ -6,7 +6,7 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 16:36:44 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/21 19:13:49 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/21 19:13:39 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static char			*ft_place_point(t_conv_spec conv_spec, char *str)
 	return (final_str);
 }
 
-char			*ft_itoa_double(t_conv_spec conv_spec, double nb)
+char			*ft_itoa_double_l(t_conv_spec conv_spec, long double nb)
 {
 	unsigned long long		result;
 	unsigned long long		tmp;
