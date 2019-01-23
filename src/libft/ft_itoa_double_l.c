@@ -40,7 +40,7 @@ char			*ft_itoa_double_l(t_conv_spec conv_spec, long double nb)
 	tmp = nb * power * 10;
 	if ((tmp - (result * 10)) > 5)
 		result++;
-	str = ft_itoa_ll(result);
+	str = ft_itoa(result);
 	str = ft_place_point(conv_spec, str);
 	return (str);
 }

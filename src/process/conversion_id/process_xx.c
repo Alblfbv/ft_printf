@@ -26,12 +26,12 @@ char	*ft_process_xx(t_conv_spec conv_spec, va_list *ap)
 	}
 	if (conv_spec.modifier[2] == 1)
 	{
-		return (ft_strupcase(ft_itoa_base_ll(
+		return (ft_strupcase(ft_itoa_base(
 							va_arg(*ap, unsigned long), 16)));
 	}
 	if (conv_spec.modifier[3] == 1)
 	{
-		return (ft_strupcase(ft_itoa_base_ll(
+		return (ft_strupcase(ft_itoa_base(
 							va_arg(*ap, unsigned long long), 16)));
 	}
 	return (ft_strupcase(ft_itoa_base(va_arg(*ap, unsigned int), 16)));

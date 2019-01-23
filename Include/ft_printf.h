@@ -50,28 +50,6 @@ typedef struct			s_fptr_preci
 	char				*(*fptr[PRECI_GROUPS])(t_conv_spec c_s, char *str);
 }						t_fptr_preci;
 
-typedef struct			s_base
-{
-	char				*tab;
-	char				*c;
-	unsigned int		value;
-	unsigned int		quotien;
-	unsigned int		div;
-	unsigned int		num_div;
-	unsigned int		result;
-}						t_base;
-
-typedef struct			s_base_ll
-{
-	char				*tab;
-	char				*c;
-	unsigned long long	value;
-	unsigned long long	quotien;
-	unsigned long long	div;
-	unsigned long long	num_div;
-	unsigned long long	result;
-}						t_base_ll;
-
 int						ft_printf(char *format, ...);
 
 char					*ft_data_conv_ids(void);
@@ -116,11 +94,8 @@ char					*ft_process_preci(t_conv_spec c_s, char *str);
 
 void					ft_bzero(void *s, size_t n);
 int						ft_isdigit(int c);
-char					*ft_itoa(int n);
-char					*ft_itoa_base(unsigned int n, unsigned int base);
-char					*ft_itoa_ll(long long n);
-char					*ft_itoa_base_ll(unsigned long long n,
-											unsigned long long base);
+char					*ft_itoa(long long n);
+char					*ft_itoa_base(unsigned long long n, int base);
 char					*ft_itoa_double(t_conv_spec conv_spec, double nb);
 char					*ft_itoa_double_l(t_conv_spec conv_spec,
 											long double nb);

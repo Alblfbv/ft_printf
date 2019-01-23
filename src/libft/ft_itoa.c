@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-static int		ft_isneg(int n)
+static int		ft_isneg(long long n)
 {
 	if (n >= 0)
 		return (0);
@@ -20,7 +20,7 @@ static int		ft_isneg(int n)
 		return (1);
 }
 
-static int		ft_nbrlen(int n)
+static int		ft_nbrlen(long long n)
 {
 	int		i;
 
@@ -34,14 +34,14 @@ static int		ft_nbrlen(int n)
 	return (i);
 }
 
-char			*ft_itoa(int n)
+char			*ft_itoa(long long n)
 {
-	char	*str;
-	int		len;
-	int		nb;
+	char			*str;
+	int				len;
+	long long		nb;
 
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
+	if (n == -9223372036854775807 + 1)
+		return (ft_strdup("-9223372036854775808"));
 	nb = n;
 	len = ft_nbrlen(n) + ft_isneg(n);
 	if (!(str = (char*)malloc(sizeof(char) * len + 1)))
