@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 12:16:02 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/21 19:25:49 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/23 15:13:01 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,10 @@ static char	*ft_zero_p(char *str)
 	return (str);
 }
 
-char	*ft_process_zero(t_conv_spec conv_spec, char *str)
+static char	*ft_process_zero_cont(t_conv_spec conv_spec, char *str, int i)
 {
-	int		i;
 	char	*tmp;
 
-	if ((conv_spec.precision != -1 && (conv_spec.conv_id != 'c' && conv_spec.conv_id != 's' && conv_spec.conv_id != '%'))
-		|| conv_spec.flags[4] == 1)
-		return (str);
-	i = 0;
-	if (conv_spec.flags[1] == 1 && conv_spec.flags[0] == -1 &&
-		(conv_spec.conv_id == 'd' || conv_spec.conv_id == 'i') && str[i] != '-')
-		i++;
 	if (conv_spec.conv_id == 'p')
 		str = ft_zero_p(str);
 	else
@@ -61,5 +53,21 @@ char	*ft_process_zero(t_conv_spec conv_spec, char *str)
 			str = tmp;
 		}
 	}
+	return (str);
+}
+
+char		*ft_process_zero(t_conv_spec conv_spec, char *str)
+{
+	int		i;
+
+	if ((conv_spec.precision > -1 && (conv_spec.conv_id != 'c'
+		&& conv_spec.conv_id != 's' && conv_spec.conv_id != '%'))
+		|| conv_spec.flags[4] == 1)
+		return (str);
+	i = 0;
+	if (conv_spec.flags[1] == 1 && conv_spec.flags[0] == -1 &&
+		(conv_spec.conv_id == 'd' || conv_spec.conv_id == 'i') && str[i] != '-')
+		i++;
+	str = ft_process_zero_cont(conv_spec, str, i);
 	return (str);
 }

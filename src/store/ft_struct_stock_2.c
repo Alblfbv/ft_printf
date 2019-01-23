@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/08 10:50:02 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/23 13:04:11 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/23 15:12:22 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,15 @@
 
 void	ft_wc_field_width(t_conv_spec *conv_spec, va_list *ap)
 {
-	conv_spec->field_width = va_arg(*ap, int);
+	int	tmp;
+
+	tmp = va_arg(*ap, int);
+	if (tmp < 0)
+	{
+		conv_spec->flags[4] = 1;
+		tmp = tmp * -1;
+	}
+	conv_spec->field_width = tmp;
 }
 
 void	ft_wc_precision(t_conv_spec *conv_spec, va_list *ap)
@@ -28,6 +36,7 @@ void	ft_field_width(t_conv_spec *conv_spec, char *format, int i, int len)
 	{
 		if (format[i] >= '1' && format[i] <= '9' && format[i - 1] != '.')
 		{
+			conv_spec->field_width = 0;
 			while (format[i] >= '0' && format[i] <= '9')
 			{
 				conv_spec->field_width =

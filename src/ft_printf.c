@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 17:05:30 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/23 13:32:21 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/23 14:54:56 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int		ft_store_conv(char *ft, int *i, t_conv_spec *conv_spec, va_list *ap)
 	int				len;
 	char			*tmp;
 
+	tmp = NULL;
 	len = ft_conv_id(conv_spec, ft, *i);
 	if (len == 0)
 	{
@@ -30,6 +31,8 @@ int		ft_store_conv(char *ft, int *i, t_conv_spec *conv_spec, va_list *ap)
 	if ((tmp = ft_strnchr((ft + *i), '*', len)) != NULL && *(tmp - 1) != '.')
 		ft_wc_field_width(conv_spec, ap);
 	else
+		ft_field_width(conv_spec, ft, *i, len);
+	if (tmp != NULL && ft_isdigit(*(tmp + 1)))
 		ft_field_width(conv_spec, ft, *i, len);
 	if ((tmp = ft_strrnchr((ft + *i), '*', len)) != NULL && *(tmp - 1) == '.')
 		ft_wc_precision(conv_spec, ap);

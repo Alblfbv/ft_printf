@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/01/23 15:05:04 by allefebv          #+#    #+#             */
+/*   Updated: 2019/01/23 15:15:21 by allefebv         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 #include <stdlib.h>
 #include <string.h>
 
-static int		ft_malloc_len(unsigned long long nb, int base)
+static int	ft_malloc_len(unsigned long long nb, int base)
 {
 	int		i;
 
@@ -15,20 +27,21 @@ static int		ft_malloc_len(unsigned long long nb, int base)
 	return (i);
 }
 
-char			*ft_itoa_base(unsigned long long nb, int base)
+char		*ft_itoa_base(unsigned long long nb, int base)
 {
 	unsigned long long	result;
 	int					i;
 	char				*str;
-	char				tab[16] = "0123456789abcdef";
+	char				*tab;
 
+	tab = ft_strdup("0123456789abcdef");
 	if (base < 2 && base > 16)
-			return (NULL);
+		return (NULL);
 	i = ft_malloc_len(nb, base);
-	if (nb  == 0)
+	if (nb == 0)
 		i++;
 	if (!(str = (char*)malloc(sizeof(char*) * i + 1)))
-			return (NULL);
+		return (NULL);
 	str[i] = '\0';
 	if (nb == 0)
 		str[0] = '0';
@@ -39,5 +52,6 @@ char			*ft_itoa_base(unsigned long long nb, int base)
 		str[i] = tab[result];
 		nb = nb / base;
 	}
+	free(tab);
 	return (str);
 }
