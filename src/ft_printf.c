@@ -6,30 +6,47 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 17:05:30 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/18 18:47:40 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/23 13:32:21 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
-char			*ft_conv_management(char *format, int *i, va_list *ap)
+int		ft_store_conv(char *ft, int *i, t_conv_spec *conv_spec, va_list *ap)
+{
+	int				len;
+	char			*tmp;
+
+	len = ft_conv_id(conv_spec, ft, *i);
+	if (len == 0)
+	{
+		while (ft[*i] != '\0')
+			*i = *i + 1;
+		return (len);
+	}
+	ft_flag(conv_spec, ft, *i, len);
+	ft_modifier(conv_spec, ft, *i, len);
+	if ((tmp = ft_strnchr((ft + *i), '*', len)) != NULL && *(tmp - 1) != '.')
+		ft_wc_field_width(conv_spec, ap);
+	else
+		ft_field_width(conv_spec, ft, *i, len);
+	if ((tmp = ft_strrnchr((ft + *i), '*', len)) != NULL && *(tmp - 1) == '.')
+		ft_wc_precision(conv_spec, ap);
+	else
+		ft_precision(conv_spec, ft, *i, len);
+	return (len);
+}
+
+char	*ft_conv_management(char *format, int *i, va_list *ap)
 {
 	t_conv_spec		conv_spec;
 	int				len;
 	char			*str;
 
 	ft_struct_init(&conv_spec);
-	len = ft_conv_id(&conv_spec, format, *i);
-	if (len == 0)
-	{
-		while (format[*i] != '\0')
-			*i = *i + 1;
+	if ((len = ft_store_conv(format, i, &conv_spec, ap)) == 0)
 		return (NULL);
-	}
-	ft_flag(&conv_spec, format, *i, len);
-	ft_modifier(&conv_spec, format, *i, len);
-	ft_field_width(&conv_spec, format, *i, len);
-	ft_precision(&conv_spec, format, *i, len);
 	str = ft_process_id(conv_spec, ap);
 	str = ft_process_preci(conv_spec, str);
 	str = ft_process_min_width(conv_spec, str);
@@ -39,7 +56,7 @@ char			*ft_conv_management(char *format, int *i, va_list *ap)
 	return (str);
 }
 
-char			*ft_ordinary_management(char *format, int *i)
+char	*ft_ordinary_management(char *format, int *i)
 {
 	int		j;
 	char	*str;
@@ -53,7 +70,7 @@ char			*ft_ordinary_management(char *format, int *i)
 	return (str);
 }
 
-char			*ft_prepare_result(char *format, va_list *ap)
+char	*ft_prepare_result(char *format, va_list *ap)
 {
 	char	*result;
 	char	*tmp;
@@ -79,7 +96,7 @@ char			*ft_prepare_result(char *format, va_list *ap)
 	return (result);
 }
 
-int				ft_printf(char *format, ...)
+int		ft_printf(char *format, ...)
 {
 	va_list			ap;
 	char			*result;

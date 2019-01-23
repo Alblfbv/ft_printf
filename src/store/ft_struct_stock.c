@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/07 15:06:10 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/17 14:40:48 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/23 12:32:32 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,27 +92,4 @@ void	ft_flag(t_conv_spec *conv_spec, char *format, int i, int len)
 		conv_spec->flags[3] = 1;
 	if ((ft_strnchr(format + i, '-', len)) != NULL)
 		conv_spec->flags[4] = 1;
-}
-
-void	ft_precision(t_conv_spec *conv_spec, char *format, int i, int len)
-{
-	while (len > 0)
-	{
-		if (format[i] == '.')
-		{
-			conv_spec->precision = 0;
-			i++;
-			len--;
-			while (format[i] >= '0' && format[i] <= '9')
-			{
-				conv_spec->precision =
-				(conv_spec->precision * 10) + (format[i] - 48);
-				i++;
-				len--;
-			}
-			return ;
-		}
-		i++;
-		len--;
-	}
 }

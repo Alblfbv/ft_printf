@@ -6,7 +6,7 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 14:21:30 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/21 17:39:02 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/23 13:17:45 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,8 @@ int						ft_conv_id(t_conv_spec *c_s, char *format, int i);
 void					ft_modifier(t_conv_spec *c_s, char *format, int i,
 										int len);
 void					ft_flag(t_conv_spec *c_s, char *format, int i, int len);
+void					ft_wc_field_width(t_conv_spec *conv_spec, va_list *ap);
+void					ft_wc_precision(t_conv_spec *conv_spec, va_list *ap);
 void					ft_field_width(t_conv_spec *c_s, char *format, int i,
 										int len);
 void					ft_precision(t_conv_spec *c_s, char *format, int i,
@@ -137,6 +139,7 @@ char					*ft_strextend(char *s1, char const *s2);
 size_t					ft_strlen(const char *str);
 char					*ft_strncat(char *dest, const char *src, size_t n);
 char					*ft_strnchr(const char *s, int c, int n);
+char					*ft_strrnchr(const char *s, int c, int n);
 char					*ft_strchr(const char *s, int c);
 char					*ft_strnew(size_t size);
 char					*ft_strnextend(char *s1, char const *s2, size_t len);
