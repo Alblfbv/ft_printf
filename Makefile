@@ -15,8 +15,8 @@ AR = ar rc
 RL = ranlib
 CC = gcc
 RM = rm -f
-INCLUDE = ./include
-CFLAGS = -Wall -Wextra -Werror -I$(INCLUDE) -c
+INCLUDE = ./Include
+CFLAGS = -Wall -Wextra -I$(INCLUDE) -c
 
 SRC =		src/ft_printf.c 								\
 			src/store/ft_struct_stock.c						\
@@ -49,8 +49,6 @@ SRC =		src/ft_printf.c 								\
 			src/libft/ft_isdigit.c 							\
 			src/libft/ft_itoa.c								\
 			src/libft/ft_itoa_base.c						\
-			src/libft/ft_itoa_base_ll.c						\
-			src/libft/ft_itoa_ll.c							\
 			src/libft/ft_itoa_double.c						\
 			src/libft/ft_itoa_double_l.c					\
 			src/libft/ft_memalloc.c							\

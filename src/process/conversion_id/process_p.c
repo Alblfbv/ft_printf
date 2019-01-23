@@ -18,7 +18,7 @@ char	*ft_process_p(t_conv_spec conv_spec, va_list *ap)
 	char	*str2;
 
 	(void)conv_spec;
-	str = ft_itoa_base_ll(va_arg(*ap, long long), 16);
+	str = ft_itoa_base(va_arg(*ap, long long), 16);
 	str2 = ft_strdup("0x");
 	str2 = ft_strextend(str2, str);
 	free(str);

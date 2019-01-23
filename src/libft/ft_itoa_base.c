@@ -1,68 +1,43 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/14 15:22:29 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/21 14:03:27 by jfleury          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "ft_printf.h"
+#include <stdlib.h>
+#include <string.h>
 
-static char		ft_check_result(t_base stock)
+static int		ft_malloc_len(unsigned long long nb, int base)
 {
-	unsigned int		i;
+	int		i;
 
 	i = 0;
-	while (stock.tab[i] != '\0')
+	while (nb != 0)
 	{
-		if ((int)stock.result + 48 == stock.tab[i])
-			return (stock.tab[i]);
-		if (((int)stock.result + 87) == stock.tab[i])
-			return (stock.tab[i]);
+		nb = nb / base;
 		i++;
 	}
-	return (0);
+	return (i);
 }
 
-static char		*ft_cal(t_base *stock, unsigned int base, char *str)
+char			*ft_itoa_base(unsigned long long nb, int base)
 {
-	stock->c = ft_strnew(1);
-	stock->quotien = stock->value / base;
-	stock->result = stock->value - (stock->quotien * base);
-	stock->c[0] = ft_check_result(*stock);
-	str = ft_strextend(str, stock->c);
-	free(stock->c);
-	return (str);
-}
-
-char			*ft_itoa_base(unsigned int n, unsigned int base)
-{
-	char			*str;
-	t_base			stock;
+	unsigned long long	result;
+	int					i;
+	char				*str;
+	char				tab[16] = "0123456789abcdef";
 
 	if (base < 2 && base > 16)
-		return (NULL);
-	stock.tab = ft_strdup("0123456789abcdef");
-	stock.value = n;
-	stock.div = stock.value;
-	stock.num_div = 0;
-	while (stock.div > base)
+			return (NULL);
+	i = ft_malloc_len(nb, base);
+	if (nb  == 0)
+		i++;
+	if (!(str = (char*)malloc(sizeof(char*) * i + 1)))
+			return (NULL);
+	str[i] = '\0';
+	if (nb == 0)
+		str[0] = '0';
+	while (nb != 0)
 	{
-		stock.div = stock.div / base;
-		stock.num_div++;
+		i--;
+		result = nb % base;
+		str[i] = tab[result];
+		nb = nb / base;
 	}
-	str = ft_strnew(stock.num_div + 1);
-	while (stock.value >= base)
-	{
-		str = ft_cal(&stock, base, str);
-		stock.value = stock.value / base;
-	}
-	str = ft_cal(&stock, base, str);
-	str = ft_strrev(str);
-	free(stock.tab);
 	return (str);
 }
