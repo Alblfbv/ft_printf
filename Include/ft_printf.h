@@ -18,7 +18,7 @@
 # include <stdarg.h>
 # include <string.h>
 
-# define CONV_ID_NB 11
+# define CONV_ID_NB 12
 # define FLAGS_NB 5
 # define PRECI_GROUPS 3
 
@@ -75,6 +75,7 @@ char					*ft_process_u(t_conv_spec c_s, va_list *ap);
 char					*ft_process_x(t_conv_spec c_s, va_list *ap);
 char					*ft_process_xx(t_conv_spec c_s, va_list *ap);
 char					*ft_process_f(t_conv_spec c_s, va_list *ap);
+char					*ft_process_b(t_conv_spec c_s, va_list *ap);
 char					*ft_process_percent(t_conv_spec c_s, va_list *ap);
 char					*ft_process_id(t_conv_spec c_s, va_list *ap);
 char					*ft_process_flags(t_conv_spec c_s, char *str);

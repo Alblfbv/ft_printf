@@ -32,6 +32,7 @@ SRC =		src/ft_printf.c 								\
 			src/process/conversion_id/process_x.c			\
 			src/process/conversion_id/process_xx.c			\
 			src/process/conversion_id/process_f.c			\
+			src/process/conversion_id/process_b.c			\
 			src/process/conversion_id/process_percent.c		\
 			src/process/flags/process_flags.c				\
 			src/process/flags/process_space.c				\

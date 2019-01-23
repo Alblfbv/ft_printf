@@ -14,7 +14,7 @@
 
 static void	ft_init_table(t_fptr_id *table)
 {
-	table->conv_id_tab = ft_strdup("cspdiouxXf%");
+	table->conv_id_tab = ft_strdup("cspdiouxXf%b");
 	table->fptr[0] = ft_process_c;
 	table->fptr[1] = ft_process_s;
 	table->fptr[2] = ft_process_p;
@@ -26,6 +26,7 @@ static void	ft_init_table(t_fptr_id *table)
 	table->fptr[8] = ft_process_xx;
 	table->fptr[9] = ft_process_f;
 	table->fptr[10] = ft_process_percent;
+	table->fptr[11] = ft_process_b;
 }
 
 char		*ft_process_id(t_conv_spec conv_spec, va_list *ap)
