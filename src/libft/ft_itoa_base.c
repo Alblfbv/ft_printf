@@ -25,9 +25,13 @@ char			*ft_itoa_base(unsigned long long nb, int base)
 	if (base < 2 && base > 16)
 			return (NULL);
 	i = ft_malloc_len(nb, base);
+	if (nb  == 0)
+		i++;
 	if (!(str = (char*)malloc(sizeof(char*) * i + 1)))
 			return (NULL);
 	str[i] = '\0';
+	if (nb == 0)
+		str[0] = '0';
 	while (nb != 0)
 	{
 		i--;
