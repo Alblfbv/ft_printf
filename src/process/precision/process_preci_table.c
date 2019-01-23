@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 17:24:14 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/18 19:28:12 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/23 16:15:03 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	ft_init_table(t_fptr_preci *table)
 {
 	table->preci_group = ft_memalloc(sizeof(char*) * (PRECI_GROUPS + 1));
 	table->preci_group[0] = ft_strdup("s");
-	table->preci_group[1] = ft_strdup("diouxX");
+	table->preci_group[1] = ft_strdup("diouxXb");
 	table->preci_group[2] = ft_strdup("p");
 	table->preci_group[PRECI_GROUPS] = 0;
 	table->fptr[0] = &ft_precision_s;
