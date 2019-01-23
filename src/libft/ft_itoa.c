@@ -40,7 +40,7 @@ char			*ft_itoa(long long n)
 	int				len;
 	long long		nb;
 
-	if (n == -9223372036854775807 + 1)
+	if (n == -9223372036854775807 - 1)
 		return (ft_strdup("-9223372036854775808"));
 	nb = n;
 	len = ft_nbrlen(n) + ft_isneg(n);
