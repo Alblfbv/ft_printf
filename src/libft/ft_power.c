@@ -6,11 +6,11 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 17:34:08 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/21 17:42:01 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/23 15:07:35 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned long long	ft_power(unsigned long long  nb, int power)
+unsigned long long	ft_power(unsigned long long nb, int power)
 {
 	if (power == 0)
 		return (1);

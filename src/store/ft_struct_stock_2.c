@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/08 10:50:02 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/23 14:23:36 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/23 15:12:22 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	ft_wc_field_width(t_conv_spec *conv_spec, va_list *ap)
 {
 	int	tmp;
+
 	tmp = va_arg(*ap, int);
 	if (tmp < 0)
 	{
