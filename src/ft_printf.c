@@ -6,42 +6,42 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 17:05:30 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/23 14:54:56 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/25 13:50:07 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-int		ft_store_conv(char *ft, int *i, t_conv_spec *conv_spec, va_list *ap)
+static int	ft_store_conv(char *ft, int *i, t_conv_spec *conv_spec, va_list *ap)
 {
 	int				len;
 	char			*tmp;
 
 	tmp = NULL;
-	len = ft_conv_id(conv_spec, ft, *i);
+	len = ft_store_conv_id(conv_spec, ft, *i);
 	if (len == 0)
 	{
 		while (ft[*i] != '\0')
 			*i = *i + 1;
 		return (len);
 	}
-	ft_flag(conv_spec, ft, *i, len);
-	ft_modifier(conv_spec, ft, *i, len);
+	ft_store_flag(conv_spec, ft, *i, len);
+	ft_store_modifier(conv_spec, ft, *i, len);
 	if ((tmp = ft_strnchr((ft + *i), '*', len)) != NULL && *(tmp - 1) != '.')
-		ft_wc_field_width(conv_spec, ap);
+		ft_store_wc_field_width(conv_spec, ap);
 	else
-		ft_field_width(conv_spec, ft, *i, len);
+		ft_store_field_width(conv_spec, ft, *i, len);
 	if (tmp != NULL && ft_isdigit(*(tmp + 1)))
-		ft_field_width(conv_spec, ft, *i, len);
+		ft_store_field_width(conv_spec, ft, *i, len);
 	if ((tmp = ft_strrnchr((ft + *i), '*', len)) != NULL && *(tmp - 1) == '.')
-		ft_wc_precision(conv_spec, ap);
+		ft_store_wc_precision(conv_spec, ap);
 	else
-		ft_precision(conv_spec, ft, *i, len);
+		ft_store_precision(conv_spec, ft, *i, len);
 	return (len);
 }
 
-char	*ft_conv_management(char *format, int *i, va_list *ap)
+static char	*ft_conv_spec_management(char *format, int *i, va_list *ap)
 {
 	t_conv_spec		conv_spec;
 	int				len;
@@ -59,7 +59,7 @@ char	*ft_conv_management(char *format, int *i, va_list *ap)
 	return (str);
 }
 
-char	*ft_ordinary_management(char *format, int *i)
+static char	*ft_ordinary_chars_management(char *format, int *i)
 {
 	int		j;
 	char	*str;
@@ -73,7 +73,7 @@ char	*ft_ordinary_management(char *format, int *i)
 	return (str);
 }
 
-char	*ft_prepare_result(char *format, va_list *ap)
+static char	*ft_prepare_result(char *format, va_list *ap)
 {
 	char	*result;
 	char	*tmp;
@@ -85,8 +85,8 @@ char	*ft_prepare_result(char *format, va_list *ap)
 	while (format[i] != '\0')
 	{
 		if (format[i] != '%')
-			tmp = ft_ordinary_management(format, &i);
-		else if (!(tmp = ft_conv_management(format, &i, ap)))
+			tmp = ft_ordinary_chars_management(format, &i);
+		else if (!(tmp = ft_conv_spec_management(format, &i, ap)))
 			break ;
 		if (!(result = ft_strextend(result, tmp)))
 			return (0);

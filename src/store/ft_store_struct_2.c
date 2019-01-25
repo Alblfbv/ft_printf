@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_struct_stock_2.c                                :+:      :+:    :+:   */
+/*   ft_store_struct_2.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/08 10:50:02 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/23 15:12:22 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/25 13:44:09 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_wc_field_width(t_conv_spec *conv_spec, va_list *ap)
+void	ft_store_wc_field_width(t_conv_spec *conv_spec, va_list *ap)
 {
 	int	tmp;
 
@@ -25,7 +25,7 @@ void	ft_wc_field_width(t_conv_spec *conv_spec, va_list *ap)
 	conv_spec->field_width = tmp;
 }
 
-void	ft_wc_precision(t_conv_spec *conv_spec, va_list *ap)
+void	ft_store_wc_precision(t_conv_spec *conv_spec, va_list *ap)
 {
 	conv_spec->precision = va_arg(*ap, int);
 }
@@ -51,7 +51,7 @@ void	ft_field_width(t_conv_spec *conv_spec, char *format, int i, int len)
 	}
 }
 
-void	ft_precision(t_conv_spec *conv_spec, char *format, int i, int len)
+void	ft_store_precision(t_conv_spec *conv_spec, char *format, int i, int len)
 {
 	while (len > 0)
 	{

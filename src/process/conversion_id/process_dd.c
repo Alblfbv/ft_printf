@@ -1,35 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_data.c                                          :+:      :+:    :+:   */
+/*   process_dd.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/07 14:59:37 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/25 13:46:35 by allefebv         ###   ########.fr       */
+/*   Created: 2019/01/23 16:57:48 by allefebv          #+#    #+#             */
+/*   Updated: 2019/01/23 17:19:16 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_data_conv_id(void)
+char	*ft_process_dd(t_conv_spec conv_spec, va_list *ap)
 {
-	char	*conv_id;
+	char	*str;
 
-	conv_id = ft_memalloc(CONV_ID_NB + 1);
-	conv_id[0] = 'd';
-	conv_id[1] = 'i';
-	conv_id[2] = 'o';
-	conv_id[3] = 'u';
-	conv_id[4] = 'x';
-	conv_id[5] = 'X';
-	conv_id[6] = 'c';
-	conv_id[7] = 's';
-	conv_id[8] = 'p';
-	conv_id[9] = 'f';
-	conv_id[10] = '%';
-	conv_id[11] = 'b';
-	conv_id[12] = 'D';
-	conv_id[CONV_ID_NB] = '\0';
-	return (conv_id);
+	(void)conv_spec;
+	str = ft_itoa(va_arg(*ap, long));
+	return (str);
 }

@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_struct_stock.c                                  :+:      :+:    :+:   */
+/*   ft_store_struct.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/07 15:06:10 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/23 12:32:32 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/25 13:47:43 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_conv_id(t_conv_spec *conv_spec, char *format, int i)
+int		ft_store_conv_id(t_conv_spec *conv_spec, char *format, int i)
 {
-	char	*conv_ids;
+	char	*conv_id;
 	int		j;
 	int		tmp;
 	int		len;
 
-	conv_ids = ft_data_conv_ids();
-	tmp = ft_strlen(conv_ids) - 1;
+	conv_id = ft_data_conv_id();
+	tmp = ft_strlen(conv_id) - 1;
 	len = i;
 	while (format[i] != '\0')
 	{
@@ -28,20 +28,20 @@ int		ft_conv_id(t_conv_spec *conv_spec, char *format, int i)
 		i++;
 		while (j >= 0)
 		{
-			if (conv_ids[j] == format[i])
+			if (conv_id[j] == format[i])
 			{
-				conv_spec->conv_id = conv_ids[j];
-				free(conv_ids);
+				conv_spec->conv_id = conv_id[j];
+				free(conv_id);
 				return (i - len);
 			}
 			j--;
 		}
 	}
-	free(conv_ids);
+	free(conv_id);
 	return (0);
 }
 
-void	ft_modifier(t_conv_spec *conv_spec, char *format, int i, int len)
+void	ft_store_modifier(t_conv_spec *conv_spec, char *format, int i, int len)
 {
 	conv_spec->modifier = (int *)ft_memalloc(sizeof(int) * 5);
 	conv_spec->modifier[0] = 0;
@@ -66,7 +66,7 @@ void	ft_modifier(t_conv_spec *conv_spec, char *format, int i, int len)
 	}
 }
 
-void	ft_flag(t_conv_spec *conv_spec, char *format, int i, int len)
+void	ft_store_flag(t_conv_spec *conv_spec, char *format, int i, int len)
 {
 	int		j;
 	int		x;
