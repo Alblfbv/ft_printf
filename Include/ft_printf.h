@@ -6,7 +6,7 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 14:21:30 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/23 13:17:45 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/25 13:09:15 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,9 +107,7 @@ void					ft_bzero(void *s, size_t n);
 int						ft_isdigit(int c);
 char					*ft_itoa(long long n);
 char					*ft_itoa_base(unsigned long long n, int base);
-char					*ft_itoa_double(t_conv_spec conv_spec, double nb);
-char					*ft_itoa_double_l(t_conv_spec conv_spec,
-											long double nb);
+char					*ft_itoa_double(t_conv_spec conv_spec, long double nb);
 void					*ft_memalloc(size_t size);
 void					*ft_memmove(void *dest, const void *src, size_t n);
 void					*ft_memset(void *s, int c, size_t n);
