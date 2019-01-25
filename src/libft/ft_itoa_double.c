@@ -6,7 +6,7 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 16:36:44 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/25 13:50:13 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/25 15:10:16 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ static char	*ft_place_point(t_conv_spec conv_spec, char *str)
 
 char		*ft_itoa_double(t_conv_spec conv_spec, long double nb)
 {
-	unsigned long long		result;
-	unsigned long long		tmp;
+	long long				result;
+	long long				tmp;
 	unsigned long long		power;
 	char					*str;
 	int						flag;
