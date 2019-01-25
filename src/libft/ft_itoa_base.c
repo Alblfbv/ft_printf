@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 15:05:04 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/23 15:15:21 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/25 13:15:51 by jfleury          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char		*ft_itoa_base(unsigned long long nb, int base)
 	char				*tab;
 
 	tab = ft_strdup("0123456789abcdef");
-	if (base < 2 && base > 16)
+	if (base < 2 || base > 16)
 		return (NULL);
 	i = ft_malloc_len(nb, base);
 	if (nb == 0)
