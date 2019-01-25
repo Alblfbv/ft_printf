@@ -6,12 +6,11 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 17:05:30 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/25 13:50:07 by allefebv         ###   ########.fr       */
+/*   Updated: 2019/01/25 14:17:15 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 static int	ft_store_conv(char *ft, int *i, t_conv_spec *conv_spec, va_list *ap)
 {
@@ -99,7 +98,7 @@ static char	*ft_prepare_result(char *format, va_list *ap)
 	return (result);
 }
 
-int		ft_printf(char *format, ...)
+int			ft_printf(char *format, ...)
 {
 	va_list			ap;
 	char			*result;
