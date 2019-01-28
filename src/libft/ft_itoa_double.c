@@ -6,7 +6,7 @@
 /*   By: jfleury <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 16:36:44 by jfleury           #+#    #+#             */
-/*   Updated: 2019/01/28 16:34:33 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/28 16:59:14 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ static char	*ft_process(t_conv_spec conv_spec, char *str, int flag,
 	long long				result;
 	unsigned long long		power;
 
+	if (conv_spec.precision > 16)
+		conv_spec.precision = 16;
 	power = ft_power(10, conv_spec.precision);
 	result = nb * power;
 	if (((nb * power * 10) - (result * 10)) > 5)

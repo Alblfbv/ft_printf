@@ -6,7 +6,7 @@
 /*   By: allefebv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 17:05:30 by allefebv          #+#    #+#             */
-/*   Updated: 2019/01/28 15:48:25 by jfleury          ###   ########.fr       */
+/*   Updated: 2019/01/28 17:08:15 by allefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static char	*ft_conv_spec_management(char *format, int *i, va_list *ap)
 	ft_struct_init(&conv_spec);
 	if ((len = ft_store_conv(format, i, &conv_spec, ap)) == 0)
 		return (NULL);
-	if (!( ft_strequ(str = ft_process_id(conv_spec, ap), "(error)")))
+	if (!(ft_strequ(str = ft_process_id(conv_spec, ap), "(error)")))
 	{
 		str = ft_process_preci(conv_spec, str);
 		str = ft_process_min_width(conv_spec, str);
